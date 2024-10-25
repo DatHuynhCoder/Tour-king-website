@@ -2,8 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import App from './App'
-import ErrorPage from './pages/HandleRoutesError/error-page'
-import Login from './pages/Login/Login'
+import ErrorPage from './pages/HandleRoutesError/error-page.jsx'
+import Login from './pages/Login/Login.jsx'
+import Home from './pages/Home/Home.jsx'
 
 import reportWebVitals from './reportWebVitals'
 //using bootstrap
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
     element: <App/>,
     errorElement: <ErrorPage/>,
     children: [
+      {
+        path: "/home",
+        element: <Home/>
+      },
       {
         path: "/login",
         element: <Login/>

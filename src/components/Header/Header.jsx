@@ -13,11 +13,11 @@ const Header = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">Tour-King</Navbar.Brand>
+        <NavLink to={`/`} className={'navbar-brand'}>Tour-King</NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavLink to={`/`} className={'nav-link'}>Home</NavLink>
+            <NavLink to={`/home`} className={'nav-link'}>Home</NavLink>
             <NavLink to={`/users`} className={'nav-link'}>User</NavLink>
             <NavLink to={`/admin`} className={'nav-link'}>Admin</NavLink>
           </Nav>
