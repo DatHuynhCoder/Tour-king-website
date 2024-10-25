@@ -1,14 +1,22 @@
-import logo from './logo.svg'
+
 import React from "react"
-import './App.css'
+import './App.scss'
+import Header from './components/Header/Header.jsx'
+
+import { 
+  Outlet 
+} from 'react-router-dom'
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-   </div>
+    <div className="App-container">
+      <div className="Header-container">
+        <Header/>
+      </div>
+      <div className="Main-content">
+        <Outlet/>
+      </div> 
+    </div>
   );
 }
 
