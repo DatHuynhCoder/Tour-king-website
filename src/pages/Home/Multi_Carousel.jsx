@@ -3,7 +3,6 @@
  * @documentation https://react-slick.neostack.com/docs/get-started
  */
 
-
 import pic1 from '../../assets/pic1.jpg'
 import pic2 from '../../assets/pic2.jpg'
 import pic3 from '../../assets/pic3.jpg'
@@ -18,6 +17,8 @@ import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
 
 import './Multi_Carousel.scss'
+import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 const data = [
   {
@@ -47,9 +48,11 @@ const data = [
   },
 ]
 
+const CARDNAME = ['Việt Nam', 'Thái Lan', 'Singapore', 'Malaysia', 'Hàn Quốc']
+
 const Multi_Carousel = () => {
   const settings = {
-    dots: true,
+    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -65,8 +68,40 @@ const Multi_Carousel = () => {
   //   autoplaySpeed: 2000,
   //   cssEase: "linear"
   // };
+  const [selected, setSelected] = useState(1)
   return (
+    <>
+    <div style={{width: '75%', margin: '30px auto'}}>
+      <button className='select-btn' onClick={() => setSelected(1)}>Việt Nam</button>
+      <button className='select-btn' onClick={() => setSelected(2)}>Thái Lan</button>
+      <button className='select-btn' onClick={() => setSelected(3)}>Singapore</button>
+      <button className='select-btn' onClick={() => setSelected(4)}>Malaysia</button>
+      <button className='select-btn' onClick={() => setSelected(5)}>Hàn Quốc</button>
+    </div>
     <div style={{width: '75%', margin: 'auto'}}>
+      <Slider {...settings}>
+        {data.map((d) => (
+          <Card style={{ width: '18rem'}}>
+            <Card.Img variant="top" src={pic1}/>
+            <Card.Body>
+              <Card.Title>{CARDNAME[selected - 1]}</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+              </Card.Text>
+              <Button variant="primary">Go somewhere</Button>
+            </Card.Body>
+          </Card>
+        ))}
+      </Slider>
+    </div>
+  
+    <div style={{width: '75%', margin: '30px auto', textAlign: 'center'}}>
+      <button className='booking-btn'>
+        <NavLink to={'/hotel'} className='booking-btn-text' style={{textDecoration: 'none'}}>Đặt vé máy bay ngay</NavLink>
+      </button>
+    </div>
+
+    {/* <div style={{width: '75%', margin: 'auto'}}>
       <div style={{marginTop: '20px'}}>
         <Slider {...settings}>
           {data.map((d) => (
@@ -83,7 +118,8 @@ const Multi_Carousel = () => {
           ))}
         </Slider>
       </div>
-    </div>
+    </div> */}
+    </>
   )
 }
 

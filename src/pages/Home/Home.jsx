@@ -1,106 +1,61 @@
-import Carousel from 'react-bootstrap/Carousel';
-import pic1 from '../../assets/pic1.jpg'
-import pic2 from '../../assets/pic2.jpg'
-import pic3 from '../../assets/pic3.jpg'
-import pic4 from '../../assets/pic4.jpg'
-import pic5 from '../../assets/pic5.jpg'
-import pic6 from '../../assets/pic6.jpg'
 
+import pic1 from '../../assets/pic1.jpg'
+
+import Carousel_chan from './Carousel_chan.jsx';
 import Multi_Carousel from './Multi_Carousel.jsx'
+
+import './Home.scss'
 
 const Home = () => {
   return (
     <>
-      <Carousel data-bs-theme="dark">
-        <Carousel.Item>
-          <div style={{ width: '60%', margin: '0 auto' }}>
-            <img
-              className="d-block w-100 ta-c"
-              src={pic1}
-              alt="First slide"
-            />
-          </div>
-          <Carousel.Caption>
-            <h5>First slide label</h5>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div style={{ width: '60%', margin: '0 auto' }}>
-            <img
-              className="d-block w-100"
-              src={pic2}
-              alt="Second slide"
-            />
-          </div>
-          <Carousel.Caption>
-            <h5>Second slide label</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div style={{ width: '60%', margin: '0 auto' }}>
-            <img
-              className="d-block w-100"
-              src={pic3}
-              alt="Third slide"
-            />
-          </div>
-          <Carousel.Caption>
-            <h5>Third slide label</h5>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div style={{ width: '60%', margin: '0 auto' }}>
-            <img
-              className="d-block w-100"
-              src={pic4}
-              alt="Fourth slide"
-            />
-          </div>
-          <Carousel.Caption>
-            <h5>Fourth slide label</h5>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div style={{ width: '60%', margin: '0 auto' }}>
-            <img
-              className="d-block w-100"
-              src={pic5}
-              alt="Fifth slide"
-            />
-          </div>
-          <Carousel.Caption>
-            <h5>Fifth slide label</h5>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div style={{ width: '60%', margin: '0 auto' }}>
-            <img
-              className="d-block w-100"
-              src={pic6}
-              alt="Sixth slide"
-            />
-          </div>
-          <Carousel.Caption>
-            <h5>Sixth slide label</h5>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
+      <Carousel_chan></Carousel_chan>
       
+      <div className='titles'>--icon-- Các chuyến bay phổ biến</div>
       <Multi_Carousel/>
+      <div className='titles'>--icon-- Đa dạng lựa chọn khách sạn</div>
+      <Multi_Carousel/>
+      <div className='titles'>--icon-- Hoạt động du lịch</div>
+      <Multi_Carousel/>
+
+      <div className='reason-area'>
+        <p className='reason-title'>Lý do nên đặt chỗ với Tour King ?</p>
+        <div className='reason-area-body'>
+          <div className='reason-child'>
+            <div style={{flex: '1', marginRight: '5px'}}>
+              <img src={pic1} alt="" style={{width: '100%', borderRadius: '10px'}} />
+            </div>
+            <div style={{flex: '3'}}>
+              <p><b>Đáp ứng mọi nhu cầu của bạn</b><br></br>
+              <br></br>
+              Từ chuyến bay, lưu trú, đến điểm tham quan, 
+              bạn có thể tin chọn sản phẩm hoàn chỉnh và Hướng Dẫn Du Lịch của chúng tôi.</p>
+            </div>
+          </div>
+
+          <div className='reason-child'>
+            <div style={{flex: '1', marginRight: '5px'}}>
+              <img src={pic1} alt="" style={{width: '100%', borderRadius: '10px'}} />
+            </div>
+            <div style={{flex: '3'}}>
+              <p><b>Tùy chọn đặt chỗ linh hoạt</b><br></br>
+              <br></br>
+              Kế hoạch thay đổi bất ngờ? Đừng lo! Đổi lịch hoặc Hoàn tiền dễ dàng.</p>
+            </div>
+          </div>
+
+          <div className='reason-child'>
+            <div style={{flex: '1', marginRight: '5px'}}>
+              <img src={pic1} alt="" style={{width: '100%', borderRadius: '10px'}} />
+            </div>
+            <div style={{flex: '3'}}>
+              <p><b>Thanh toán an toàn và thuận tiện</b><br></br>
+              <br></br>
+              Tận hưởng nhiều cách thanh toán an toàn, bằng loại tiền thuận tiện nhất cho bạn.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

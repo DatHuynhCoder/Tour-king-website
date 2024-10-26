@@ -1,3 +1,36 @@
+.select-btn {
+  border-radius: 10px;
+  background-color: #e3e4e6;
+  border: none;
+  color: #6191f2;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.select-btn:focus {
+  color: white;
+  background-color: #6191f2;
+}
+.booking-btn{
+
+  border: none; 
+  border-radius: 10px;
+  padding: 10px 20px;
+
+  &:hover {
+    color: white;
+    background-color: #6191f2;
+    .booking-btn-text{
+      color: white;
+    }
+  }
+  
+}
+.slick-next:before {
+  color: #00bf;
+}
+.slick-prev:before {
+  color: #00bf;
+}
 .slick-slide > div {
   margin: 0 10px;
 }
