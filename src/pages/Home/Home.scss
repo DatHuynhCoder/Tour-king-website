@@ -1,0 +1,28 @@
+.titles {
+  width: 75%;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 20px auto;
+}
+.reason-area {
+  width: 75%;
+  margin: 20px auto;
+}
+.reason-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+.reason-area-body {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.reason-child {
+  border-radius: 10px;
+  width: 31%;
+  height: 200px;
+  display: flex;
+  background-color: #e8e9eb;
+  padding: 5px;
+}
