@@ -2,6 +2,7 @@
 import React from "react"
 import './App.scss'
 import Header from './components/Header/Header.jsx'
+import Footer from "./components/Footer/Footer.jsx"
 
 import { 
   Outlet 
@@ -16,6 +17,9 @@ const App = () => {
       <div className="Main-content">
         <Outlet/>
       </div> 
+      <div className="footer-container">
+        <Footer/>
+      </div>
     </div>
   );
 }
