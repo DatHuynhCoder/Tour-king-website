@@ -36,7 +36,7 @@ const Footer = () => {
             </NavLink>
           </Col>
           <Col>
-            <Nav className="flex-column fs-5">
+            <Nav className="flex-column fs-6">
               <p className="fw-bold">Về Tour King</p>
               <NavLink className="nav-link">Cách đặt chỗ</NavLink>
               <NavLink className="nav-link">Liên hệ chúng tôi</NavLink>
@@ -46,7 +46,7 @@ const Footer = () => {
             </Nav>
           </Col>
           <Col>
-            <Nav className="flex-column fs-5">
+            <Nav className="flex-column fs-6">
               <p className="fw-bold">Theo dõi chúng tôi</p>
               <NavLink to="https://www.facebook.com/" className="nav-link icon-container">
                 <Image
@@ -96,7 +96,7 @@ const Footer = () => {
             </Nav>
           </Col>
           <Col>
-            <Nav className="flex-column fs-5">
+            <Nav className="flex-column fs-6">
               <p className="fw-bold">Sản phẩm</p>
               <NavLink className="nav-link">Khách sạn</NavLink>
               <NavLink className="nav-link">Vé máy bay</NavLink>
@@ -104,7 +104,7 @@ const Footer = () => {
             </Nav>
           </Col>
           <Col>
-            <Nav className="flex-column fs-5">
+            <Nav className="flex-column fs-6">
               <p className="fw-bold">Khác</p>
               <NavLink className="nav-link">Điều khoản và điều kiện</NavLink>
               <NavLink className="nav-link">Quy chế hoạt động</NavLink>
