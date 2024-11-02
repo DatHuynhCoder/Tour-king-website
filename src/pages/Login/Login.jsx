@@ -13,12 +13,10 @@ import GoogleIcon from "../../assets/google_icon.svg"
 
 export default function Login() {
   return (
-    <div>
+    <div class = "tong">
 
-      <div>
-        <h1>ĐĂNG NHẬP</h1>
-        <p>Bạn có thể đăng nhập tài khoản Booking.com của mình để truy cập các dịch vụ của chúng tôi.</p>
-      </div>
+      <h1 class = "cangiua" >ĐĂNG NHẬP</h1>
+      <p>Bạn có thể đăng nhập tài khoản Booking.com của mình để truy cập các dịch vụ của chúng tôi.</p>
       
       <div>
         <h2>Địa chỉ email hoặc số điện thoại</h2>

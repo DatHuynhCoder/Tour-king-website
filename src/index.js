@@ -5,6 +5,7 @@ import App from './App'
 import ErrorPage from './pages/HandleRoutesError/error-page.jsx'
 import Login from './pages/Login/Login.jsx'
 import Home from './pages/Home/Home.jsx'
+import Flight from './pages/AirlineTickets/Flight.jsx'
 
 import reportWebVitals from './reportWebVitals'
 //using bootstrap
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage/>,
     children: [
       {
+        index: true,
+        element: <Home/>
+      },
+      {
         path: "/home",
         element: <Home/>
       },
@@ -30,15 +35,18 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login/>
       },
+      {
+        path: "/flight",
+        element: <Flight/>
+      }
     ],
-  },
-  
+  }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router}/>
   </React.StrictMode>
 )
 

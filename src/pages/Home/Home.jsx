@@ -1,8 +1,8 @@
 
 import pic1 from '../../assets/pic1.jpg'
 
-import Carousel_chan from './Carousel_chan.jsx';
-import Multi_Carousel from './Multi_Carousel.jsx'
+import Carousel_chan from './Carousel_chan.jsx'
+import MultiCarousel from './MultiCarousel.jsx'
 
 import './Home.scss'
 
@@ -11,12 +11,12 @@ const Home = () => {
     <>
       <Carousel_chan></Carousel_chan>
       
-      <div className='titles'>--icon-- Các chuyến bay phổ biến</div>
-      <Multi_Carousel/>
-      <div className='titles'>--icon-- Đa dạng lựa chọn khách sạn</div>
-      <Multi_Carousel/>
-      <div className='titles'>--icon-- Hoạt động du lịch</div>
-      <Multi_Carousel/>
+      <div className='titles'>Các chuyến bay phổ biến</div>
+      <MultiCarousel/>
+      <div className='titles'>Đa dạng lựa chọn khách sạn</div>
+      <MultiCarousel/>
+      <div className='titles'>Hoạt động du lịch</div>
+      <MultiCarousel/>
 
       <div className='reason-area'>
         <p className='reason-title'>Lý do nên đặt chỗ với Tour King ?</p>
