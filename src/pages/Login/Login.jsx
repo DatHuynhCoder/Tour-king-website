@@ -2,54 +2,72 @@ import React from 'react'
 
 import './Login.scss'
 
-import { Image } from "react-bootstrap"
-import { NavLink } from "react-router-dom";
+import { Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 
 
-import FacebookIcon from "../../assets/facebook_icon.svg"
+import FacebookIcon from "./facebook-color-svgrepo-com.svg"
 import GoogleIcon from "../../assets/google_icon.svg"
 
 
 export default function Login() {
+
   return (
-    <div class = "tong">
-
-      <h1 class = "cangiua" >ĐĂNG NHẬP</h1>
-      <p>Bạn có thể đăng nhập tài khoản Booking.com của mình để truy cập các dịch vụ của chúng tôi.</p>
+    <>
+    <h1 class  = "dangnhap">ĐĂNG NHẬP</h1>
+    <div class = "tongDN">
       
-      <div>
-        <h2>Địa chỉ email hoặc số điện thoại</h2>
-        <input type = "text box"></input>
-      </div>
+      <div class = "dangnhapbangtk">
+        
+        <p>Bạn có thể đăng nhập tài khoản <p class = "tour">Tour</p> 
+        -<p class = "king">King &nbsp;</p> 
+        của mình để truy cập các dịch vụ của chúng tôi.</p>
+        
+        <div class = "odangnhap">
+          <h5>Địa chỉ email hoặc số điện thoại</h5>
+          <input type = "text box" class = "taikhoan"></input>
+          <h5>Mật khẩu</h5>
+          <input type = "password" class = "matkhau"></input>
+        </div>
 
-      <button>ĐĂNG NHẬP</button>
+        <Link>Quên mật khẩu</Link>
+        <Link to={'/home'}>
+          <button type="button" class = "nutdangnhap">ĐĂNG NHẬP</button>
+        </Link>
+        Bạn cần một tài khoản? <Link to = {'/signup'}>Đăng ký</Link>
+      </div>
       
-      <div>
-        <NavLink to="https://www.facebook.com/" className="nav-link icon-container">
-                <Image
-                  src={FacebookIcon}
-                  alt="Facebook icon"
-                  width={48}
-                  height={48}
-                  className="icon"
-                />
-                </NavLink>
+      <div class = "dangnhapbangphuongthuckhac">
+        <p>Hoặc sử dụng một trong các lựa chọn này </p>
+        <div class = "DNbenthu3">
+          <Link to="https://www.facebook.com/" className="nav-link icon-container">
+                  <Image
+                    src={FacebookIcon}
+                    alt="Facebook icon"
+                    width={90}
+                    height={90}
+                    className="icon"
+                  />
+          </Link>
 
-        <NavLink to="https://accounts.google.com/Login?btmpl=mobile_tier2&hl=vi&service=mail" className="nav-link icon-container">
-                <Image
-                  src={GoogleIcon}
-                  alt="GoogleIcon"
-                  width={48}
-                  height={48}
-                  className="icon"
-                />
-                </NavLink>
+          <Link to="https://accounts.google.com/Login?btmpl=mobile_tier2&hl=vi&service=mail" className="nav-link icon-container">
+                  <Image
+                    src={GoogleIcon}
+                    alt="GoogleIcon"
+                    width={90}
+                    height={90}
+                    className="icon"
+                  />
+          </Link>
+        </div>
+        <Link to={'/otp'} class = "dangnhapbangma">Hoặc, đăng nhập bằng mã bảo mật</Link>
       </div>
-
-      <p>Qua việc đăng nhập hoặc tạo tài khoản, bạn đồng ý với các Điều khoản và 
-      Điều kiện cũng như Chính sách An toàn và Bảo mật của chúng tôi</p>
       
     </div>
+    <p class = "camket">Điều khoản và 
+    Điều kiện, Chính sách An toàn và Bảo mật</p>
+    </>
   )
 }

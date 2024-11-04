@@ -6,6 +6,10 @@ import ErrorPage from './pages/HandleRoutesError/error-page.jsx'
 import Login from './pages/Login/Login.jsx'
 import Home from './pages/Home/Home.jsx'
 import Flight from './pages/AirlineTickets/Flight.jsx'
+import OPTCode from './pages/OTP/OTPCode.jsx'
+import SignUp from './pages/SignUp/SignUp.jsx'
+import Password from './pages/Password/Password.jsx'
+import Admin from './pages/Admin/Admin.jsx'
 
 import reportWebVitals from './reportWebVitals'
 //using bootstrap
@@ -38,9 +42,25 @@ const router = createBrowserRouter([
       {
         path: "/flight",
         element: <Flight/>
+      },
+      {
+        path: '/otp',
+        element: <OPTCode/>
+      },
+      {
+        path: '/signup',
+        element: <SignUp/>
+      },
+      {
+        path: '/password',
+        element: <Password/>
+      },
+      {
+        path: '/admin',
+        element: <Admin/>
       }
     ],
-  }
+  },
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
