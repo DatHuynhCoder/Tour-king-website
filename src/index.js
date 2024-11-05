@@ -9,7 +9,7 @@ import Flight from './pages/AirlineTickets/Flight.jsx'
 import OPTCode from './pages/OTP/OTPCode.jsx'
 import SignUp from './pages/SignUp/SignUp.jsx'
 import Password from './pages/Password/Password.jsx'
-import Admin from './pages/Admin/Admin.jsx'
+
 
 import reportWebVitals from './reportWebVitals'
 //using bootstrap
@@ -54,11 +54,8 @@ const router = createBrowserRouter([
       {
         path: '/password',
         element: <Password/>
-      },
-      {
-        path: '/admin',
-        element: <Admin/>
       }
+      
     ],
   },
 ])
