@@ -13,24 +13,24 @@ export default function SignUp() {
 
   return (
     <>
-        <h1 class = "dangky">Đăng ký</h1>
-        <div class = "tongDK">
-            <p class = "tieude">Bạn có thể đăng ký tài khoản <p class = "tour">Tour</p> 
-            -<p class = "king">King &nbsp;</p> 
+        <h1 className = "dangky">Đăng ký</h1>
+        <div className = "tongDK">
+            <p className = "tieude">Bạn có thể đăng ký tài khoản <p className = "tour">Tour</p> 
+            -<p className = "king">King &nbsp;</p> 
                 của mình để truy cập các dịch vụ của chúng tôi.</p>
 
-            <div class = "odangky">
+            <div className = "odangky">
                 <h5>Địa chỉ email hoặc số điện thoại</h5>
-                <input type = "text box" class = "taikhoan"></input>
+                <input type = "text box" className = "taikhoan"></input>
             </div>
             
             <Link to={'/otp'}>
-                <button type="button" class = "nutdangky">ĐĂNG KÝ</button>
+                <button type="button" className = "nutdangky">ĐĂNG KÝ</button>
             </Link>
             
             <p>-----------Hoặc sử dụng một trong các lựa chọn này-----------</p>
             
-            <div class = "DNbenthu3">
+            <div className = "DNbenthu3">
                 <Link to="https://www.facebook.com/" className="nav-link icon-container">
                   <Image
                     src={FacebookIcon}
@@ -54,7 +54,7 @@ export default function SignUp() {
 
             
         </div>
-        <p class = "camket">Điều khoản và 
+        <p className = "camket">Điều khoản và 
              Điều kiện, Chính sách An toàn và Bảo mật</p>
     </>
   )

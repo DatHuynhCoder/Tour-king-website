@@ -1,0 +1,42 @@
+.custome-search-ChuyenBay{
+    display:flex;
+    padding: 20px;
+    .search-ChuyenBay{
+        padding: 8px;
+        width: 70%;
+        border-radius: 20px;
+    }
+    .button-Search-ChuyenBay{
+        margin-left: 10px;
+        border-radius: 50%;
+        background-color: white;
+    }
+    .button-Search-ChuyenBay:hover{
+        background-color: #f3f3f3;
+    }
+}
+
+.custome-select-ChuyenBay{
+    padding: 20px;
+    display: flex;
+    flex-direction: row; /* Sắp xếp các phần tử theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+}
+
+.bang-ChuyenBay{
+    .tr-ChuyenBay{
+        border: 1px solid #000; // Màu viền đen
+        padding: 8px; // Khoảng cách giữa nội dung và viền
+        .th-ChuyenBay{
+            border: 1px solid #000; // Màu viền đen
+        padding: 8px; // Khoảng cách giữa nội dung và viền
+        }
+            
+        .td-ChuyenBay{
+            border: 1px solid #000; // Màu viền đen
+        padding: 8px; // Khoảng cách giữa nội dung và viền
+        }
+
+    }
+    
+}

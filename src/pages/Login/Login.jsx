@@ -4,7 +4,7 @@ import './Login.scss'
 
 import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+
 
 
 
@@ -16,32 +16,32 @@ export default function Login() {
 
   return (
     <>
-    <h1 class  = "dangnhap">ĐĂNG NHẬP</h1>
-    <div class = "tongDN">
+    <h1 className  = "dangnhap">ĐĂNG NHẬP</h1>
+    <div className = "tongDN">
       
-      <div class = "dangnhapbangtk">
+      <div className = "dangnhapbangtk">
         
-        <p>Bạn có thể đăng nhập tài khoản <p class = "tour">Tour</p> 
-        -<p class = "king">King &nbsp;</p> 
+        <p>Bạn có thể đăng nhập tài khoản <p className = "tour">Tour</p> 
+        -<p className = "king">King &nbsp;</p> 
         của mình để truy cập các dịch vụ của chúng tôi.</p>
         
-        <div class = "odangnhap">
+        <div className = "odangnhap">
           <h5>Địa chỉ email hoặc số điện thoại</h5>
-          <input type = "text box" class = "taikhoan"></input>
+          <input type = "text box" className = "taikhoan"></input>
           <h5>Mật khẩu</h5>
-          <input type = "password" class = "matkhau"></input>
+          <input type = "password" className = "matkhau"></input>
         </div>
 
         <Link>Quên mật khẩu</Link>
         <Link to={'/home'}>
-          <button type="button" class = "nutdangnhap">ĐĂNG NHẬP</button>
+          <button type="button" className = "nutdangnhap">ĐĂNG NHẬP</button>
         </Link>
         Bạn cần một tài khoản? <Link to = {'/signup'}>Đăng ký</Link>
       </div>
       
-      <div class = "dangnhapbangphuongthuckhac">
+      <div className = "dangnhapbangphuongthuckhac">
         <p>Hoặc sử dụng một trong các lựa chọn này </p>
-        <div class = "DNbenthu3">
+        <div className = "DNbenthu3">
           <Link to="https://www.facebook.com/" className="nav-link icon-container">
                   <Image
                     src={FacebookIcon}
@@ -62,11 +62,11 @@ export default function Login() {
                   />
           </Link>
         </div>
-        <Link to={'/otp'} class = "dangnhapbangma">Hoặc, đăng nhập bằng mã bảo mật</Link>
+        <Link to={'/otp'} className = "dangnhapbangma">Hoặc, đăng nhập bằng mã bảo mật</Link>
       </div>
       
     </div>
-    <p class = "camket">Điều khoản và 
+    <p className = "camket">Điều khoản và 
     Điều kiện, Chính sách An toàn và Bảo mật</p>
     </>
   )
