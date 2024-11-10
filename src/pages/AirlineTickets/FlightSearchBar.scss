@@ -1,0 +1,48 @@
+.flight-search-bar-container {
+    background: url('../../assets/flight_banner.jpg') no-repeat center center / cover;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .search-container {
+        padding: 10px;
+        width: 60%;
+        height: 300px;
+        background-color: #628ECB;
+        opacity: 0.75;
+        border-radius: 10px;
+
+        .search-row1 {
+            display: flex;
+            flex: 1;
+            .flight-location-container {
+                background-color: #fff;
+                border-radius: 10px;
+                height: 100%;
+            }
+
+            .quantity-container {
+                background-color: #fff;
+                border-radius: 10px;
+                height: 100%;
+            }
+
+        }
+
+        .search-row2 {
+            .flight-time-container {
+                background-color: #fff;
+                height: 50%;
+                border-radius: 10px;
+            }
+
+            .seacrh-btn-container {
+                background-color: #fff;
+                height: 50%;
+                border-radius: 10px;
+            }
+        }
+
+    }
+}

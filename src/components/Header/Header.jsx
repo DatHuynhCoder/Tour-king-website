@@ -33,6 +33,7 @@ const Header = () => {
           <Nav className="me-auto">
             <NavLink to={`/users`} className={'nav-link'}>User</NavLink>
             <NavLink to={`/admin`} className={'nav-link'}>Admin</NavLink>
+            <NavLink to={`/flight`} className={'nav-link'}>Đặt vé</NavLink>
             <NavDropdown title="Hỗ trợ" id="basic-nav-dropdown">              
               <NavLink to={`/login`} className={'dropdown-item'}>Login</NavLink>
               <NavLink to={`/signup`} className={'dropdown-item'}>Signup</NavLink>
