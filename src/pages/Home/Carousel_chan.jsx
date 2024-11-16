@@ -15,7 +15,7 @@ const Carousel_chan = () => {
   return (
     <Carousel data-bs-theme="dark">
       <Carousel.Item>
-        <div style={{ width: '60%', margin: '0 auto' }}>
+        <div style={{ width: '66%', margin: '0 auto' }}>
           <img
             className="d-block w-100 ta-c"
             src={pic1}
@@ -28,7 +28,7 @@ const Carousel_chan = () => {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <div style={{ width: '60%', margin: '0 auto' }}>
+        <div style={{ width: '66%', margin: '0 auto' }}>
           <img
             className="d-block w-100"
             src={pic2}
@@ -41,7 +41,7 @@ const Carousel_chan = () => {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <div style={{ width: '60%', margin: '0 auto' }}>
+        <div style={{ width: '66%', margin: '0 auto' }}>
           <img
             className="d-block w-100"
             src={pic3}
@@ -56,7 +56,7 @@ const Carousel_chan = () => {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <div style={{ width: '60%', margin: '0 auto' }}>
+        <div style={{ width: '66%', margin: '0 auto' }}>
           <img
             className="d-block w-100"
             src={pic4}
@@ -71,7 +71,7 @@ const Carousel_chan = () => {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <div style={{ width: '60%', margin: '0 auto' }}>
+        <div style={{ width: '66%', margin: '0 auto' }}>
           <img
             className="d-block w-100"
             src={pic5}
@@ -86,7 +86,7 @@ const Carousel_chan = () => {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <div style={{ width: '60%', margin: '0 auto' }}>
+        <div style={{ width: '66%', margin: '0 auto' }}>
           <img
             className="d-block w-100"
             src={pic6}
