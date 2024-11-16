@@ -9,13 +9,16 @@ import './Home.scss'
 const Home = () => {
   return (
     <>
-      <Carousel_chan></Carousel_chan>
+      <div className='Carousel-container'>
+        <Carousel_chan></Carousel_chan>
+      </div>
       
-      <div className='titles'>Các chuyến bay phổ biến</div>
+      
+      <div className='titles'>Các chuyến bay phổ biến với Vietravel Airlines</div>
       <MultiCarousel/>
-      <div className='titles'>Đa dạng lựa chọn khách sạn</div>
+      <div className='titles'>Các chuyến bay phổ biến với Vietnam Airlines</div>
       <MultiCarousel/>
-      <div className='titles'>Hoạt động du lịch</div>
+      <div className='titles'>Các chuyến bay phổ biến với VietJet Air</div>
       <MultiCarousel/>
 
       <div className='reason-area'>

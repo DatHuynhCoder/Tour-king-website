@@ -1,0 +1,15 @@
+.Header-container {
+  background-color: black;
+  font-size: 22px;
+  margin-bottom: 110px;
+  .nav-link {
+    &:hover {
+      color: white;
+    }
+  }
+  .bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    background-color: #378AF6 !important;
+    z-index: 0;
+  }
+}
