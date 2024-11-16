@@ -1,0 +1,43 @@
+.custome-search-DoiGioBay{
+    display:flex;
+    padding: 20px;
+    .search-DoiGioBay{
+        padding: 8px;
+        width: 70%;
+        border-radius: 20px;
+    }
+    .button-Search-DoiGioBay{
+        margin-left: 10px;
+        border-radius: 50%;
+        background-color: white;
+    }
+    .button-Search-DoiGioBay:hover{
+        background-color: #f3f3f3;
+    }
+}
+
+
+.bang-DoiGioBay{
+    .tr-DoiGioBay{
+        border: 1px solid #000; // Màu viền đen
+        padding: 8px; // Khoảng cách giữa nội dung và viền
+        .th-DoiGioBay{
+            border: 1px solid #000; // Màu viền đen
+        padding: 8px; // Khoảng cách giữa nội dung và viền
+        }
+            
+        .td-DoiGioBay{
+            border: 1px solid #000; // Màu viền đen
+            padding: 8px; // Khoảng cách giữa nội dung và viền
+        }
+
+    }
+    
+}
+
+.custome-select-DoiGioBay{
+    padding: 20px;
+    display: flex;
+    flex-direction: row; /* Sắp xếp các phần tử theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+}
