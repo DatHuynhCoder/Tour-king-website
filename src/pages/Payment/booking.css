@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Two-column layout */
+.two-column-layout {
+    display: flex;
+    gap: 20px;
+}
+
+/* Left and right columns */
+.left-column,
+.right-column {
+    flex: 1;
+}
+
+.contact-info,
+.passenger-info,
+.flight-summary {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Flight summary adjustments */
+.flight-summary h3 {
+    color: #007bff;
+}
+
+.flight-info p {
+    margin: 5px 0;
+}
+
+/* Styling the payment amount in blue */
+.flight-info p strong {
+    color: #007bff; /* Blue color for the payment amount */
+    font-weight: bold;
+    display: block; /* Separate the payment amount to a new line */
+    margin-top: 10px;
+    font-size: 1.2em;
+}
