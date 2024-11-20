@@ -20,7 +20,7 @@ import "./Footer.scss"
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="footer-container">
       <Container fluid>
         <Row
           style={{ backgroundColor: '#1C2930', color: '#fff', padding: 50 }}
