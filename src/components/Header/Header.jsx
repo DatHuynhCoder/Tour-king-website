@@ -17,7 +17,7 @@ import './Header.scss'
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false)
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar fixed="top" expand="lg" className="bg-body-tertiary">
       <Container>
         <NavLink to={`/`} className={'navbar-brand'}>
           <Image
@@ -34,12 +34,12 @@ const Header = () => {
             <NavLink to={`/users`} className={'nav-link'}>User</NavLink>
             <NavLink to={`/admin`} className={'nav-link'}>Admin</NavLink>
             <NavLink to={`/flight`} className={'nav-link'}>Đặt vé</NavLink>
-            <NavDropdown title="Hỗ trợ" id="basic-nav-dropdown">              
+            {/* <NavDropdown title="Hỗ trợ" id="basic-nav-dropdown">       
               <NavLink to={`/login`} className={'dropdown-item'}>Login</NavLink>
               <NavLink to={`/signup`} className={'dropdown-item'}>Signup</NavLink>
               <NavDropdown.Divider />
               <NavLink to={`/others`} className={'dropdown-item'}>Others</NavLink>
-            </NavDropdown>
+            </NavDropdown> */}
           </Nav>
           {
             isLogin === false ?

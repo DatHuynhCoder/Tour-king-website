@@ -13,11 +13,12 @@ const admin_dashboard = () => {
             <Navbar />
             <div className="admin-grid-one">
                 <Dailymetric/>
+                <TrendingHang />
                 {/* //<MusicMetric/> */}
             </div>
             <div className="admin-grid-two">
                 <TrendingTicket />
-                <TrendingHang />
+                
             </div>
         </div>
     )
