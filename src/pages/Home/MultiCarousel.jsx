@@ -88,7 +88,7 @@ const MultiCarousel = () => {
   
       <div style={{width: '75%', margin: '30px auto', textAlign: 'center'}}>
         <button className='booking-btn'>
-          <NavLink to={'/hotel'} className='booking-btn-text' style={{textDecoration: 'none'}}>
+          <NavLink to={'/flight'} className='booking-btn-text' style={{textDecoration: 'none'}}>
             Đặt vé máy bay ngay 
             <FaArrowRight style={{marginLeft: '10px'}}/>
           </NavLink>
