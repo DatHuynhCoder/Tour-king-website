@@ -5,6 +5,7 @@
   color: #6191f2;
   font-weight: bold;
   margin-right: 10px;
+  box-shadow: 5px 5px;
 }
 .select-btn:focus {
   color: white;
@@ -15,14 +16,10 @@
   border: none; 
   border-radius: 10px;
   padding: 10px 20px;
-
+  // transition: 1s;
+  box-shadow: 5px 5px;
   &:hover {
-    color: white;
-    background-color: #6191f2;
-    .booking-btn-text{
-      color: white;
-      text-decoration: none;
-    }
+    opacity: 0.8;
   }
   
 }
