@@ -18,7 +18,7 @@ import Slider from "react-slick"
 
 import './MultiCarousel.scss'
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 import { FaArrowRight } from "react-icons/fa";
 
@@ -55,6 +55,7 @@ const CARDNAME = ['Đà Nẵng', 'Đà Lạt', 'Hà Nội', 'TP HCM', 'Nha Trang
 const destination = ['Đà Nẵng', 'Đà Lạt', 'Hà Nội', 'TP HCM', 'Nha Trang']
 
 const MultiCarousel = () => {
+  const navigate = useNavigate()
   const settings = {
     infinite: true,
     speed: 500,
@@ -66,7 +67,12 @@ const MultiCarousel = () => {
     <>
       <div style={{width: '75%', margin: '30px auto'}}>
         {destination.map((item, index) => (
-          <button className='select-btn' onClick={() => setSelected(index + 1)}>{item}</button>
+          <button className='select-btn' onClick={() => {
+            setSelected(index + 1)
+            // axios.get('http://localhost:xxxx/get-flight-by-airline').then(res => {
+            //   setSelected(res.data)
+            // })
+          }}>{item}</button>
         ))}
       </div>
       <div style={{width: '75%', margin: 'auto'}}>
@@ -79,7 +85,13 @@ const MultiCarousel = () => {
                 <Card.Text>
                   Some quick example text to build on the card title and make up the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="outline-primary" onClick={() => {
+                  navigate('/flight', {
+                    state: {
+                      destination: '',
+                    }
+                  })
+                }}>Đặt ngay</Button>
               </Card.Body>
             </Card>
           ))}
@@ -87,11 +99,11 @@ const MultiCarousel = () => {
       </div>
   
       <div style={{width: '75%', margin: '30px auto', textAlign: 'center'}}>
-        <button className='booking-btn'>
-          <NavLink to={'/flight'} className='booking-btn-text' style={{textDecoration: 'none'}}>
-            Đặt vé máy bay ngay 
-            <FaArrowRight style={{marginLeft: '10px'}}/>
-          </NavLink>
+        <button className='booking-btn' onClick={() => {
+          navigate('/flight')
+        }}>
+          Đặt vé máy bay ngay 
+          <FaArrowRight className="booking-btn-arrow"style={{marginLeft: '10px'}}/>
         </button>
       </div>
     </>

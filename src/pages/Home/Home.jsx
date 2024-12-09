@@ -1,6 +1,7 @@
 
 import Carousel_chan from './Carousel_chan.jsx'
 import MultiCarousel from './MultiCarousel.jsx'
+import { TbPlaneDeparture } from "react-icons/tb";
 
 import './Home.scss'
 
@@ -12,11 +13,21 @@ const Home = () => {
       </div>
       
       
-      <div className='titles'>Các chuyến bay phổ biến với Vietravel Airlines</div>
+      <div className='titles'>
+        <TbPlaneDeparture />
+        &nbsp;
+        Các chuyến bay phổ biến với Vietravel Airlines
+      </div>
       <MultiCarousel/>
-      <div className='titles'>Các chuyến bay phổ biến với Vietnam Airlines</div>
+      <div className='titles'>
+        <TbPlaneDeparture />
+        &nbsp;
+        Các chuyến bay phổ biến với Vietnam Airlines</div>
       <MultiCarousel/>
-      <div className='titles'>Các chuyến bay phổ biến với VietJet Air</div>
+      <div className='titles'>
+        <TbPlaneDeparture />
+        &nbsp;
+        Các chuyến bay phổ biến với VietJet Air</div>
       <MultiCarousel/>
 
       {/* <div className='reason-area'>
