@@ -23,8 +23,8 @@ const Header = () => {
           <Image
             src={LogoTourKing}
             alt="Company logo"
-            width={200}
-            height={200}
+            width={160}
+            height={160}
             style={{margin: '-60px'}}
           />
         </NavLink>
