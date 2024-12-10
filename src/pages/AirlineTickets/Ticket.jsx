@@ -10,6 +10,11 @@ import StarIcon from '@mui/icons-material/Star';
 import Box from '@mui/material/Box';
 //logo
 import VNAirlines from "../../assets/VNairlines.png"
+//icon
+import { PiAirplaneTiltFill } from "react-icons/pi";
+import { FcInfo } from "react-icons/fc";
+import { FaPersonWalkingLuggage } from "react-icons/fa6";
+import { FaLuggageCart } from "react-icons/fa";
 //scss
 import './Ticket.scss'
 
@@ -88,12 +93,42 @@ const Ticket = () => {
           <div className="v-line"></div>
         </div>
         <div className="price-box">
-          <div className="price"><span style={{color: 'green', fontWeight: 'bold'}}>1.500.000 VNĐ</span> / Khách</div>
-          <Button variant="primary" style={{fontWeight: 'bold'}}>Đặt vé</Button>
+          <div className="price"><span style={{ color: 'green', fontWeight: 'bold' }}>1.500.000 VNĐ</span> / Khách</div>
+          <Button variant="primary" style={{ fontWeight: 'bold' }}>Đặt vé</Button>
         </div>
       </div>
       <div className={`sub-container ${isOpen ? "open" : ""}`}>
-        Subcontent here
+        <div className="flight-id">Chuyến bay: VietnamAirlines VN 7258</div>
+        <div className="subbox">
+          <div className="time-subbox">
+            <div className="departure-time">7:00</div>
+            <div className="arrival-time">10:00</div>
+          </div>
+          <div className="vertical-line-container">
+            <div className="circle"></div>
+            <div className="line"></div>
+            <div className="circle"></div>
+          </div>
+          <div className="subbox-place-info">
+            <div>
+              <div>TP.HCM</div>
+              <div>Sân bay quốc tế Tân Sơn Nhất</div>
+            </div>
+            <div>
+              <PiAirplaneTiltFill size={30}/>
+            </div>
+            <div>
+              <div>Hà Nội</div>
+              <div>Sân bay quốc tế Nội Bài</div>
+            </div>
+          </div>
+
+          <div className="subbox-plane-info">
+            <div className="plane-name"><FcInfo size={30}/> Máy bay Airbus A321</div>
+            <div className="hand-luggage"><FaPersonWalkingLuggage size={30}/> Hành lý xách tay: 7 kg</div>
+            <div className="checked-luggage"><FaLuggageCart size={30}/>  Hành lý ký gửi: 30 kg</div>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -62,7 +62,7 @@
           .extra-word {
             text-align: center;
             font-weight: 300;
-            font-style: italic; 
+            font-style: italic;
           }
         }
 
@@ -91,6 +91,7 @@
     .v-line-box {
       display: flex;
       justify-content: center;
+
       .v-line {
         border-left: 3px solid #ccc;
         margin: 0 10px;
@@ -104,7 +105,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center   ;
+      align-items: center;
     }
   }
 
@@ -113,11 +114,68 @@
     overflow: hidden;
     transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
     background: rgba($color: #d9d9d9, $alpha: 0.5);
-    padding: 0 16px;
-
+  
     &.open {
-      max-height: 200px;
-      padding: 16px;
+      max-height: 300px;
+      padding: 16px 32px 16px;
     }
-  }
+  
+    .flight-id {
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+  
+    .subbox {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      // align-items: center; 
+      // position: relative; 
+  
+      .time-subbox {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .departure-time, .arrival-time {
+          font-weight: bold;
+        }
+      }
+  
+      .vertical-line-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 20px;
+        .circle {
+          width: 15px;
+          height: 15px;
+          background: radial-gradient(circle, #ffffff, #dbeafe, #93c5fd);
+          border-radius: 50%;
+          box-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
+        }
+  
+        .line {
+          width: 4px;
+          height: 150px;
+          background: linear-gradient(to bottom, #3c11cb, #2575fc);
+          box-shadow: 0 0 15px rgba(147, 197, 253, 0.5);
+        }
+      }
+
+      .subbox-place-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .subbox-plane-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+      }
+    }
+  }  
 }
