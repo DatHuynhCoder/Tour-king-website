@@ -22,68 +22,49 @@ import { NavLink, useNavigate } from 'react-router-dom'
 
 import { FaArrowRight } from "react-icons/fa";
 
-const data = [
-  {
-    name: 'Johnathan',
-    img: pic1,
-    review: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam eligendi optio expedita provident placeat animi accusamus natus debitis, eum explicabo facilis suscipit beatae! Id quos omnis deserunt qui minus itaque."
-  },
-  {
-    name: 'Jacob',
-    img: pic2,
-    review: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam eligendi optio expedita provident placeat animi accusamus natus debitis, eum explicabo facilis suscipit beatae! Id quos omnis deserunt qui minus itaque."
-  },
-  {
-    name: 'Laura',
-    img: pic3,
-    review: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam eligendi optio expedita provident placeat animi accusamus natus debitis, eum explicabo facilis suscipit beatae! Id quos omnis deserunt qui minus itaque."
-  },
-  {
-    name: 'Henry',
-    img: pic4,
-    review: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam eligendi optio expedita provident placeat animi accusamus natus debitis, eum explicabo facilis suscipit beatae! Id quos omnis deserunt qui minus itaque."
-  },
-  {
-    name: 'Ragile',
-    img: pic5,
-    review: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam eligendi optio expedita provident placeat animi accusamus natus debitis, eum explicabo facilis suscipit beatae! Id quos omnis deserunt qui minus itaque."
-  },
-]
+import axios from 'axios'
 
-const CARDNAME = ['Đà Nẵng', 'Đà Lạt', 'Hà Nội', 'TP HCM', 'Nha Trang']
+const destination = ['Đà Nẵng', 'Cần Thơ', 'Hà Nội', 'Hồ Chí Minh', 'Thừa Thiên Huế']
 
-const destination = ['Đà Nẵng', 'Đà Lạt', 'Hà Nội', 'TP HCM', 'Nha Trang']
+const MultiCarousel = ({Airline}) => {
+  const [selectedAirline, setSelectedAirline] = useState()
 
-const MultiCarousel = () => {
   const navigate = useNavigate()
   const settings = {
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
   }
-  const [selected, setSelected] = useState(1)
+  const [selected, setSelected] = useState([])
+  const handleChangeDesination = (destinationName) => {
+    console.log(destinationName)
+    axios.get('http://localhost:8800/get-flight-by-airline?destination=' + destinationName + '&airline=' + Airline).then(res => {
+      console.log('check data: ', res.data)
+      setSelected(res.data)
+    })
+  }
   return (
     <>
       <div style={{width: '75%', margin: '30px auto'}}>
         {destination.map((item, index) => (
           <button className='select-btn' onClick={() => {
-            setSelected(index + 1)
-            // axios.get('http://localhost:xxxx/get-flight-by-airline').then(res => {
-            //   setSelected(res.data)
-            // })
+            handleChangeDesination(item)
           }}>{item}</button>
         ))}
       </div>
       <div style={{width: '75%', margin: 'auto'}}>
         <Slider {...settings}>
-          {data.map((d) => (
+          {selected.length > 0 ? selected.map((item) => (
             <Card style={{ width: '18rem'}}>
               <Card.Img variant="top" src={pic1}/>
               <Card.Body>
-                <Card.Title>{CARDNAME[selected - 1]}</Card.Title>
+                <Card.Title>{item.TenDiaDiem}</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
+                  Hãng: {item.TenHang}<br></br>
+                  Điểm đến: {item.TenSanBay}<br></br>
+                  Ngày cất cánh: {item.NgayCatCanh.slice(0, 10)}<br></br>
+                  Giờ cất cánh: {item.GioCatCanh.slice(0, 5)}
                 </Card.Text>
                 <Button variant="outline-primary" onClick={() => {
                   navigate('/flight', {
@@ -94,7 +75,24 @@ const MultiCarousel = () => {
                 }}>Đặt ngay</Button>
               </Card.Body>
             </Card>
-          ))}
+          )) 
+          : 
+          <Card style={{ width: '18rem'}}>
+            <Card.Img variant="top" src={pic1}/>
+            <Card.Body>
+              <Card.Title>Loading ...</Card.Title>
+              <Card.Text>
+                Hãng: Loading ...<br></br>
+                Điểm đến: Loading ...<br></br>
+                Ngày cất cánh: Loading ...<br></br>
+                Giờ cất cánh: Loading ...
+              </Card.Text>
+              <Button variant="outline-primary" onClick={() => {
+                console.log('nothing here')
+              }}>Đặt ngay</Button>
+            </Card.Body>
+          </Card>
+          }
         </Slider>
       </div>
   
