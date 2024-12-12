@@ -2,7 +2,13 @@
  * @author Quynh Anh
  * @documentation https://react-bootstrap.netlify.app/docs/components/navbar
  */
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { jwtDecode } from "jwt-decode"
+import { ContextStore } from '../../context/Context'
+import axios from 'axios'
+import Cookies from 'universal-cookie'
+
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
@@ -13,9 +19,32 @@ import LogoTourKing from "../../assets/tour_king_logo.svg"
 import { NavLink } from 'react-router-dom'
 
 import './Header.scss'
+import DefaultAvatar from '../../assets/defaultAvatar.png'
 
 const Header = () => {
+  const cookies = new Cookies()
+  const navigate = useNavigate()
   const [isLogin, setIsLogin] = useState(false)
+  const {
+    accessToken, setAccessToken,
+    refreshToken, setRefreshToken,
+    userid, setUserid,
+    name, setName,
+    isAdmin, setIsAdmin,
+    useravatarurl, setUseravatarurl
+  } = useContext(ContextStore)
+  useEffect(() => {
+    setAccessToken(cookies.get("accessToken"))
+    if(accessToken) {
+      const decodedAccessToken = jwtDecode(cookies.get("accessToken"))
+      setIsAdmin(decodedAccessToken.isadmin)
+      setUseravatarurl(decodedAccessToken.useravatarurl)
+      setName(decodedAccessToken.name)
+      console.log('check decoded accessToken in header: ', decodedAccessToken)
+      console.log('===> check userid in decoded token in header: ', decodedAccessToken.userid)
+      setUserid(decodedAccessToken.userid)
+    }
+  }, [accessToken])
   return (
     <Navbar fixed="top" expand="lg" className="bg-body-tertiary">
       <Container>
@@ -41,32 +70,27 @@ const Header = () => {
               <NavLink to={`/others`} className={'dropdown-item'}>Others</NavLink>
             </NavDropdown> */}
           </Nav>
-          {
-            isLogin === false ?
-            <Nav>
-              <button 
-                style={{border: '1px solid black', borderRadius: '15px', width: '150px', marginRight: '10px'}} 
-                className={'nav-link'}
-                onClick={() => setIsLogin(!isLogin)}
-              >
-                <NavLink to={`/login`} style={{textDecoration: 'none', color: 'white'}}>Đăng nhập</NavLink>
-              </button>
-              <button style={{border: '1px solid black', borderRadius: '15px', width: '100px', backgroundColor: '#3BC4C9'}} className={'nav-link'}>
-                <NavLink to={`/login`} style={{textDecoration: 'none', color: 'white'}}>Đăng ký</NavLink>
-              </button>
-            </Nav>
-            :
-            <Nav>
-              <button style={{border: '1px solid black', borderRadius: '15px', width: '300px', marginRight: '10px'}} className={'nav-link'}>
-                <NavDropdown title="Tao đã đăng nhập" id="basic-nav-dropdown">              
-                  <NavLink to={`/user`} className={'dropdown-item'}>Hồ sơ của tôi</NavLink>
-                  <NavLink to={`/settings`} className={'dropdown-item'}>Cài đặt</NavLink>
-                  <NavDropdown.Divider />
-                  <div className={'dropdown-item'} onClick={() => setIsLogin(!isLogin)}> Đăng xuất</div>
-                </NavDropdown>
-              </button>
-            </Nav>
-          }
+          <Nav>
+            {/* <NavDropdown title="Tao đã đăng nhập" id="basic-nav-dropdown">              
+              <NavLink to={`/user`} className={'dropdown-item'}>Hồ sơ của tôi</NavLink>
+              <NavLink to={`/settings`} className={'dropdown-item'}>Cài đặt</NavLink>
+              <NavDropdown.Divider />
+              <div className={'dropdown-item'} onClick={() => setIsLogin(!isLogin)}> Đăng xuất</div>
+            </NavDropdown> */}
+            <NavDropdown 
+              title={<img src={useravatarurl !== '' ? useravatarurl : DefaultAvatar} style={{width: 40, borderRadius: 25}}></img>} 
+              id="basic-nav-dropdown"
+            >
+              {accessToken && <NavLink to={`/user`} className={'dropdown-item'}>Trang cá nhân</NavLink>}
+              {!accessToken && <NavLink to={`/login`} className={'dropdown-item'}>Đăng nhập/<br></br>Đăng ký</NavLink>}
+              {accessToken && <NavDropdown.Divider/>}
+              {accessToken && <NavLink to={`/login`} className={'dropdown-item'} onClick={() => {
+                if(!cookies.get("accessToken")) alert("Login first !")
+                cookies.remove("accessToken")
+                cookies.remove("refreshToken")
+              }}>Đăng xuất</NavLink>}
+            </NavDropdown>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
