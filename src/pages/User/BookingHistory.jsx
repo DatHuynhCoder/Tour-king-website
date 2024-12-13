@@ -1,27 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './BookingHistory.scss';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import { FaUser, FaShoppingCart, FaListAlt, FaMoneyBillAlt } from 'react-icons/fa'; // Importing FontAwesome Icons
+import { useNavigate } from 'react-router-dom';
+import { FaUser, FaShoppingCart, FaListAlt, FaMoneyBillAlt } from 'react-icons/fa';
 
 const BookingHistory = () => {
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
+  const [selectedBooking, setSelectedBooking] = useState(null); // State for selected booking
 
   const handleBookingHistory = () => {
-    // Navigate to the invoice/payment page
     navigate('/BookingHistory');
   };
 
   const handleProfile = () => {
-    // Navigate to the invoice/payment page
     navigate('/User');
   };
+
   const handleTransactionHistory = () => {
-    // Navigate to the invoice/payment page
     navigate('/TransactionHistory');
   };
+
   const handleRefund = () => {
-    // Navigate to the invoice/payment page
     navigate('/Refund');
+  };
+
+  const bookings = [
+    {
+      id: 1,
+      name: 'VÉ A',
+      details: 'Mã đặt chỗ: 3232423 Giá trị: 10000000 VND',
+      image: 'hotel.jpg',
+    },
+    {
+      id: 2,
+      name: 'VÉ B',
+      details: 'Mã đặt chỗ: 3232424 Giá trị: 20000000 VND',
+      image: 'ticket.jpg',
+    },
+    {
+      id: 3,
+      name: 'VÉ C',
+      details: 'Mã đặt chỗ: 3232425 Giá trị: 15000000 VND',
+      image: 'tour.jpg',
+    },
+  ];
+
+  const handleBookingClick = (booking) => {
+    setSelectedBooking(booking); // Set the selected booking
+  };
+
+  const handleCancelBooking = () => {
+    // Redirect to the cancel booking page with the selected booking info
+    navigate('/CancelBooking', { state: { booking: selectedBooking } });
+  };
+
+  const handleCloseDialog = () => {
+    setSelectedBooking(null); // Close the dialog
   };
 
   return (
@@ -54,27 +87,23 @@ const BookingHistory = () => {
         <div className="box">
           <h2 className="section-title">Vé điện tử & phiếu thanh toán hiện hành</h2>
           <div className="current-bookings">
-            <div className="booking-item">
-              <img src="hotel.jpg" alt="Khách sạn A" className="booking-image" />
-              <div className="booking-info">
-                <div className="booking-name">VÉ A</div>
-                <div className="booking-details">Mã đặt chỗ: 3232423 Giá trị: 10000000 VND</div>
+            {bookings.map((booking) => (
+              <div
+                key={booking.id}
+                className="booking-item"
+                onClick={() => handleBookingClick(booking)}
+              >
+                <img
+                  src={booking.image}
+                  alt={booking.name}
+                  className="booking-image"
+                />
+                <div className="booking-info">
+                  <div className="booking-name">{booking.name}</div>
+                  <div className="booking-details">{booking.details}</div>
+                </div>
               </div>
-            </div>
-            <div className="booking-item">
-              <img src="ticket.jpg" alt="Vé xe B" className="booking-image" />
-              <div className="booking-info">
-                <div className="booking-name">VÉ B</div>
-                <div className="booking-details">Mã đặt chỗ: 3232423 Giá trị: 10000000 VND</div>
-              </div>
-            </div>
-            <div className="booking-item">
-              <img src="tour.jpg" alt="Tour C" className="booking-image" />
-              <div className="booking-info">
-                <div className="booking-name">VÉ C</div>
-                <div className="booking-details">Mã đặt chỗ: 3232423 Giá trị: 10000000 VND</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -86,6 +115,17 @@ const BookingHistory = () => {
           </p>
         </div>
       </div>
+
+      {selectedBooking && (
+        <div className="cancel-dialog">
+          <div className="dialog-content">
+            <h3>{selectedBooking.name}</h3>
+            <p>{selectedBooking.details}</p>
+            <button onClick={handleCancelBooking}>Hủy vé</button>
+            <button onClick={handleCloseDialog}>Đóng</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
