@@ -68,11 +68,11 @@ const Ticket = ({ticket_item}) => {
           </div>
           <div className="time-box">
             <div className="departure-box">
-              <div className="departure-time">{ticket_item.giodi}</div>
-              <div className="departure-place">{ticket_item.noidi}</div>
+              <div className="departure-time">{ticket_item.GioCatCanh}</div>
+              <div className="departure-place">{ticket_item.tenddxp}</div>
             </div>
             <div className="journey-box">
-              <div className="journey-time">{ticket_item.thoigianbay}</div>
+              <div className="journey-time">3:00</div>
               <div class="journey-line-container">
                 <div class="circle"></div>
                 <div class="line"></div>
@@ -81,8 +81,8 @@ const Ticket = ({ticket_item}) => {
               <div className="extra-word">Bay thẳng</div>
             </div>
             <div className="arrival-box">
-              <div className="arrival-time">{ticket_item.gioden}</div>
-              <div className="arrival-place">{ticket_item.noiden}</div>
+              <div className="arrival-time">{ticket_item.GioDen}</div>
+              <div className="arrival-place">{ticket_item.tenddden}</div>
             </div>
           </div>
 
@@ -94,12 +94,13 @@ const Ticket = ({ticket_item}) => {
           <div className="v-line"></div>
         </div>
         <div className="price-box">
-          <div className="price"><span style={{ color: 'green', fontWeight: 'bold' }}>1.500.000 VNĐ</span> / Khách</div>
+          <div className="price"><span style={{ color: 'green', fontWeight: 'bold' }}>{ticket_item.Gia}</span> / Khách</div>
+          <div>Mã ghế: {ticket_item.MaGhe}</div>
           <Button variant="primary" style={{ fontWeight: 'bold' }}>Đặt vé</Button>
         </div>
       </div>
       <div className={`sub-container ${isOpen ? "open" : ""}`}>
-        <div className="flight-id">Chuyến bay: {ticket_item.tenchuyenbay}</div>
+        <div className="flight-id">Chuyến bay: {ticket_item.MaChuyenBay}</div>
         <div className="subbox">
           <div className="time-subbox">
             <div className="departure-time">{ticket_item.giodi}</div>
@@ -112,22 +113,22 @@ const Ticket = ({ticket_item}) => {
           </div>
           <div className="subbox-place-info">
             <div>
-              <div>{ticket_item.noidi}</div>
-              <div>{ticket_item.sanbaydi}</div>
+              <div>{ticket_item.tenddxp}</div>
+              <div>{ticket_item.tensbxp}</div>
             </div>
             <div>
               <PiAirplaneTiltFill size={30}/>
             </div>
             <div>
-              <div>{ticket_item.noiden}</div>
-              <div>{ticket_item.sanbayden}</div>
+              <div>{ticket_item.tenddden}</div>
+              <div>{ticket_item.tensbden}</div>
             </div>
           </div>
 
           <div className="subbox-plane-info">
-            <div className="plane-name"><FcInfo size={30}/> {ticket_item.tenmaybay}</div>
-            <div className="hand-luggage"><FaPersonWalkingLuggage size={30}/> Hành lý xách tay: {ticket_item.hlxt} kg</div>
-            <div className="checked-luggage"><FaLuggageCart size={30}/>  Hành lý ký gửi: {ticket_item.hlkg} kg</div>
+            <div className="plane-name"><FcInfo size={30}/> {ticket_item.TenLoaiMayBay} {ticket_item.SoHieuMayBay}</div>
+            <div className="hand-luggage"><FaPersonWalkingLuggage size={30}/> Hành lý xách tay: {ticket_item.SoKgHLxachtay} kg</div>
+            <div className="checked-luggage"><FaLuggageCart size={30}/>  Hành lý ký gửi: {ticket_item.SoKgHLkygui} kg</div>
           </div>
         </div>
       </div>

@@ -1,7 +1,8 @@
 .flight-container {
   .ticket-result-container {
     min-height: 1000px;
-    background-color: #D3DEF0;
+    background: rgb(205,249,255);
+    background: linear-gradient(74deg, rgba(205,249,255,1) 8%, rgba(195,251,249,1) 34%, rgba(172,245,251,1) 54%, rgba(138,229,255,1) 72%, rgba(117,213,227,1) 90%);
     display: flex;
     flex-direction: column;
     align-items: center;
