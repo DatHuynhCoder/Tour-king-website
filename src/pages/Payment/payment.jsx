@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Payment.css';
+import './Payment.scss';
 
 const PaymentPage = () => {
   const [items, setItems] = useState([
