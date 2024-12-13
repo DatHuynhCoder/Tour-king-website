@@ -1,3 +1,17 @@
+@keyframes sparkle {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1.5);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.7);
+  }
+}
+
 .ticket-container {
   width: 60%;
   background-color: #fff;
@@ -107,6 +121,53 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      .phothong {
+        background: rgb(206, 197, 196);
+        background: radial-gradient(circle, rgba(206, 197, 196, 1) 21%, rgba(204, 204, 204, 1) 84%);
+        color: #fff;
+        border-radius: 15px;
+        padding: 5px 10px;
+        font-weight: bold;
+        box-shadow: 0 0 15px #ccc;
+      }
+
+      .thuonggia {
+        background: linear-gradient(45deg, #ffd700, #ff8c00);
+        color: white;
+        border-radius: 15px;
+        padding: 5px 10px;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, transparent 60%);
+          opacity: 0;
+          transform: scale(0);
+          transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 255, 255, 0.5);
+
+          &::after {
+            opacity: 1;
+            transform: scale(1.5);
+            animation: sparkle 1s infinite;
+          }
+        }
+      }
     }
   }
 
@@ -115,38 +176,41 @@
     overflow: hidden;
     transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
     background: rgba($color: #d9d9d9, $alpha: 0.5);
-  
+
     &.open {
       max-height: 300px;
       padding: 16px 32px 16px;
     }
-  
+
     .flight-id {
       font-weight: 500;
       margin-bottom: 10px;
     }
-  
+
     .subbox {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       // align-items: center; 
       // position: relative; 
-  
+
       .time-subbox {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        .departure-time, .arrival-time {
+
+        .departure-time,
+        .arrival-time {
           font-weight: bold;
         }
       }
-  
+
       .vertical-line-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 0 20px;
+
         .circle {
           width: 15px;
           height: 15px;
@@ -154,7 +218,7 @@
           border-radius: 50%;
           box-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
         }
-  
+
         .line {
           width: 4px;
           height: 150px;
@@ -178,5 +242,5 @@
         gap: 10px;
       }
     }
-  }  
+  }
 }

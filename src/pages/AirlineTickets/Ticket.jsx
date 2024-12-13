@@ -96,6 +96,7 @@ const Ticket = ({ticket_item}) => {
         <div className="price-box">
           <div className="price"><span style={{ color: 'green', fontWeight: 'bold' }}>{ticket_item.Gia}</span> / Khách</div>
           <div>Mã ghế: {ticket_item.MaGhe}</div>
+          <div className={`${ticket_item.TenLoaiGhe === "Thương gia" ? "thuonggia" : "phothong"}`}>{ticket_item.TenLoaiGhe}</div>
           <Button variant="primary" style={{ fontWeight: 'bold' }}>Đặt vé</Button>
         </div>
       </div>
@@ -103,8 +104,8 @@ const Ticket = ({ticket_item}) => {
         <div className="flight-id">Chuyến bay: {ticket_item.MaChuyenBay}</div>
         <div className="subbox">
           <div className="time-subbox">
-            <div className="departure-time">{ticket_item.giodi}</div>
-            <div className="arrival-time">{ticket_item.gioden}</div>
+            <div className="departure-time">{ticket_item.GioCatCanh}</div>
+            <div className="arrival-time">{ticket_item.GioDen}</div>
           </div>
           <div className="vertical-line-container">
             <div className="circle"></div>
