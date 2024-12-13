@@ -1,24 +1,34 @@
 
-import pic1 from '../../assets/pic1.jpg'
-
 import Carousel_chan from './Carousel_chan.jsx'
 import MultiCarousel from './MultiCarousel.jsx'
+import { TbPlaneDeparture } from "react-icons/tb";
 
 import './Home.scss'
 
 const Home = () => {
   return (
     <>
-      <Carousel_chan></Carousel_chan>
-      
-      <div className='titles'>Các chuyến bay phổ biến</div>
-      <MultiCarousel/>
-      <div className='titles'>Đa dạng lựa chọn khách sạn</div>
-      <MultiCarousel/>
-      <div className='titles'>Hoạt động du lịch</div>
-      <MultiCarousel/>
+      <div className='Carousel-container'>
+        <Carousel_chan></Carousel_chan>
+      </div>
+      <div className='titles'>
+        <TbPlaneDeparture />
+        &nbsp;
+        Các chuyến bay phổ biến với Vietnam Airline
+      </div>
+      <MultiCarousel Airline={'Vietnam Airline'}/>
+      <div className='titles'>
+        <TbPlaneDeparture />
+        &nbsp;
+        Các chuyến bay phổ biến với Vietjet Air</div>
+      <MultiCarousel Airline={'Vietjet Air'}/>
+      <div className='titles'>
+        <TbPlaneDeparture />
+        &nbsp;
+        Các chuyến bay phổ biến với Bamboo Airways</div>
+      <MultiCarousel Airline={'Bamboo Airways'}/>
 
-      <div className='reason-area'>
+      {/* <div className='reason-area'>
         <p className='reason-title'>Lý do nên đặt chỗ với Tour King ?</p>
         <div className='reason-area-body'>
           <div className='reason-child'>
@@ -55,7 +65,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

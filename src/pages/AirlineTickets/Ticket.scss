@@ -1,0 +1,182 @@
+.ticket-container {
+  width: 60%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(107, 104, 104, 0.7);
+  margin-bottom: 30px;
+
+  .main-container {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 100px;
+
+    .info-box {
+      flex: 5;
+
+      .banner-box {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .time-box {
+        display: flex;
+        flex-direction: row;
+
+        .departure-box {
+          .departure-time {
+            font-weight: bold;
+          }
+        }
+
+        .journey-box {
+          margin: 0 20px;
+
+          .journey-time {
+            font-weight: bold;
+            text-align: center;
+          }
+
+          .journey-line-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .circle {
+              width: 15px;
+              height: 15px;
+              background: radial-gradient(circle, #ffffff, #dbeafe, #93c5fd);
+              border-radius: 50%;
+              box-shadow: rgba(147, 197, 253, 0.5);
+            }
+
+            .line {
+              width: 200px;
+              height: 4px;
+              background: linear-gradient(to right, #3c11cb, #2575fc),
+                linear-gradient(to right, #ffffff, #dbeafe, #93c5fd);
+              box-shadow: 0 0 15px rgba(147, 197, 253, 0.5);
+            }
+          }
+
+          .extra-word {
+            text-align: center;
+            font-weight: 300;
+            font-style: italic;
+          }
+        }
+
+        .arrival-box {
+          .arrival-time {
+            font-weight: bold;
+          }
+        }
+
+      }
+
+      .toggle-details {
+        margin-top: 16px;
+        cursor: pointer;
+        color: #007bff;
+        font-weight: bold;
+
+        &:hover {
+          text-decoration: underline;
+          color: #0056b3;
+        }
+      }
+
+    }
+
+    .v-line-box {
+      display: flex;
+      justify-content: center;
+
+      .v-line {
+        border-left: 3px solid #ccc;
+        margin: 0 10px;
+        height: 80%;
+        align-self: center;
+      }
+    }
+
+    .price-box {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .sub-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+    background: rgba($color: #d9d9d9, $alpha: 0.5);
+  
+    &.open {
+      max-height: 300px;
+      padding: 16px 32px 16px;
+    }
+  
+    .flight-id {
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+  
+    .subbox {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      // align-items: center; 
+      // position: relative; 
+  
+      .time-subbox {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .departure-time, .arrival-time {
+          font-weight: bold;
+        }
+      }
+  
+      .vertical-line-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 20px;
+        .circle {
+          width: 15px;
+          height: 15px;
+          background: radial-gradient(circle, #ffffff, #dbeafe, #93c5fd);
+          border-radius: 50%;
+          box-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
+        }
+  
+        .line {
+          width: 4px;
+          height: 150px;
+          background: linear-gradient(to bottom, #3c11cb, #2575fc);
+          box-shadow: 0 0 15px rgba(147, 197, 253, 0.5);
+        }
+      }
+
+      .subbox-place-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .subbox-plane-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+      }
+    }
+  }  
+}

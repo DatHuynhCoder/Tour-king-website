@@ -1,0 +1,41 @@
+.trending-ticket{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border-radius: 0.4rem;
+    padding: 1rem 1rem;
+    transition: 0.3s ease-in-out;
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 25px,
+        rgba(0,0,0,0.04) 0px 10px 10px -5px;
+
+    }
+    .trend-info{
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        background-color: #4362ee46;
+        svg{
+            color: #4361ee;
+            font-size: 1.4rem;
+        }
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .trend{
+        display:flex;
+        margin-bottom: 1.4rem;
+        .trend-info {
+            .trend-image {
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}

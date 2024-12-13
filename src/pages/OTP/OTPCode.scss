@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.otp-section{
+    //background-color: #10b981; // màu emerald-500
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    .otp-something{
+        width: 20rem; // tương ứng với w-80
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; // tương ứng với gap-4
+        border-radius: 0.5rem; // tương ứng với rounded-lg
+        padding: 1rem; // tương ứng với p-4
+        .otp-h1{
+            text-align: center;
+            line-height: normal; // chỉnh line-height về bình thường
+            //color: white;
+            // font-weight: 500; // tương ứng với font-medium
+            // font-size: 1.875rem; // tương ứng với text-3xl
+            margin-bottom: 1.5rem; // tương ứng với mb-6
+        }
+        .otp-Bs{
+            background-color: blue;
+            color: yellow; // tương ứng với text-emerald-500
+            width: fit-content; // tương ứng với w-fit
+            margin-inline: auto; // tương ứng với mx-auto
+            padding: 1rem; // tương ứng với p-4
+            border-radius: 9999px; // tương ứng với rounded-full
+        }
+        .otp-label{
+            font-weight: bold; // tương ứng với font-bold
+            font-size: 1.5rem; // tương ứng với text-2xl
+            color: rgb(0, 0, 0);
+            text-align: center;
+        }
+        .otp-input{
+            display: flex;
+            //justify-content: space-between;
+            align-items: center;
+            //gap: 1rem; // tương ứng với gap-2
+        }
+        .otp-cg{
+            margin-top: 0.25rem; // tương ứng với mt-1
+
+            animation: spin 1s linear infinite; // tương ứng với animate-spin
+        }
+        @keyframes spin {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+        }
+        .otp-button{
+            background-color: #047857; // tương ứng với bg-emerald-600
+            width: 101%; // tương ứng với w-full
+            display: flex;
+            gap: 0.25rem; // tương ứng với gap-1
+            align-items: center;
+            justify-content: center;
+            padding-top: 0.625rem; // tương ứng với py-2.5 (trên và dưới)
+            padding-bottom: 0.625rem;
+            color: white; // tương ứng với text-white
+            border-radius: 0.25rem; // tương ứng với rounded
+        }
+        
+  }
+}
+
+.OTP-dk{
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 120px;
+}
+

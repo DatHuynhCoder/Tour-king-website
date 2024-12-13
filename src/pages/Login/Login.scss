@@ -1,0 +1,92 @@
+.icon {
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    padding-right: 5px;
+}
+
+.icon-container {
+    &:hover {
+        text-decoration: underline;
+        .icon {
+            filter: grayscale(0%);
+        }
+    }
+}
+.dangnhap {
+    text-align: center; // can le giua
+} 
+.tongDN {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    width: 50%; 
+    margin: 0 auto;
+    margin-top: 20px; /* Khoảng cách phía trên */
+    font-size: 18px;
+    border: 10px solid rgb(246, 246, 1) ;
+    padding: 30px;
+    border-radius: 20px;
+    .tour{
+        display:inline;
+        color:#0066FF;
+    }
+    .king{
+        display:inline;
+        color: rgba(138, 138, 0, 0.485);
+    }
+    .dangnhapbangtk{
+        flex:8;
+        
+        .odangnhap{
+            margin-top: 10px; /* Khoảng cách phía trên */
+            margin-bottom: 20px; /* Khoảng cách phía dưới */
+            
+            .taikhoan{
+                width:100%; // chieu ngang 100%
+                border-width: 20px solid black ;
+                height: 40px;
+                margin-bottom: 20px; /* Khoảng cách phía dưới */
+            }
+
+            .matkhau{
+                width:100%; // chieu ngang 100%
+                border-width: 20px solid black ;
+                height: 40px;
+            }
+        }
+        
+        .nutdangnhap{
+            margin-top: 20px; /* Khoảng cách phía trên */
+            margin-bottom: 20px; /* Khoảng cách phía dưới */
+            width: 100%; //chieu ngang 100%
+            border-radius: 20px; /* Bo tròn các góc 5px */
+            font-size: 23px; 
+            background-color: #0066FF;
+            color: #fff;
+            height: 45px;
+        }
+    }
+    .dangnhapbangphuongthuckhac{
+        flex:4;
+        margin-left: 20px;
+        .DNbenthu3{
+            display: flex;
+            align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+            justify-content: space-between; /* Tạo khoảng cách đều giữa các phần tử */
+            
+        }
+        .dangnhapbangma{
+            font-size:15px;
+        }
+    }
+    
+    
+}
+.camket{
+        text-align: center;
+        
+        width: 45%;
+        
+        margin: 100px auto;
+        margin-bottom: 125px;
+        margin-top: 20px; /* Khoảng cách phía trên */
+}

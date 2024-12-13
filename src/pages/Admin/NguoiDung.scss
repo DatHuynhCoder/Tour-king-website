@@ -1,0 +1,40 @@
+.custome-search-NguoiDung{
+    display:flex;
+    padding: 20px;
+    .search-NguoiDung{
+        padding: 8px;
+        width: 70%;
+        border-radius: 20px;
+    }
+    .button-Search-NguoiDung{
+        margin-left: 10px;
+        border-radius: 50%;
+        background-color: white;
+    }
+    .button-Search-NguoiDung:hover{
+        background-color: #f3f3f3;
+    }
+}
+
+.custome-select-NguoiDung{
+    padding: 20px;
+    display: flex;
+    flex-direction: row; /* Sắp xếp các phần tử theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+}
+
+.bang-NguoiDung{
+    .tr-NguoiDung{
+        border: 1px solid #000; // Màu viền đen
+        padding: 8px; // Khoảng cách giữa nội dung và viền
+        .th-NguoiDung{
+            
+        }
+            
+        .td-NguoiDung{
+
+        }
+
+    }
+    
+}
