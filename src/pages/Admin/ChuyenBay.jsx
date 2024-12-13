@@ -11,6 +11,19 @@ const data = [
         ID: '1',
         hang: 'lau dai cua t1',
         sohieuMayBay: 't1 5s',
+        diemxp: 'HN',
+        diemd: 'HCM',
+        ngayCatCanh: '20/20/2020',
+        gioCatCanh: '3:30',
+        gioDenDuKien: '5:30',
+        isSoldOut: '10/100'
+    },
+    {
+        ID: '1',
+        hang: 'lau dai cua t1',
+        sohieuMayBay: 't1 5s',
+        diemxp: 'HN',
+        diemd: 'HCM',
         ngayCatCanh: '20/20/2020',
         gioCatCanh: '3:30',
         gioDenDuKien: '5:30',
@@ -20,15 +33,8 @@ const data = [
         ID: '1',
         hang: 'lau dai cua t1',
         sohieuMayBay: 't1 5s',
-        ngayCatCanh: '20/20/2020',
-        gioCatCanh: '3:30',
-        gioDenDuKien: '5:30',
-        isSoldOut: 'het cmnr'
-    },
-    {
-        ID: '1',
-        hang: 'lau dai cua t1',
-        sohieuMayBay: 't1 5s',
+        diemxp: 'HN',
+        diemd: 'HCM',
         ngayCatCanh: '20/20/2020',
         gioCatCanh: '3:30',
         gioDenDuKien: '5:30',
@@ -79,6 +85,8 @@ const ChuyenBay = () => {
                     <th className = "th-ChuyenBay">ID</th>
                     <th className = "th-ChuyenBay">Hãng bay</th>
                     <th className = "th-ChuyenBay">Số hiệu máy bay</th>
+                    <th className = "th-ChuyenBay">Điểm xuất phát </th>
+                    <th className = "th-ChuyenBay">Điểm đến </th>
                     <th className = "th-ChuyenBay">Ngày cất cánh</th>
                     <th className = "th-ChuyenBay">Giờ cất cánh</th>
                     <th className = "th-ChuyenBay">Giờ đến dự kiến</th>
@@ -90,14 +98,15 @@ const ChuyenBay = () => {
                         <tr className = "tr-ChuyenBay">
                             <td className = "td-ChuyenBay">{d.ID}</td>
                             <td className = "td-ChuyenBay">{d.hang}</td>
-                            <td className = "td-ChuyenBay">{d.sohieuMayBay}</td>
+                            <td className = "td-ChuyenBay">{d.sohieuMayBay}</td> 
+                            <td className = "td-ChuyenBay">{d.diemxp}</td>
+                            <td className = "td-ChuyenBay">{d.diemd}</td>
                             <td className = "td-ChuyenBay">{d.ngayCatCanh}</td>
                             <td className = "td-ChuyenBay">{d.gioCatCanh}</td>
                             <td className = "td-ChuyenBay">{d.gioDenDuKien}</td>
                             <td className = "td-ChuyenBay">{d.isSoldOut}</td>
                             <td className = "td-ChuyenBay">
-                                <button className ="sua-ChuyenBay">Update</button>
-                                <button className ="Xoa-ChuyenBay">Delete</button>
+                                <button className ="Duyet-ChuyenBay">Đăng bán</button>
                             </td>
                         </tr>
                     )  

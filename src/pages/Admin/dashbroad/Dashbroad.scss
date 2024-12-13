@@ -23,17 +23,45 @@
             }
         }
         // cua cai mua ve
-        .music_metric{
-            // background-color: white;
-            // border-radius: 0.4rem;
-            // padding: 1rem 1rem;
-            // transition: 0.3s ease-in-out;
-            // &:hover {
-            //     transform: translateY(-4px);
-            //     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 25px,
-            //     rgba(0,0,0,0.04) 0px 10px 10px -5px;
+        // .music_metric{
+        //     background-color: white;
+        //     border-radius: 0.4rem;
+        //     padding: 1rem 1rem;
+        //     transition: 0.3s ease-in-out;
+        //     &:hover {
+        //         transform: translateY(-4px);
+        //         box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 25px,
+        //         rgba(0,0,0,0.04) 0px 10px 10px -5px;
 
-            // }
+        //     }
+            
+        //     .music_metric_info {
+        //         display: gird;
+        //         justify-content: space-between;
+        //         border-radius: 0.5rem;
+        //         padding: 0.5rem;
+        //         display: flex;
+        //         justify-content: center;
+        //         align-items: center;
+        //         // get cardIconStyle
+        //         .SLVD_icon{
+        //             cursor: pointer;
+        //             background-color: #4362ee46;
+        //             svg{
+        //                 color: #4362ee46;
+        //                 font-size: 1.4rem;
+        //             }
+        //             border-radius: 0.5rem;
+        //             padding: 0.5rem;
+        //             display:flex;
+        //             justify-content: center;
+        //             align-items: center;
+        //         }
+        //     }
+        // }
+        // tu file cardIcon
+        
+        .SLNguoiDung{
             height: 100%;
             width: 100%;
             background-color: white;
@@ -44,40 +72,64 @@
                 transform: translateY(-4px);
                 box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 25px,
                 rgba(0,0,0,0.04) 0px 10px 10px -5px;
-
+        
             }
-            .music_metric_info {
-                display: flex;
-                justify-content: space-between;
+            .thanhPhanSLND{
+                display:flex;
+                margin-bottom: 1rem;
+                gap: 1rem;
+                background-color: #4362ee46; 
                 border-radius: 0.5rem;
-                // padding: 0.5rem;
-                // display: flex;
-                // justify-content: center;
-                // align-items: center;
+                padding: 0.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                &__meta{
+                    display: flex;
+                    margin-left: 3rem;
+                    gap: 2rem;
+                }
             }
         }
-        // tu file cardIcon
-        
-        
     }
 
     .admin-grid-two{
+        // display: flex;
+        // grid-template-columns: 2ft 1ft 1ft;
+        // gap: 1rem;
+        // // height: 40%;
+        // // them vaof
+        // height: 100%;
+        // width: 100%;
+        // //background-color: white;
+        // border-radius: 0.4rem;
+        // padding: 1rem 1rem;
+        // transition: 0.3s ease-in-out;
+        // &:hover {
+        //     transform: translateY(-4px);
+        //     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 25px,
+        //     rgba(0,0,0,0.04) 0px 10px 10px -5px;
+    
+        // }
         display: grid;
         grid-template-columns: 2fr 1fr 1fr;
         gap: 1rem;
         height: 40%;
-        // them vaof
-        height: 80%;
-        width: 80%;
-        background-color: white;
-        border-radius: 0.4rem;
-        padding: 1rem 1rem;
-        transition: 0.3s ease-in-out;
-        &:hover {
-            transform: translateY(-4px);
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 25px,
-            rgba(0,0,0,0.04) 0px 10px 10px -5px;
-    
+        margin-bottom: 1rem;
+        .trending-ticket{
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            border-radius: 0.4rem;
+            padding: 1rem 1rem;
+            transition: 0.3s ease-in-out;
+            &:hover {
+                transform: translateY(-4px);
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 25px,
+                rgba(0,0,0,0.04) 0px 10px 10px -5px;
+        
+            }
         }
         .trend-info{
             margin-bottom: 1rem;
@@ -115,5 +167,50 @@
                 gap: 1rem;
             }
         }
+        .TopDonate{
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            border-radius: 0.4rem;
+            padding: 1rem 1rem;
+            transition: 0.3s ease-in-out;
+            &:hover {
+                transform: translateY(-4px);
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 25px,
+                rgba(0,0,0,0.04) 0px 10px 10px -5px;
+        
+            }
+            .TopDonate_tieude{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 1rem;
+                cursor: pointer;
+                background-color: #4362ee46;
+                svg{
+                    color: #4361ee;
+                    font-size: 1.4rem;
+                }
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .TopDonate_info{
+                display:flex;
+                margin-bottom: 1rem;
+                gap: 1rem;
+                img {
+                    border-radius: 2rem;
+                    height: 2.5rem;
+                }
+                &__meta{
+                    display: flex;
+                    margin-left: 3rem;
+                    gap: 2rem;
+                }
+            }
+        }
+        
     }
 }

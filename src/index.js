@@ -14,6 +14,7 @@ import ChuyenBay from './pages/Admin/ChuyenBay.jsx'
 import DoiGioBay from './pages/Admin/DoiGioBay.jsx'
 import NguoiDung from './pages/Admin/NguoiDung.jsx'
 import Dashbroad from './pages/Admin/dashbroad/Dashbroad.jsx'
+import About from './pages/About/About.jsx'
 
 import reportWebVitals from './reportWebVitals'
 //using bootstrap
@@ -59,7 +60,10 @@ const router = createBrowserRouter([
         path: '/password',
         element: <Password/>
       },
-     
+      {
+        path: '/about',
+        element: <About/>
+      }
     ],
   }, 
   {

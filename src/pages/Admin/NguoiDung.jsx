@@ -8,6 +8,7 @@ import './NguoiDung.scss';
 const data = [
     {
         ID: '1',
+        ten: 'darklord',
         email: 'trum cua bong toi',
         sdt: 'ai goi la cho',
         loaiND: 'vip nhat o thung lung nay',
@@ -15,6 +16,7 @@ const data = [
     },
     {
         ID: '1',
+        ten: 'darklord',
         email: 'trum cua bong toi',
         sdt: 'ai goi la cho',
         loaiND: 'vip nhat o thung lung nay',
@@ -22,6 +24,7 @@ const data = [
     },
     {
         ID: '1',
+        ten: 'darklord',
         email: 'trum cua bong toi',
         sdt: 'ai goi la cho',
         loaiND: 'vip nhat o thung lung nay',
@@ -68,6 +71,7 @@ const NguoiDung = () => {
             <table className = "bang-NguoiDung">
                 <tr className = "tr-NguoiDung">
                     <th className = "tr-NguoiDung">ID</th>
+                    <th className = "tr-NguoiDung">Tên người dùng</th>
                     <th className = "tr-NguoiDung">Email</th>
                     <th className = "tr-NguoiDung">SDT</th>
                     <th className = "tr-NguoiDung">Loại người dùng</th>
@@ -78,6 +82,7 @@ const NguoiDung = () => {
                     return (
                         <tr className = "tr-NguoiDung">
                             <td className = "tr-NguoiDung">{d.ID}</td>
+                            <td className = "tr-NguoiDung">{d.ten}</td>
                             <td className = "tr-NguoiDung">{d.email}</td>
                             <td className = "tr-NguoiDung">{d.sdt}</td>
                             <td className = "tr-NguoiDung">{d.loaiND}</td>
