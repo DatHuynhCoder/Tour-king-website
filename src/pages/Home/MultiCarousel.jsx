@@ -17,7 +17,7 @@ import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
 
 import './MultiCarousel.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 import { FaArrowRight } from "react-icons/fa";
@@ -44,6 +44,9 @@ const MultiCarousel = ({Airline}) => {
       setSelected(res.data)
     })
   }
+  useEffect(() => {
+    handleChangeDesination('Hồ Chí Minh')
+  },[] )
   return (
     <>
       <div style={{width: '75%', margin: '30px auto'}}>

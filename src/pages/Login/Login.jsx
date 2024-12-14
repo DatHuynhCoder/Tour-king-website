@@ -52,6 +52,7 @@ export default function Login() {
           setUserid(decodedAccessToken.userid);
           setIsAdmin(decodedAccessToken.isadmin);
           setUseravatarurl(decodedAccessToken.useravatarurl)
+          setName(decodedAccessToken.name)
           navigate('/')
         }
         else {

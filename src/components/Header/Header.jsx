@@ -63,20 +63,8 @@ const Header = () => {
             <NavLink to={`/User`} className={'nav-link'}>User</NavLink>
             <NavLink to={`/admin`} className={'nav-link'}>Admin</NavLink>
             <NavLink to={`/flight`} className={'nav-link'}>Đặt vé</NavLink>
-            {/* <NavDropdown title="Hỗ trợ" id="basic-nav-dropdown">       
-              <NavLink to={`/login`} className={'dropdown-item'}>Login</NavLink>
-              <NavLink to={`/signup`} className={'dropdown-item'}>Signup</NavLink>
-              <NavDropdown.Divider />
-              <NavLink to={`/others`} className={'dropdown-item'}>Others</NavLink>
-            </NavDropdown> */}
           </Nav>
           <Nav>
-            {/* <NavDropdown title="Tao đã đăng nhập" id="basic-nav-dropdown">              
-              <NavLink to={`/user`} className={'dropdown-item'}>Hồ sơ của tôi</NavLink>
-              <NavLink to={`/settings`} className={'dropdown-item'}>Cài đặt</NavLink>
-              <NavDropdown.Divider />
-              <div className={'dropdown-item'} onClick={() => setIsLogin(!isLogin)}> Đăng xuất</div>
-            </NavDropdown> */}
             <NavDropdown 
               title={<img src={useravatarurl !== '' ? useravatarurl : DefaultAvatar} style={{width: 40, borderRadius: 25}}></img>} 
               id="basic-nav-dropdown"

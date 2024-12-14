@@ -15,6 +15,7 @@ import DoiGioBay from './pages/Admin/DoiGioBay.jsx'
 import NguoiDung from './pages/Admin/NguoiDung.jsx'
 import Dashbroad from './pages/Admin/dashbroad/Dashbroad.jsx'
 import User from './pages/User/UserProfile.jsx'
+import UserInfo from './pages/User/UserInfo.jsx'
 import BookingHistory from './pages/User/BookingHistory.jsx'
 import Refund from './pages/User/Refund.jsx'
 import TransactionHistory from './pages/User/TransactionHistory.jsx'
@@ -70,19 +71,25 @@ const router = createBrowserRouter([
       },
       {
         path: "/User",
-        element: <User/>
-      },
-      {
-        path: '/BookingHistory',
-        element: <BookingHistory/>
-      },
-      {
-        path: '/TransactionHistory',
-        element: <TransactionHistory/>
-      },
-      {
-        path: '/Refund',
-        element: <Refund/>
+        element: <User/>,
+        children: [
+          {
+            index: true,
+            element: <UserInfo/>
+          },
+          {
+            path: '/User/BookingHistory',
+            element: <BookingHistory/>
+          },
+          {
+            path: '/User/TransactionHistory',
+            element: <TransactionHistory/>
+          },
+          {
+            path: '/User/Refund',
+            element: <Refund/>
+          },
+        ]
       },
       {
         path: '/payment',

@@ -24,28 +24,28 @@ const Refund = () => {
     navigate('/Refund');
   };
   return (
-    <div className="layout">
-      {/* Sidebar */}
-      <div className="sidebar">
-        <div className="profile">
-          <div className="avatar"></div>
-          <div className="name">TRẦN MINH</div>
-        </div>
-        <ul className="menu">
-          <li className="menu-item" onClick={handleProfile}>
-            <FaUser className="menu-icon" /> TÀI KHOẢN
-          </li>
-          <li className="menu-item" onClick={handleBookingHistory}>
-            <FaShoppingCart className="menu-icon" /> ĐẶT CHỖ CỦA TÔI
-          </li>
-          <li className="menu-item" onClick={handleTransactionHistory}>
-            <FaListAlt className="menu-icon" /> DANH SÁCH GIAO DỊCH
-          </li>
-          <li className="menu-item" onClick={handleRefund}>
-            <FaMoneyBillAlt className="menu-icon" /> YÊU CẦU HOÀN TIỀN
-          </li>
-        </ul>
-      </div>
+    // <div className="layout">
+    //   {/* Sidebar */}
+    //   <div className="sidebar">
+    //     <div className="profile">
+    //       <div className="avatar"></div>
+    //       <div className="name">TRẦN MINH</div>
+    //     </div>
+    //     <ul className="menu">
+    //       <li className="menu-item" onClick={handleProfile}>
+    //         <FaUser className="menu-icon" /> TÀI KHOẢN
+    //       </li>
+    //       <li className="menu-item" onClick={handleBookingHistory}>
+    //         <FaShoppingCart className="menu-icon" /> ĐẶT CHỖ CỦA TÔI
+    //       </li>
+    //       <li className="menu-item" onClick={handleTransactionHistory}>
+    //         <FaListAlt className="menu-icon" /> DANH SÁCH GIAO DỊCH
+    //       </li>
+    //       <li className="menu-item" onClick={handleRefund}>
+    //         <FaMoneyBillAlt className="menu-icon" /> YÊU CẦU HOÀN TIỀN
+    //       </li>
+    //     </ul>
+    //   </div>
       <div className="content">
         <h2 className="section-title">YÊU CẦU HOÀN TIỀN</h2>
 
@@ -84,8 +84,7 @@ const Refund = () => {
           </div>
         </div>
       </div>
-    </div>
-      
+    // </div>
   );
 };
 
