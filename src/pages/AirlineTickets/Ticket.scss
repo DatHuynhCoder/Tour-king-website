@@ -121,53 +121,62 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 10px;
 
-      .phothong {
-        background: rgb(206, 197, 196);
-        background: radial-gradient(circle, rgba(206, 197, 196, 1) 21%, rgba(204, 204, 204, 1) 84%);
-        color: #fff;
-        border-radius: 15px;
-        padding: 5px 10px;
-        font-weight: bold;
-        box-shadow: 0 0 15px #ccc;
-      }
+      .sub-price-box {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
 
-      .thuonggia {
-        background: linear-gradient(45deg, #ffd700, #ff8c00);
-        color: white;
-        border-radius: 15px;
-        padding: 5px 10px;
-        font-weight: bold;
-        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-        &::after {
-          content: "";
-          position: absolute;
-          top: -50%;
-          left: -50%;
-          width: 200%;
-          height: 200%;
-          background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, transparent 60%);
-          opacity: 0;
-          transform: scale(0);
-          transition: transform 0.6s ease, opacity 0.6s ease;
+        .phothong {
+          background: rgb(206, 197, 196);
+          background: radial-gradient(circle, rgba(206, 197, 196, 1) 21%, rgba(204, 204, 204, 1) 84%);
+          color: #fff;
+          border-radius: 15px;
+          padding: 5px 10px;
+          font-weight: bold;
+          box-shadow: 0 0 15px #ccc;
         }
-
-        &:hover {
-          transform: scale(1.05);
-          box-shadow: 0 6px 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 255, 255, 0.5);
-
+  
+        .thuonggia {
+          background: linear-gradient(45deg, #ffd700, #ff8c00);
+          color: white;
+          border-radius: 15px;
+          padding: 5px 10px;
+          font-weight: bold;
+          box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
           &::after {
-            opacity: 1;
-            transform: scale(1.5);
-            animation: sparkle 1s infinite;
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, transparent 60%);
+            opacity: 0;
+            transform: scale(0);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+          }
+  
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 255, 255, 0.5);
+  
+            &::after {
+              opacity: 1;
+              transform: scale(1.5);
+              animation: sparkle 1s infinite;
+            }
           }
         }
       }
+
     }
   }
 
@@ -240,6 +249,12 @@
         flex-direction: column;
         justify-content: center;
         gap: 10px;
+        .dich-vu-ve {
+          border-radius: 15px;
+          color: #fff;
+          padding: 5px 10px;
+          margin-right: 5px;
+        }
       }
     }
   }

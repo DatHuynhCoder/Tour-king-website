@@ -32,7 +32,7 @@ const Flight = () => {
     <div className='flight-container'>
       <FlightSearchBar />
       <div className="ticket-result-container">
-        <h2 className="result-title">Kết quả tìm kiếm chuyến bay</h2>
+        <h2 className="result-title">Kết quả tìm kiếm vé bay</h2>
         {listTickets.map((ticket_item, index) => (
           <Ticket key={index} ticket_item={ticket_item}/>
         ))}
