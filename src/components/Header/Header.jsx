@@ -63,12 +63,13 @@ const Header = () => {
             <NavLink to={`/User`} className={'nav-link'}>User</NavLink>
             <NavLink to={`/admin`} className={'nav-link'}>Admin</NavLink>
             <NavLink to={`/flight`} className={'nav-link'}>Đặt vé</NavLink>
-            {/* <NavDropdown title="Hỗ trợ" id="basic-nav-dropdown">       
+            <NavLink to={`/about`} className={'nav-link'}>Về chúng tôi</NavLink>
+            <NavDropdown title="Hỗ trợ" id="basic-nav-dropdown">              
               <NavLink to={`/login`} className={'dropdown-item'}>Login</NavLink>
               <NavLink to={`/signup`} className={'dropdown-item'}>Signup</NavLink>
               <NavDropdown.Divider />
               <NavLink to={`/others`} className={'dropdown-item'}>Others</NavLink>
-            </NavDropdown> */}
+            </NavDropdown> 
           </Nav>
           <Nav>
             {/* <NavDropdown title="Tao đã đăng nhập" id="basic-nav-dropdown">              

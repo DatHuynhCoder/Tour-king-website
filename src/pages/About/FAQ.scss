@@ -1,0 +1,24 @@
+.faq-container {
+    padding: 0 15%;
+    text-align: center;
+    .faq-title {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+    .faq-common-text {
+        background-color: #628ECB;
+        color: #fff;
+        padding: 16px 20px;
+        font-size: 24px;
+    }
+    .accordion {
+        margin-bottom: 20px;
+        .accordion-body {
+            background-color: #D3DEF0;
+        }
+    }
+    .faq-logo{
+        max-width: 10%;
+        max-height: 10%;
+    }
+}

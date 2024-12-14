@@ -9,6 +9,7 @@ import './DoiGioBay.scss'
 const data = [
     {
         ID: '1',
+        ten: 'Nguyen van a',
         email: 'trum cua bong toi',
         sdt: 'ai goi la cho',
         loaiND: 'vip nhat o thung lung nay',
@@ -16,6 +17,7 @@ const data = [
     },
     {
         ID: '1',
+        ten: 'Nguyen van a',
         email: 'trum cua bong toi',
         sdt: 'ai goi la cho',
         loaiND: 'vip nhat o thung lung nay',
@@ -23,6 +25,7 @@ const data = [
     },
     {
         ID: '1',
+        ten: 'Nguyen van a',
         email: 'trum cua bong toi',
         sdt: 'ai goi la cho',
         loaiND: 'vip nhat o thung lung nay',
@@ -71,7 +74,8 @@ const NguoiDung = () => {
             <br/>
             <table className = "bang-DoiGioBay">
                 <tr className = "tr-DoiGioBay">
-                    <th className = "th-DoiGioBay">ID</th>
+                    <th className = "th-DoiGioBay">ID chuyến bay</th>
+                    <th className = "th-DoiGioBay">Tên người dùng</th>
                     <th className = "th-DoiGioBay">Email</th>
                     <th className = "th-DoiGioBay">SDT</th>
                     <th className = "th-DoiGioBay">Loại người dùng</th>
@@ -80,7 +84,8 @@ const NguoiDung = () => {
                 {data.map((d) => {
                     return (
                         <tr className = "tr-DoiGioBay">
-                            <td className = "td-DoiGioBay">{d.ID}</td>
+                            <td className = "td-DoiGioBay-id">{d.ID}</td>
+                            <td className = "td-DoiGioBay">{d.ten}</td>
                             <td className = "td-DoiGioBay">{d.email}</td>
                             <td className = "td-DoiGioBay">{d.sdt}</td>
                             <td className = "td-DoiGioBay">{d.loaiND}</td>
