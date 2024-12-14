@@ -20,6 +20,8 @@ import reportWebVitals from './reportWebVitals'
 //using bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { ContextProvider } from './context/Context.jsx'
+
 //read this for more information https://reactrouter.com/en/main/start/tutorial
 import {
   createBrowserRouter,
@@ -92,9 +94,11 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <ContextProvider>
     <RouterProvider router={router}/>
-  </React.StrictMode>
+  </ContextProvider>
+  // </React.StrictMode>
 )
 
 // If you want to start measuring performance in your app, pass a function

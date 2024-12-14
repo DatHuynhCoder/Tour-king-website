@@ -1,15 +1,17 @@
 .Header-container {
   background-color: black;
-  font-size: 22px;
-  margin-bottom: 110px;
+  font-size: 18px;
+  // margin-bottom: 107px;
   .nav-link {
     &:hover {
       color: white;
     }
   }
   .bg-body-tertiary {
-    --bs-bg-opacity: 1;
-    background-color: #378AF6 !important;
-    z-index: 0;
+    // --bs-bg-opacity: 1;
+    // background: linear-gradient(86deg, rgba(170,217,250,1) 15%, rgba(63,185,186,1) 76%, rgba(63,184,183,1) 77%, rgba(57,120,170,1) 100%, rgba(87,146,245,1) 100%);
+    background: linear-gradient(86deg, rgba(170,217,250,1) 1%, rgba(69,181,238,1) 100%, rgba(10,15,108,0.5466561624649859) 100%, rgba(57,120,170,0.6194852941176471) 100%, rgba(87,146,245,1) 100%);
+    // background-color: #378AF6 !important;
+    z-index: 100;
   }
 }

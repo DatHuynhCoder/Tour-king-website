@@ -1,16 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './Password.scss'
-
-
-import { Link } from "react-router-dom";
+import axios from 'axios'
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 export default function PassWord() {
-
-  return (
+    const location = useLocation()
+    const navigate = useNavigate()
+    const resetEmail = location.state?.resetEmail
+    const [password, setPassword] = useState('')
+    const [confirmedPassword, setConfirmedPassword] = useState('')
+    const handleConfirm = () => {
+        if(password === '' || confirmedPassword === '') {
+            alert('Vui lòng nhập đầy đủ các trường !')
+        }
+        else if(password !== confirmedPassword) {
+            alert('Mật khẩu và xác nhận mật khẩu phải giống nhau')
+        }
+        else {
+            axios.post('http://localhost:8800/update-password-by-email', {
+                resetEmail: resetEmail,
+                password: password
+            }).then(res => {
+                if(res.data.Status === 'Error') {
+                    alert('Lỗi')
+                    console.log('Lỗi: ', res.data.Error)
+                }
+                else {
+                    alert('Cập nhật mật khẩu thành công')
+                    navigate('/login')
+                }
+            })
+        }
+    }
+    return (
     <>
-        <h1 className = "dangky">Đăng ký</h1>
+        <h1 className = "dangky">Tạo mật khẩu mới</h1>
         <div className = "tong-password">
             <p className = "tieude">Vui lòng nhập mật khẩu mới <p className = "tour">Tour</p> 
             -<p className = "king">King &nbsp;</p> 
@@ -18,14 +44,18 @@ export default function PassWord() {
 
             <div className = "onhapmk">
                 <h5>Nhập mật khẩu mới</h5>
-                <input type = "text box" className = "mk"></input>
+                <input type = "text box" className = "mk"
+                    onChange={(e) => setPassword(e.target.value)}
+                ></input>
                 <h5>Nhập lại mật khẩu mới</h5>
-                <input type = "text box" className = "nhaplaimk"></input>
+                <input type = "text box" className = "nhaplaimk"
+                    onChange={(e) => setConfirmedPassword(e.target.value)}
+                ></input>
             </div>
             
-            <Link to={'/home'}>
-                <button type="button" className = "nutxacnhandoimk">Xác nhận</button>
-            </Link>
+            <button type="button" className = "nutxacnhandoimk"
+                onClick={() => handleConfirm()}
+            >Xác nhận</button>
 
             
         </div>
