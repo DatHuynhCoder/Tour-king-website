@@ -22,6 +22,7 @@ import TransactionHistory from './pages/User/TransactionHistory.jsx'
 import Payment from './pages/Payment/payment.jsx'
 import PaymentStatus from './pages/Payment/OrderStatus.jsx'
 import CancelBooking from './pages/Payment/CancelBooking.jsx'
+import About from './pages/About/About.jsx'
 
 import reportWebVitals from './reportWebVitals'
 //using bootstrap
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: '/password',
         element: <Password/>
+      },
+      {
+        path: '/about',
+        element: <About/>
       },
       {
         path: "/User",

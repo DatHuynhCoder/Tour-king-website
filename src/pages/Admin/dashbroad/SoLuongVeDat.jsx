@@ -4,41 +4,23 @@ import { BsThreeDots} from "react-icons/bs"
 
 const data = [
     {
-        name: "1-5",
-        uv: 21.4,
+        name: "something",
+        uv: 21.47,
         pv: 2400,
         fill: "#fdc5f5"
     },
     {
-        name: "6-10",
+        name: "bamboo",
         uv: 25.4,
-        pv: 5000,
+        pv: 2000,
         fill: "#f7aef8"
     },
     {
-        name: "11-15",
+        name: "vienamairline",
         uv: 19,
         pv: 1000,
         fill: "#b388eb"
-    },
-    {
-        name: "16-20",
-        uv: 50,
-        pv: 2400,
-        fill: "#82ca9d"
-    },
-    {
-        name: "21-25",
-        uv: 70,
-        pv: 2400,
-        fill: "#8093f1"
-    },
-    {
-        name: "26-30",
-        uv: 10,
-        pv: 2400,
-        fill: "#72ddf7"
-    },
+    }
 
 ]
 

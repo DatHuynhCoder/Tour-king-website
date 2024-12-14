@@ -8,40 +8,33 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import DatePicker from "react-datepicker";
 import Button from 'react-bootstrap/Button';
-import Select from "react-select";
 
 import "react-datepicker/dist/react-datepicker.css";
 //icon
 import { FaPlaneDeparture, FaPlaneArrival, FaSearch } from "react-icons/fa";
 import { FaRegCalendarDays } from "react-icons/fa6";
-import { GoPeople } from "react-icons/go";
+import { MdFlightClass } from "react-icons/md";
 //scss
 import "./FlightSearchBar.scss"
-
-const quantityOptions = [
-  {
-    label: "Người lớn", // Nhãn của nhóm
-    options: Array.from({ length: 5 }, (_, i) => ({
-      value: `adult-${i + 1}`, // Giá trị của mỗi lựa chọn
-      label: `${i + 1} Người lớn`, // Hiển thị trên select
-    })),
-  },
-  {
-    label: "Trẻ em", // Nhãn của nhóm
-    options: Array.from({ length: 5 }, (_, i) => ({
-      value: `child-${i + 1}`, // Giá trị của mỗi lựa chọn
-      label: `${i + 1} Trẻ em`, // Hiển thị trên select
-    })),
-  },
-];
 
 
 const FlightSearchBar = ({ listTickets, setList }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const [selectedOption, setSelectedOption] = useState([]);
+  // const [selectedOption, setSelectedOption] = useState([]);
   const [departurePlace, setDeparturePlace] = useState('');
   const [arrivalPlace, setArrivalPlace] = useState('');
+  const [planeClass, setPlaneClass] = useState('');
+
+  //Chuyển kiểu Date sang "year-month-day" để so sánh với NgayCatCanh
+  const formatStartDate = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Add 1 to getMonth() because months are zero-based
+    const day = String(date.getDate()).padStart(2, '0'); // Pad the day with 0 if needed
+  
+    return `${year}-${month}-${day}`;
+  };
+  
 
   //Lấy danh sách địa điểm đến và đi unique
   const listDeparture = listTickets
@@ -59,12 +52,14 @@ const FlightSearchBar = ({ listTickets, setList }) => {
 
   //Hàm thực hiện chức năng search
   const handleTimVe = () => {
+    const tempStartDate = formatStartDate(startDate);
+    console.log(tempStartDate);
     const filterVe = listTickets.filter((ticket_item) =>
       (!departurePlace || ticket_item.tenddxp === departurePlace) &&
-      (!arrivalPlace || ticket_item.tenddden === arrivalPlace)
+      (!arrivalPlace || ticket_item.tenddden === arrivalPlace) && 
+      (!planeClass || ticket_item.TenLoaiGhe === planeClass) &&
+      (!tempStartDate || ticket_item.NgayCatCanh === tempStartDate)
     );
-    console.log(startDate);
-    console.log(endDate);
     setList(filterVe);
   }
 
@@ -110,17 +105,19 @@ const FlightSearchBar = ({ listTickets, setList }) => {
               </div>
             </Col>
             <Col className="quantity-container">
-              <GoPeople size={30} />
+              <MdFlightClass size={30} />
               <div className="from-to-box">
-                <div className="from-to-txt">Số lượng khách</div>
+                <div className="from-to-txt">Hạng</div>
                 <div>
-                  <Select
-                    isMulti
-                    isSearchable={false}
-                    defaultValue={selectedOption}
-                    onChange={setSelectedOption}
-                    options={quantityOptions}
-                  />
+                  <Form.Select
+                    onChange={(e) => setPlaneClass(e.target.value)}
+                    aria-label="Default select example"
+                    size="sm"
+                  >
+                    <option value="">Bất kỳ</option>
+                    <option value="Thương gia">Thương gia</option>
+                    <option value="Phổ thông">Phổ thông</option>
+                  </Form.Select>
                 </div>
               </div>
             </Col>
