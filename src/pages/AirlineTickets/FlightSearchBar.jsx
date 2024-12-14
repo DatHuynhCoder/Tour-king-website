@@ -122,7 +122,7 @@ const FlightSearchBar = () => {
             <Col className="seacrh-btn-container">
               <Button variant="primary" size="lg" className="find-flight-btn">
                 <FaSearch size={30} />
-                Tìm chuyến bay
+                Tìm vé bay
               </Button>
             </Col>
           </Row>
