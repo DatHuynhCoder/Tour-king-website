@@ -94,6 +94,7 @@ const Ticket = ({ ticket_item }) => {
           <div className="time-box">
             <div className="departure-box">
               <div className="departure-time">{ticket_item.GioCatCanh}</div>
+              <div className="date-departure">{ticket_item.NgayCatCanh}</div>
               <div className="departure-place">{ticket_item.tenddxp}</div>
             </div>
             <div className="journey-box">
@@ -107,6 +108,7 @@ const Ticket = ({ ticket_item }) => {
             </div>
             <div className="arrival-box">
               <div className="arrival-time">{ticket_item.GioDen}</div>
+              <div className="date-arrival">{ticket_item.NgayDen}</div>
               <div className="arrival-place">{ticket_item.tenddden}</div>
             </div>
           </div>
@@ -131,8 +133,14 @@ const Ticket = ({ ticket_item }) => {
         <div className="flight-id">Chuyến bay: {ticket_item.MaChuyenBay}</div>
         <div className="subbox">
           <div className="time-subbox">
-            <div className="departure-time">{ticket_item.GioCatCanh}</div>
-            <div className="arrival-time">{ticket_item.GioDen}</div>
+            <div>
+              <div className="departure-time">{ticket_item.GioCatCanh}</div>
+              <div className="date-departure">{ticket_item.NgayCatCanh}</div>
+            </div>
+            <div>
+              <div className="date-arrival">{ticket_item.NgayDen}</div>
+              <div className="arrival-time">{ticket_item.GioDen}</div>
+            </div>
           </div>
           <div className="vertical-line-container">
             <div className="circle"></div>
@@ -155,9 +163,9 @@ const Ticket = ({ ticket_item }) => {
 
           <div className="subbox-plane-info">
             <div>
-              {ticket_item.GiaiTri ? <span className="dich-vu-ve" style={{backgroundColor: 'blueviolet'}}>🎭 Giải trí</span> : <span></span>}
-              {ticket_item.Sac ? <span className="dich-vu-ve" style={{backgroundColor: '#219C90'}}>⚡ Sạc</span> : <span></span>}
-              {ticket_item.DoAn ? <span className="dich-vu-ve" style={{backgroundColor: '#FFC700'}}>🍔 Đồ ăn</span> : <span></span>}
+              {ticket_item.GiaiTri ? <span className="dich-vu-ve" style={{ backgroundColor: 'blueviolet' }}>🎭 Giải trí</span> : <span></span>}
+              {ticket_item.Sac ? <span className="dich-vu-ve" style={{ backgroundColor: '#219C90' }}>⚡ Sạc</span> : <span></span>}
+              {ticket_item.DoAn ? <span className="dich-vu-ve" style={{ backgroundColor: '#FFC700' }}>🍔 Đồ ăn</span> : <span></span>}
             </div>
             <div className="plane-name"><FcInfo size={30} /> {ticket_item.TenLoaiMayBay} {ticket_item.SoHieuMayBay}</div>
             <div className="hand-luggage"><FaPersonWalkingLuggage size={30} /> Hành lý xách tay: {ticket_item.SoKgHLxachtay} kg</div>
