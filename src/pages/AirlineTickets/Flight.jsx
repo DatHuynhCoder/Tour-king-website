@@ -13,6 +13,8 @@ import './Flight.scss'
 
 const Flight = () => {
   const [listTickets,setListTickets] = useState([]);
+  //Chứa list vé search được
+  const [listTicketsSearch,setListTicketsSearch] = useState([]);
 
   useEffect(()=> {
     const getTickets = async () => {
@@ -20,6 +22,7 @@ const Flight = () => {
         const response = await axios.get('http://localhost:8800/get-all-ticket-info');
         console.log('check ticket data: ', response.data);
         setListTickets(response.data);
+        setListTicketsSearch(response.data);
       }
       catch (error) {
         console.log('Co loi trong qua trinh lay tickets: ', error);
@@ -30,10 +33,10 @@ const Flight = () => {
   },[])
   return (
     <div className='flight-container'>
-      <FlightSearchBar />
+      <FlightSearchBar listTickets={listTickets} setList={setListTicketsSearch} />
       <div className="ticket-result-container">
         <h2 className="result-title">Kết quả tìm kiếm vé bay</h2>
-        {listTickets.map((ticket_item, index) => (
+        {listTicketsSearch.map((ticket_item, index) => (
           <Ticket key={index} ticket_item={ticket_item}/>
         ))}
       </div>
