@@ -11,11 +11,15 @@ $font-family: Arial;
 .layout {
   display: flex; /* Sử dụng Flexbox */
   justify-content: center; /* Căn giữa theo chiều ngang */
-  height: 120vh; /* Chiều cao toàn màn hình */
+  height: 100vh; /* Chiều cao toàn màn hình */
   font-family: Arial, sans-serif;
-  padding: 20px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 15rem;
+  padding-right: 15rem;
   box-sizing: border-box;
-  gap: 20px; /* Khoảng cách giữa hai cột */
+  margin-bottom: 30px;
+  // width: 100rem;
 
   .sidebar {
     width: 250px;
@@ -26,7 +30,7 @@ $font-family: Arial;
     border-radius: 12px;
     box-shadow: 0 2px 6px $shadow-color;
     margin-right: 20px;
-
+    flex: 1;
     .profile {
       display: flex;
       align-items: center;
@@ -75,7 +79,8 @@ $font-family: Arial;
   }
 
   .content {
-    width: 800px; /* Giảm kích thước cột phải */
+    flex: 3;
+    // width: 800px; /* Giảm kích thước cột phải */
     display: flex;
     flex-direction: column;
     gap: 20px;

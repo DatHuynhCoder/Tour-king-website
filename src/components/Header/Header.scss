@@ -6,7 +6,11 @@
     &:hover {
       color: white;
     }
+    .active {
+      background-color: black;
+    }
   }
+  
   .bg-body-tertiary {
     // --bs-bg-opacity: 1;
     // background: linear-gradient(86deg, rgba(170,217,250,1) 15%, rgba(63,185,186,1) 76%, rgba(63,184,183,1) 77%, rgba(57,120,170,1) 100%, rgba(87,146,245,1) 100%);

@@ -5,7 +5,7 @@ const ContextProvider = ({children}) => {
   const [accessToken, setAccessToken] = useState()
   const [refreshToken, setRefreshToken] = useState()
   const [userid, setUserid] = useState()
-  const [name, setName] = useState()
+  const [name, setName] = useState('')
   const [isAdmin, setIsAdmin] = useState(0)
   const [useravatarurl, setUseravatarurl] = useState('')
   return (

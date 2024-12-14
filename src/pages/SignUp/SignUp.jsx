@@ -23,8 +23,7 @@ export default function SignUp() {
         navigate('/login')
       }
       else {
-        console.log('Lỗi khi đăng kí: ', res.data.Error)
-        alert('Đăng kí không thành công')
+        alert(res.data.Error)
       }
     })
   }
