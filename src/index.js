@@ -14,7 +14,13 @@ import ChuyenBay from './pages/Admin/ChuyenBay.jsx'
 import DoiGioBay from './pages/Admin/DoiGioBay.jsx'
 import NguoiDung from './pages/Admin/NguoiDung.jsx'
 import Dashbroad from './pages/Admin/dashbroad/Dashbroad.jsx'
-import About from './pages/About/About.jsx'
+import User from './pages/User/UserProfile.jsx'
+import BookingHistory from './pages/User/BookingHistory.jsx'
+import Refund from './pages/User/Refund.jsx'
+import TransactionHistory from './pages/User/TransactionHistory.jsx'
+import Payment from './pages/Payment/payment.jsx'
+import PaymentStatus from './pages/Payment/OrderStatus.jsx'
+import CancelBooking from './pages/Payment/CancelBooking.jsx'
 
 import reportWebVitals from './reportWebVitals'
 //using bootstrap
@@ -63,9 +69,34 @@ const router = createBrowserRouter([
         element: <Password/>
       },
       {
-        path: '/about',
-        element: <About/>
-      }
+        path: "/User",
+        element: <User/>
+      },
+      {
+        path: '/BookingHistory',
+        element: <BookingHistory/>
+      },
+      {
+        path: '/TransactionHistory',
+        element: <TransactionHistory/>
+      },
+      {
+        path: '/Refund',
+        element: <Refund/>
+      },
+      {
+        path: '/payment',
+        element: <Payment/>
+      },
+      {
+        path: '/paymentstatus',
+        element: <PaymentStatus/>
+      },
+      {
+        path: '/CancelBooking',
+        element: <CancelBooking/>
+      },
+    
     ],
   }, 
   {

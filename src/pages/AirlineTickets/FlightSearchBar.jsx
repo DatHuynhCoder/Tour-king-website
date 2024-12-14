@@ -36,15 +36,38 @@ const quantityOptions = [
 ];
 
 
-const FlightSearchBar = () => {
+const FlightSearchBar = ({ listTickets, setList }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [selectedOption, setSelectedOption] = useState([]);
+  const [departurePlace, setDeparturePlace] = useState('');
+  const [arrivalPlace, setArrivalPlace] = useState('');
+
+  //Lấy danh sách địa điểm đến và đi unique
+  const listDeparture = listTickets
+    .map((place) => place.tenddxp)
+    .filter((departure, index, self) => self.indexOf(departure) === index);
+
+  const listArrival = listTickets
+    .map((place) => place.tenddden)
+    .filter((arrival, index, self) => self.indexOf(arrival) === index);
 
   //Hàm tìm thứ
   const getDayOfWeek = (date) => {
     return date.toLocaleDateString("vi-VN", { weekday: "long" });
   };
+
+  //Hàm thực hiện chức năng search
+  const handleTimVe = () => {
+    const filterVe = listTickets.filter((ticket_item) =>
+      (!departurePlace || ticket_item.tenddxp === departurePlace) &&
+      (!arrivalPlace || ticket_item.tenddden === arrivalPlace)
+    );
+    console.log(startDate);
+    console.log(endDate);
+    setList(filterVe);
+  }
+
   return (
     <div className="flight-search-bar-container">
       <div className="search-container">
@@ -55,12 +78,17 @@ const FlightSearchBar = () => {
               <div className="from-to-box">
                 <div className="from-to-txt">Từ</div>
                 <div>
-                  <Form.Select aria-label="Default select example" size="sm">
-                    <option>Chọn nơi xuất phát</option>
-                    <option value="1">TP HCM</option>
-                    <option value="2">Hà Nội</option>
-                    <option value="3">Huế</option>
+                  <Form.Select
+                    onChange={(e) => setDeparturePlace(e.target.value)}
+                    aria-label="Default select example"
+                    size="sm"
+                  >
+                    <option value="">Chọn nơi xuất phát</option>
+                    {listDeparture.map((item, index) =>
+                      <option key={index} value={item}>{item}</option>
+                    )}
                   </Form.Select>
+
                 </div>
               </div>
               <div className="v-line"></div>
@@ -68,11 +96,15 @@ const FlightSearchBar = () => {
               <div className="from-to-box">
                 <div className="from-to-txt">Đến</div>
                 <div>
-                  <Form.Select aria-label="Default select example" size="sm">
-                    <option>Chọn nơi đến</option>
-                    <option value="1">TP HCM</option>
-                    <option value="2">Hà Nội</option>
-                    <option value="3">Huế</option>
+                  <Form.Select
+                    onChange={(e) => setArrivalPlace(e.target.value)}
+                    aria-label="Default select example"
+                    size="sm"
+                  >
+                    <option value="">Chọn nơi đến</option>
+                    {listArrival.map((item, index) =>
+                      <option key={index} value={item}>{item}</option>
+                    )}
                   </Form.Select>
                 </div>
               </div>
@@ -120,9 +152,14 @@ const FlightSearchBar = () => {
               </div>
             </Col>
             <Col className="seacrh-btn-container">
-              <Button variant="primary" size="lg" className="find-flight-btn">
+              <Button
+                variant="primary"
+                size="lg"
+                className="find-flight-btn"
+                onClick={handleTimVe}
+              >
                 <FaSearch size={30} />
-                Tìm chuyến bay
+                Tìm vé bay
               </Button>
             </Col>
           </Row>
