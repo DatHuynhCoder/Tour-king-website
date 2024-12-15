@@ -18,7 +18,7 @@ import { MdFlightClass } from "react-icons/md";
 import "./FlightSearchBar.scss"
 
 
-const FlightSearchBar = ({ listTickets, setList }) => {
+const FlightSearchBar = ({ listFlights, setListFlightsSearch }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   // const [selectedOption, setSelectedOption] = useState([]);
@@ -37,11 +37,11 @@ const FlightSearchBar = ({ listTickets, setList }) => {
   
 
   //Lấy danh sách địa điểm đến và đi unique
-  const listDeparture = listTickets
+  const listDeparture = listFlights
     .map((place) => place.tenddxp)
     .filter((departure, index, self) => self.indexOf(departure) === index);
 
-  const listArrival = listTickets
+  const listArrival = listFlights
     .map((place) => place.tenddden)
     .filter((arrival, index, self) => self.indexOf(arrival) === index);
 
@@ -54,13 +54,13 @@ const FlightSearchBar = ({ listTickets, setList }) => {
   const handleTimVe = () => {
     const tempStartDate = formatStartDate(startDate);
     console.log(tempStartDate);
-    const filterVe = listTickets.filter((ticket_item) =>
+    const filterVe = listFlights.filter((ticket_item) =>
       (!departurePlace || ticket_item.tenddxp === departurePlace) &&
       (!arrivalPlace || ticket_item.tenddden === arrivalPlace) && 
       (!planeClass || ticket_item.TenLoaiGhe === planeClass) &&
       (!tempStartDate || ticket_item.NgayCatCanh === tempStartDate)
     );
-    setList(filterVe);
+    setListFlightsSearch(filterVe);
   }
 
   return (

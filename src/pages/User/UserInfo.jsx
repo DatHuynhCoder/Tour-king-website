@@ -102,6 +102,7 @@ const UserInfo = () => {
     }
   }
 
+
   //update user for modal
   useEffect(() => {
     if (user.length > 0) {

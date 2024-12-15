@@ -59,7 +59,7 @@ function getLabelText(ratingValue) {
   return `${ratingValue} Star${ratingValue !== 1 ? 's' : ''}, ${labels[ratingValue]}`;
 }
 
-const Ticket = ({ ticket_item }) => {
+const Ticket = ({ ticket_item, handleShow }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [ratingValue, setValue] = React.useState(0);
   const [ratingHover, setHover] = React.useState(-1);
@@ -122,11 +122,11 @@ const Ticket = ({ ticket_item }) => {
         </div>
         <div className="price-box">
           <div className="sub-price-box">
-            <div className="price-box-chair-id">Mã ghế: <span style={{ fontWeight: 'bold', fontSize: '20px' }}>{ticket_item.MaGhe}</span></div>
+            {/* <div className="price-box-chair-id">Mã ghế: <span style={{ fontWeight: 'bold', fontSize: '20px' }}>{ticket_item.MaGhe}</span></div> */}
             <div className={`${ticket_item.TenLoaiGhe === "Thương gia" ? "thuonggia" : "phothong"}`}>{ticket_item.TenLoaiGhe}</div>
           </div>
           <div className="price"><span style={{ color: 'green', fontWeight: 'bold' }}>{ticket_item.Gia}</span> / Khách</div>
-          <Button variant="primary" style={{ fontWeight: 'bold' }}>Đặt vé</Button>
+          <Button variant="primary" style={{ fontWeight: 'bold' }} onClick={() => handleShow(ticket_item)}>Đặt vé</Button>
         </div>
       </div>
       <div className={`sub-container ${isOpen ? "open" : ""}`}>
