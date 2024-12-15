@@ -24,8 +24,22 @@ import { FaArrowRight } from "react-icons/fa";
 
 import axios from 'axios'
 
-const destination = ['Đà Nẵng', 'Cần Thơ', 'Hà Nội', 'Hồ Chí Minh', 'Thừa Thiên Huế']
+import DaNang from '../../assets/danang.jpg'
+import TpHCM from '../../assets/tphcm.png'
+import CanTho from '../../assets/cantho.jpg'
+import Hanoi from '../../assets/hanoi.jpg'
+import ThuaThienHue from '../../assets/thuathienhue.jpg'
+import NotFound from '../../assets/notfound.jpg'
 
+
+const destination = ['Đà Nẵng', 'Cần Thơ', 'Hà Nội', 'Hồ Chí Minh', 'Thừa Thiên Huế']
+const illustrate = {
+  'Đà Nẵng': require('../../assets/danang.jpg'),
+  'Cần Thơ': require('../../assets/cantho.jpg'), 
+  'Hà Nội': require('../../assets/hanoi.jpg'), 
+  'Hồ Chí Minh': require('../../assets/tphcm.png'), 
+  'Thừa Thiên Huế': require('../../assets/thuathienhue.jpg')
+}
 const MultiCarousel = ({Airline}) => {
   const [selectedAirline, setSelectedAirline] = useState()
 
@@ -38,9 +52,7 @@ const MultiCarousel = ({Airline}) => {
   }
   const [selected, setSelected] = useState([])
   const handleChangeDesination = (destinationName) => {
-    console.log(destinationName)
     axios.get('http://localhost:8800/get-flight-by-airline?destination=' + destinationName + '&airline=' + Airline).then(res => {
-      console.log('check data: ', res.data)
       setSelected(res.data)
     })
   }
@@ -60,19 +72,25 @@ const MultiCarousel = ({Airline}) => {
         <Slider {...settings}>
           {selected.length > 0 ? selected.map((item) => (
             <Card style={{ width: '18rem'}}>
-              <Card.Img variant="top" src={pic1}/>
+              <Card.Img variant="top" src={illustrate[selected[0].TenDiaDiem]}/>
               <Card.Body>
-                <Card.Title>{item.TenDiaDiem}</Card.Title>
+                <Card.Title>
+                  <span style={{textShadow: '1px 1px'}}>
+                    {item.TenDiaDiem}
+                  </span>
+                </Card.Title>
                 <Card.Text>
-                  Hãng: {item.TenHang}<br></br>
-                  Điểm đến: {item.TenSanBay}<br></br>
-                  Ngày cất cánh: {item.NgayCatCanh.slice(0, 10)}<br></br>
-                  Giờ cất cánh: {item.GioCatCanh.slice(0, 5)}
+                  <b>Hãng:</b> {item.TenHang}<br></br>
+                  <b>Điểm đến:</b> {item.TenSanBay}<br></br>
+                  <b>Ngày cất cánh:</b> {item.NgayCatCanh.slice(0, 10)}<br></br>
+                  <b>Giờ cất cánh:</b> {item.GioCatCanh.slice(0, 5)}
                 </Card.Text>
                 <Button variant="outline-primary" onClick={() => {
-                  navigate('/flight', {
+                  navigate(`/flight?hang=${item.MaHang}&tu=${item.MaDiemXuatPhat}&den=${item.MaDiemDen}`, {
                     state: {
-                      destination: '',
+                      hang: item.MaHang,
+                      tu: item.MaDiemXuatPhat,
+                      den: item.MaDiemDen
                     }
                   })
                 }}>Đặt ngay</Button>
@@ -81,14 +99,14 @@ const MultiCarousel = ({Airline}) => {
           )) 
           : 
           <Card style={{ width: '18rem'}}>
-            <Card.Img variant="top" src={pic1}/>
+            <Card.Img variant="top" src={NotFound}/>
             <Card.Body>
               <Card.Title>Loading ...</Card.Title>
               <Card.Text>
-                Hãng: Loading ...<br></br>
-                Điểm đến: Loading ...<br></br>
-                Ngày cất cánh: Loading ...<br></br>
-                Giờ cất cánh: Loading ...
+                <b>Hãng:</b> Loading ...<br></br>
+                <b>Điểm đến:</b> Loading ...<br></br>
+                <b>Ngày cất cánh:</b> Loading ...<br></br>
+                <b>Giờ cất cánh:</b> Loading ...
               </Card.Text>
               <Button variant="outline-primary" onClick={() => {
                 console.log('nothing here')

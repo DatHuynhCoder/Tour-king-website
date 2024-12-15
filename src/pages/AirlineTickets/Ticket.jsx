@@ -122,7 +122,7 @@ const Ticket = ({ ticket_item }) => {
         </div>
         <div className="price-box">
           <div className="sub-price-box">
-            <div className="price-box-chair-id">Mã ghế: <span style={{ fontWeight: 'bold', fontSize: '20px' }}>{ticket_item.MaGhe}</span></div>
+            {/* <div className="price-box-chair-id">Mã ghế: <span style={{ fontWeight: 'bold', fontSize: '20px' }}>{ticket_item.MaGhe}</span></div> */}
             <div className={`${ticket_item.TenLoaiGhe === "Thương gia" ? "thuonggia" : "phothong"}`}>{ticket_item.TenLoaiGhe}</div>
           </div>
           <div className="price"><span style={{ color: 'green', fontWeight: 'bold' }}>{ticket_item.Gia}</span> / Khách</div>
