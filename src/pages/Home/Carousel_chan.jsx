@@ -23,8 +23,8 @@ const Carousel_chan = () => {
           />
         </div>
         <Carousel.Caption>
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h5>Khám phá mọi miền, trải nghiệm không giới hạn!</h5>
+          {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -36,8 +36,8 @@ const Carousel_chan = () => {
           />
         </div>
         <Carousel.Caption>
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h5>Chuyến đi hoàn hảo bắt đầu từ đây!</h5>
+          {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -49,10 +49,10 @@ const Carousel_chan = () => {
           />
         </div>
         <Carousel.Caption>
-          <h5>Third slide label</h5>
-          <p>
+          <h5>Hành trình tuyệt vời, giá trị vượt trội – Du lịch ngay hôm nay!</h5>
+          {/* <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          </p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -64,10 +64,10 @@ const Carousel_chan = () => {
           />
         </div>
         <Carousel.Caption>
-          <h5>Fourth slide label</h5>
-          <p>
+          <h5>Du lịch không chỉ là đến nơi, mà là tận hưởng từng khoảnh khắc!</h5>
+          {/* <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          </p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -79,10 +79,10 @@ const Carousel_chan = () => {
           />
         </div>
         <Carousel.Caption>
-          <h5>Fifth slide label</h5>
-          <p>
+          <h5>Đi đâu cũng dễ dàng, cùng chúng tôi khám phá thế giới!</h5>
+          {/* <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          </p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -94,10 +94,10 @@ const Carousel_chan = () => {
           />
         </div>
         <Carousel.Caption>
-          <h5>Sixth slide label</h5>
-          <p>
+          <h5>Mỗi chuyến đi là một kỷ niệm, mỗi khoảnh khắc là một trải nghiệm!</h5>
+          {/* <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          </p> */}
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
