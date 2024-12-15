@@ -83,7 +83,7 @@ const UserProfile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // In ra console để kiểm tra dữ liệu
-    const birth = `${birthYear}-${birthMonth}-${birthDay}` 
+    const birth = `${birthYear}-${birthMonth}-${birthDay}`
     if(!isAllNumbers(phone)) {
       alert('Số điện thoại không hợp lệ')
     }
