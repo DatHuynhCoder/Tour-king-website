@@ -31,29 +31,30 @@ const TransactionHistory = () => {
   const [endDate, setEndDate] = useState(null);
 
   return (
-    <div className="layout">
-      {/* Sidebar */}
-      <div className="sidebar">
-        <div className="profile">
-          <div className="avatar"></div>
-          <div className="name">TRẦN MINH</div>
-        </div>
-        <ul className="menu">
-          <li className="menu-item" onClick={handleProfile}>
-            <FaUser className="menu-icon" /> TÀI KHOẢN
-          </li>
-          <li className="menu-item" onClick={handleBookingHistory}>
-            <FaShoppingCart className="menu-icon" /> ĐẶT CHỖ CỦA TÔI
-          </li>
-          <li className="menu-item" onClick={handleTransactionHistory}>
-            <FaListAlt className="menu-icon" /> DANH SÁCH GIAO DỊCH
-          </li>
-          <li className="menu-item" onClick={handleRefund}>
-            <FaMoneyBillAlt className="menu-icon" /> YÊU CẦU HOÀN TIỀN
-          </li>
-        </ul>
-      </div>
-
+    
+    // <div className="layout">
+    //   {/* Sidebar */}
+    //   <div className="sidebar">
+    //     <div className="profile">
+    //       <div className="avatar"></div>
+    //       <div className="name">TRẦN MINH</div>
+    //     </div>
+    //     <ul className="menu">
+    //       <li className="menu-item" onClick={handleProfile}>
+    //         <FaUser className="menu-icon" /> TÀI KHOẢN
+    //       </li>
+    //       <li className="menu-item" onClick={handleBookingHistory}>
+    //         <FaShoppingCart className="menu-icon" /> ĐẶT CHỖ CỦA TÔI
+    //       </li>
+    //       <li className="menu-item" onClick={handleTransactionHistory}>
+    //         <FaListAlt className="menu-icon" /> DANH SÁCH GIAO DỊCH
+    //       </li>
+    //       <li className="menu-item" onClick={handleRefund}>
+    //         <FaMoneyBillAlt className="menu-icon" /> YÊU CẦU HOÀN TIỀN
+    //       </li>
+    //     </ul>
+    //   </div>
+    <>
       {/* Main Content */}
       <div className="content">
         {/* Date Filter */}
@@ -127,7 +128,9 @@ const TransactionHistory = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
+    // </div>
+    
   );
 };
 

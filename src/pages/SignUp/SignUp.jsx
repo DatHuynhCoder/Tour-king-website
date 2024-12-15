@@ -13,7 +13,13 @@ export default function SignUp() {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmedPassword, setConfirmedPassword] = useState('')
+
   const handleSignup = () => {
+    if(password !== confirmedPassword) {
+      alert('Xác nhận mật khẩu không đúng')
+    }
+    else
     axios.post('http://localhost:8800/register', {
       email,
       password
@@ -23,8 +29,7 @@ export default function SignUp() {
         navigate('/login')
       }
       else {
-        console.log('Lỗi khi đăng kí: ', res.data.Error)
-        alert('Đăng kí không thành công')
+        alert(res.data.Error)
       }
     })
   }
@@ -44,9 +49,14 @@ export default function SignUp() {
                   onChange={(e) => setEmail(e.target.value)}
                 ></input>
                 <h5>Mật khẩu</h5>
-                <input type = "text box" className = "taikhoan"
+                <input type = "password" className = "taikhoan"
                   onChange={(e) => setPassword(e.target.value)}
                 ></input>
+                <h5>Xác nhận mật khẩu</h5>
+                <input type = "password" className = "taikhoan"
+                  onChange={(e) => setConfirmedPassword(e.target.value)}
+                ></input>
+                <i>Lưu ý: Khi bấm Đăng ký tức là bạn đã đồng ý với điều kiện giao dịch chung & chính sách bảo mật của chúng tôi</i>
             </div>
             
             <button type="button" className = "nutdangky"
