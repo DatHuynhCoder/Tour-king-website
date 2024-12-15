@@ -1,0 +1,51 @@
+
+
+.user-info-container {
+  flex: 3;
+  // width: 800px; /* Giảm kích thước cột phải */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .user-sub-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  .card {
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  .card-body {
+    padding: 1rem;
+    flex: 1 1 auto;
+    text-align: left;
+    .info-type {
+      font-size: 18px;
+      font-weight: bold;
+      color: #385986;
+    }
+
+    .user-name {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .text-secondary {
+    color: #718096;
+  }
+
+  .progress-bar {
+    background-color: #4a5568;
+  }
+
+  .btn {
+    &.me-2 {
+      margin-right: 0.5rem;
+    }
+  }
+}
