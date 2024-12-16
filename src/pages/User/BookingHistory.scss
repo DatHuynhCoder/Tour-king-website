@@ -7,7 +7,8 @@ $shadow-color: #8aaee0;
 $text-color: #555;
 $font-family: 'Arial', sans-serif;
 
-  /* Current Bookings Section */
+/* Current Bookings Section */
+.booking-history-container {
   .current-bookings {
     display: flex;
     flex-direction: column;
@@ -15,7 +16,7 @@ $font-family: 'Arial', sans-serif;
 
     .booking-item {
       display: flex;
-      align-items: center;
+      flex-direction: column;
       padding: 15px;
       background-color: $background-color;
       border: 1px solid $primary-color;
@@ -27,31 +28,124 @@ $font-family: 'Arial', sans-serif;
         background-color: lighten($primary-color, 40%);
       }
 
-      .booking-image {
-        width: 60px;
-        height: 60px;
-        object-fit: cover;
-        border-radius: 50%;
-        margin-right: 15px;
+      .booking-name {
+        color: #545252;
+        font-size: 20px;
+        margin-bottom: 10px;
       }
 
       .booking-info {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        gap: 10px;
 
-        .booking-name {
-          font-weight: bold;
-          margin-bottom: 5px;
+        .vertical-line-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .circle {
+            width: 15px;
+            height: 15px;
+            background: radial-gradient(circle, #ffffff, #dbeafe, #93c5fd);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
+          }
+
+          .line {
+            width: 4px;
+            height: 200px;
+            background: linear-gradient(to bottom, #3c11cb, #2575fc);
+            box-shadow: 0 0 15px rgba(147, 197, 253, 0.5);
+          }
         }
 
-        .booking-details {
-          font-size: 14px;
-          color: $text-color;
+        .booking-info-box1 {
+          flex: 1;
+          flex-direction: column;
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .booking-info-box2 {
+          flex: 1;
+          .user-type-info {
+            color: $primary-color;
+            font-weight: bold;
+            margin-top: 5px;
+          }
+        }
+
+        .booking-info-box3 {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          .phothong {
+            background: rgb(206, 197, 196);
+            background: radial-gradient(circle, rgba(206, 197, 196, 1) 21%, rgba(204, 204, 204, 1) 84%);
+            color: #fff;
+            border-radius: 15px;
+            padding: 5px 10px;
+            font-weight: bold;
+            align-self: center;
+          }
+    
+          .thuonggia {
+            background: linear-gradient(45deg, #ffd700, #ff8c00);
+            color: white;
+            border-radius: 15px;
+            padding: 5px 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            align-self: center;
+    
+            &::after {
+              content: "";
+              position: absolute;
+              top: -50%;
+              left: -50%;
+              width: 200%;
+              height: 200%;
+              background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, transparent 60%);
+              opacity: 0;
+              transform: scale(0);
+              transition: transform 0.6s ease, opacity 0.6s ease;
+            }
+    
+            &:hover {
+              transform: scale(1.05);
+              box-shadow: 0 6px 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 255, 255, 0.5);
+    
+              &::after {
+                opacity: 1;
+                transform: scale(1.5);
+                animation: sparkle 1s infinite;
+              }
+            }
+          }
+
+          .user-type-info {
+            color: $primary-color;
+            font-weight: bold;
+            margin-top: 5px;
+          }
+
+          .price-box {
+            color: yellowgreen;
+            font-size: 20px;
+            font-weight: bold;
+          }
         }
       }
     }
   }
 
+  
   /* History Link */
   .history-link {
     color: $primary-color;
@@ -62,6 +156,7 @@ $font-family: 'Arial', sans-serif;
       text-decoration: underline;
     }
   }
+
   .cancel-dialog {
     position: fixed;
     top: 0;
@@ -73,14 +168,14 @@ $font-family: 'Arial', sans-serif;
     justify-content: center;
     align-items: center;
   }
-  
+
   .dialog-content {
     background: white;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
   }
-  
+
   .dialog-content button {
     margin: 10px;
     padding: 10px 20px;
@@ -90,7 +185,8 @@ $font-family: 'Arial', sans-serif;
     border-radius: 5px;
     cursor: pointer;
   }
-  
+
   .dialog-content button:hover {
     background-color: #0056b3;
   }
+}
