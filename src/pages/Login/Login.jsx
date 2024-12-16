@@ -147,7 +147,6 @@ export default function Login() {
                   />
           </Link>
         </div>
-        <Link to={'/otp'} className = "dangnhapbangma">Hoặc, đăng nhập bằng mã bảo mật</Link>
       </div>
       
     </div>

@@ -17,36 +17,10 @@ import { IoSearch } from "react-icons/io5";
 
 import axios from 'axios'
 
-const data = [
-    {
-        ID: '1',
-        ten: 'darklord',
-        email: 'trum cua bong toi',
-        sdt: 'ai goi la cho',
-        loaiND: 'vip nhat o thung lung nay',
-        isBan: 't la trum ai dam ban t',
-    },
-    {
-        ID: '1',
-        ten: 'darklord',
-        email: 'trum cua bong toi',
-        sdt: 'ai goi la cho',
-        loaiND: 'vip nhat o thung lung nay',
-        isBan: 't la trum ai dam ban t',
-    },
-    {
-        ID: '1',
-        ten: 'darklord',
-        email: 'trum cua bong toi',
-        sdt: 'ai goi la cho',
-        loaiND: 'vip nhat o thung lung nay',
-        isBan: 't la trum ai dam ban t',
-    }
-]
-
 const NguoiDung = () => {
   const [allUsers, setAllUsers] = useState([])
   const [search, setSearch] = useState('')
+  const [filter, setFilter] = useState()
   const [rerender, setRerender] = useState(false)
   useEffect(() => {
     axios.get(`http://localhost:8800/get-all-user`).then(res => {
@@ -79,8 +53,8 @@ const NguoiDung = () => {
       (item.MaNguoiDung && JSON.stringify(item.MaNguoiDung).toLowerCase().includes(searchLower)) ||
       (item.Email && item.Email.toLowerCase().includes(searchLower)) ||
       (item.SDT && item.SDT.toLowerCase().includes(searchLower))
-    );
-  });
+    )
+  })
   return (
     <>
     <div>
@@ -94,19 +68,23 @@ const NguoiDung = () => {
             aria-describedby="basic-addon2"
             onChange={(e) => setSearch(e.target.value)}
           />
-          <Button variant="outline-secondary" id="button-addon2" onClick={() => {
-            
-          }}>
+          {/* <Button variant="outline-secondary" id="button-addon2" onClick={() => {}}>
             <IoSearch size={25} />
-          </Button>
+          </Button> */}
         </InputGroup>
       </div>
       <br/>
       <div className = "custome-select-NguoiDung">
         <label for="select-NguoiDung-isBan">Bị Cấm: &nbsp;</label>
-        <select className="select-NguoiDung-isBan" name="select-NguoiDung-isBan">
-          <option value="searchsomething">vua chúa mà ai dám ban tao</option>
-          <option value="searchsomething">vua chúa mà ai dám ban tao</option>
+        <select className="select-NguoiDung-isBan" name="select-NguoiDung-isBan"
+          onChange={(e) => {
+            console.log(e.target.value)
+            setFilter(e.target.value)
+          }}
+        >
+          <option value="">Chọn</option>
+          <option value="1">Có</option>
+          <option value="0">Không</option>
         </select>
       </div>
       <Table striped bordered hover>
@@ -116,7 +94,6 @@ const NguoiDung = () => {
           <th>Tên người dùng</th>
           <th>Email</th>
           <th>SDT</th>
-          {/* <th>Loại người dùng</th> */}
           <th>Ban</th>
           <th>Thao tác</th>
         </tr>

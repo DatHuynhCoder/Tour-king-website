@@ -4,6 +4,7 @@ import DefaultAvatar from '../../assets/defaultAvatar.png'
 import Button from 'react-bootstrap/Button'
 import { RiUserForbidFill } from "react-icons/ri";
 import { FaUserCheck } from "react-icons/fa";
+import { MdRefresh } from "react-icons/md";
 import Table from 'react-bootstrap/Table'
 
 import Form from 'react-bootstrap/Form';
@@ -44,10 +45,11 @@ const RefundManage = () => {
   const filteredData = listCTDV.filter(item => {
     const searchLower = search.toLowerCase(); // Chuyển text nhập thành chữ thường
     return (
+      (item.ID_ChitietDatVe && JSON.stringify(item.ID_ChitietDatVe).toLowerCase().includes(searchLower)) ||
       (item.TenDayDu && item.TenDayDu.toLowerCase().includes(searchLower)) ||
-      (item.ID_ChitietDatVe && JSON.stringify(item.MaNguoiDung).toLowerCase().includes(searchLower)) ||
-      (item.Email && item.Email.toLowerCase().includes(searchLower)) ||
-      (item.SDT && item.SDT.toLowerCase().includes(searchLower))
+      (item.SDT && item.SDT.toLowerCase().includes(searchLower)) ||
+      (item.QuocTich && item.QuocTich.toLowerCase().includes(searchLower)) ||
+      (item.MaHoChieu && item.MaHoChieu.toLowerCase().includes(searchLower))
     );
   });
   const handleAcceptOrRefuse = (ID_ChitietDatVe, TinhTrang) => {
@@ -78,9 +80,10 @@ const RefundManage = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
           <Button variant="outline-secondary" id="button-addon2" onClick={() => {
-            
+            setRerender(!rerender)
           }}>
-            <IoSearch size={25} />
+            <MdRefresh size={26}/>
+            Refresh
           </Button>
         </InputGroup>
       </div>
