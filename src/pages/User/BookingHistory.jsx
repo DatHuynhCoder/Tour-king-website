@@ -5,6 +5,7 @@ import { FaUser, FaShoppingCart, FaListAlt, FaMoneyBillAlt } from 'react-icons/f
 import { ContextStore } from '../../context/Context';
 import axios from 'axios';
 import { PiAirplaneTiltFill } from "react-icons/pi";
+import { Button } from 'react-bootstrap';
 
 const BookingHistory = () => {
   const {
@@ -15,15 +16,8 @@ const BookingHistory = () => {
     isAdmin, setIsAdmin,
     useravatarurl, setUseravatarurl
   } = useContext(ContextStore);
-  const navigate = useNavigate();
-  const [selectedBooking, setSelectedBooking] = useState(null);
   //getlistdata
   const [listVeDat, setListveDat] = useState([]);
-
-  const handleCancelBooking = () => {
-    // Redirect to the cancel booking page with the selected booking info
-    navigate('/CancelBooking', { state: { booking: selectedBooking } });
-  };
 
   //get list chi tiet dat ve
   const getlistDatVe = async () => {
@@ -41,6 +35,22 @@ const BookingHistory = () => {
       console.log(respone.data);
     } catch (error) {
       console.log('Error fetching get list chi tiet dat ve', error);
+    }
+  }
+
+  const handleHoanTra = (id_ctdv) => {
+    if (accessToken) {
+      const changeTrangThaiCTDV = async () => {
+        try {
+          const info = { ID_ChitietDatVe: id_ctdv }
+          const respone = await axios.put('http://localhost:8800/update-chitietdatve-to-CXL', info);
+          console.log(respone.data);
+        } catch (error) {
+          console.log("Can't update trang thai")
+        }
+      }
+      changeTrangThaiCTDV();
+      getlistDatVe();
     }
   }
 
@@ -117,7 +127,23 @@ const BookingHistory = () => {
                   <div className='user-type-info'>Ngày mua vé:</div>
                   <div>{formatDateToDMY(item.NgayMua)}</div>
                   <div className='price-box'>{item.Gia} VND</div>
-                  <div className="booking-details">{item.TinhTrang}</div>
+                  {item.TinhTrang === "BT" &&
+                    <>
+                      <div style={{ color: 'green', fontWeight: '600' }}>Đặt chỗ thành công ✔️</div>
+                      <Button
+                        onClick={() => handleHoanTra(item.ID_ChitietDatVe)}
+                        variant='outline-warning'
+                      >Hoàn trả</Button>
+                    </>
+                  }
+
+                  {item.TinhTrang === "CXL" &&
+                    <div style={{ color: 'blue', fontWeight: '600' }}>Đang xử lý hoàn trả..⌛</div>
+                  }
+
+                  {item.TinhTrang === "DH" &&
+                    <div style={{ color: 'red', fontWeight: '600' }}>Đặt chỗ đã bị hủy ❌</div>
+                  }
                 </div>
 
               </div>
