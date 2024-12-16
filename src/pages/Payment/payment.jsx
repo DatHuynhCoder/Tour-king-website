@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useLoaderData, useLocation } from 'react-router-dom';
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import './Payment.scss';
 import axios from 'axios'
 
 const PaymentPage = () => {
   const location = useLocation()
+  const navigate = useNavigate()
   const [items, setItems] = useState([
     { id: 1, name: 'Flight to New York', price: 7000000, seat: '12A', class: 'Economy' },
     { id: 2, name: 'Flight to Tokyo', price: 18000000, seat: '7C', class: 'Business' },
@@ -146,6 +147,7 @@ const PaymentPage = () => {
             default:
               alert('Please select a payment method.');
           }
+          navigate(-1)
         }
       })
     }
