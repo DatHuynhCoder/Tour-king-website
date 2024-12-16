@@ -14,6 +14,7 @@ import ChuyenBay from './pages/Admin/ChuyenBay.jsx'
 import DoiGioBay from './pages/Admin/DoiGioBay.jsx'
 import NguoiDung from './pages/Admin/NguoiDung.jsx'
 import Dashbroad from './pages/Admin/dashbroad/Dashbroad.jsx'
+import RefundManage from './pages/Admin/RefundManage.jsx'
 import User from './pages/User/User.jsx'
 import UserInfo from './pages/User/UserInfo.jsx'
 import BookingHistory from './pages/User/BookingHistory.jsx'
@@ -130,6 +131,10 @@ const router = createBrowserRouter([
       {
         path: '/admin/doigiobay',
         element: <DoiGioBay/>
+      },
+      {
+        path: '/admin/hoanve',
+        element: <RefundManage/>
       }
     ]
   }

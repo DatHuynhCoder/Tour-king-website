@@ -39,7 +39,7 @@ const User = () => {
       <div className="sidebar">
         <div className="profile">
           <div className="avatar">
-            <img src={useravatarurl ? useravatarurl : DefaultAvatar} style={{maxWidth: '100%', borderRadius: '50%'}}/>
+            <img src={useravatarurl ? useravatarurl : DefaultAvatar} style={{width: '50px', height: '50px', borderRadius: '50%'}}/>
           </div>
           <div className="name">{name === '' ? 'Loading ...' : name}</div>
         </div>

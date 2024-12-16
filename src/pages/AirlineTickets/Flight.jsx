@@ -144,10 +144,13 @@ const Flight = () => {
       <div className='flight-container'>
         <FlightSearchBar listFlights={listFlights} setListFlightsSearch={setListFlightsSearch} />
         <div className="ticket-result-container">
-          <h2 className="result-title">Kết quả tìm kiếm vé bay</h2>
-          {listFlightsSearch.map((ticket_item, index) => (
+          <h2 className="result-title">Kết quả tìm kiếm chuyến bay</h2>
+          {listFlightsSearch.length > 0 ? listFlightsSearch.map((ticket_item, index) => (
             <Ticket key={index} ticket_item={ticket_item} handleShow={handleShow}/>
-          ))}
+          ))
+          :
+          <div>Not found</div>
+        }
         </div>
         <FlightAchievements />
       </div>
