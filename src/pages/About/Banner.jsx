@@ -15,8 +15,8 @@ const Banner = () => {
             <Image src={BannerPic} alt="Banner about" className="banner" fluid />
             </div>
             <div className="banner-content">
-                <div className="banner-title">Tour_king</div>
-                <div className="banner-text">Website đặt vé máy bay số một thế giới</div>
+                <div className="banner-title">Tour King</div>
+                <div className="banner-text">Du lịch thông minh – Trải nghiệm tuyệt vời - Chi phí hợp lý</div>
             </div>
         </div>
     )

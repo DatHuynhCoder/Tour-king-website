@@ -8,12 +8,12 @@ import Banner from './Banner'
 import FAQ from './FAQ'
 
 //pic for policy
-import policy_pic1 from '../../assets/test_about.jpg'
-import policy_pic2 from '../../assets/test_about.jpg'
-import policy_pic3 from '../../assets/test_about.jpg'
-import policy_pic4 from '../../assets/test_about.jpg'
-import policy_pic5 from '../../assets/test_about.jpg'
-import policy_pic6 from '../../assets/test_about.jpg'
+import policy_pic1 from '../../assets/policy1.jpg'
+import policy_pic2 from '../../assets/policy2.jpg'
+import policy_pic3 from '../../assets/policy3.jpg'
+import policy_pic4 from '../../assets/policy4.jpg'
+import policy_pic5 from '../../assets/policy5.jpg'
+import policy_pic6 from '../../assets/policy6.jpg'
 
 
 const About = () => {
@@ -72,7 +72,7 @@ const About = () => {
       answer: `Tất nhiên. Chính sách của chúng tôi là bảo vệ quyền riêng tư của người dùng bằng mọi cách.`
     },
     {
-      question: 'Phương thức thanh toán nào được chấp nhận cho tài khoản nâng cấp GET PRO ?',
+      question: 'Tôi có thể thanh toán vé máy bay bằng phương thức nào ?',
       answer: `Chúng tôi chấp nhận thanh toán qua ZaloPay (ứng dụng ZaloPay, thẻ nội địa và quốc tế, ...)`
     },
   ]
