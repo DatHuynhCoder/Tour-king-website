@@ -10,20 +10,20 @@ import SLNguoiDung from './SLNguoiDung.jsx';
 import TopDonate from './TopDonate.jsx';
 
 const admin_dashboard = () => {
-    return (
-        <div className = "admin-metrics">
-            <Navbar />
-            <div className="admin-grid-one">
-                <Dailymetric/>
-                <SLNguoiDung />
-            </div>
-            <div className="admin-grid-two">
-                <TrendingTicket />
-                <TrendingHang />
-                <TopDonate />
-            </div>
-        </div>
-    )
+  return (
+    <div className = "admin-metrics">
+      <Navbar />
+      <div className="admin-grid-one">
+        <Dailymetric/>
+        {/* <SLNguoiDung /> */}
+      </div>
+      {/* <div className="admin-grid-two">
+        <TrendingTicket />
+        <TrendingHang />
+        <TopDonate />
+      </div> */}
+    </div>
+  )
 }
     
 export default admin_dashboard;

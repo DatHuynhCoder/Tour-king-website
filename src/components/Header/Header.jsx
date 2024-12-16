@@ -61,7 +61,7 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavLink to={`/User`} className={'nav-link'}>User</NavLink>
-            <NavLink to={`/admin`} className={'nav-link'}>Admin</NavLink>
+            {accessToken && <NavLink to={`/admin`} className={'nav-link'}>Admin</NavLink>}
             <NavLink to={`/flight`} className={'nav-link'}>Đặt vé</NavLink>
             <NavLink to={`/about`} className={'nav-link'}>Về chúng tôi</NavLink>
             {/* <NavDropdown title="Hỗ trợ" id="basic-nav-dropdown">       

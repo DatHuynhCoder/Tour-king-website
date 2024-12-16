@@ -9,25 +9,30 @@ import { IoTicketSharp } from "react-icons/io5";
 import Cookies from 'universal-cookie';
 import { jwtDecode } from 'jwt-decode';
 import './Admin.scss'
-
+import LogoTourKing from "../../assets/tour_king_logo.svg"
 
 export default function Admin() {
   const cookie = new Cookies()
   const navigate = useNavigate()
   useEffect(() => {
-    if(jwtDecode(cookie.get("accessToken")).isadmin === 0) {
+    if(!cookie.get("accessToken") || jwtDecode(cookie.get("accessToken")).isadmin === 0) {
       alert('Bạn không có quyền truy cập trang này')
       navigate(-1)
     }
   }, [])
     return (
       <>
-        
         <div className = "tong-admin">
           
           <nav  className ="mucluc-admin">
             <Link to={'/home'} className = "custome-admin-link">
-              <button button type="button" className = "nutdangky">Home</button>
+              <Image
+                src={LogoTourKing}
+                alt="Company logo"
+                width={160}
+                height={160}
+                style={{marginTop: '-60px', marginBottom: '-50px'}}
+              />
             </Link>
             {/* nut home */}
             <ul>
