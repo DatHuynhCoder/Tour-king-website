@@ -12,7 +12,7 @@ const FAQ = ({ faqData }) => {
     return (
         <div className="faq-container">
             <h2 className="faq-title">Bạn có câu hỏi nào không ?</h2>
-            <Image src={FAQPic} alt='FAQ logo' className='faq-logo' fluid />
+            <Image src={FAQPic} alt='FAQ logo' className='faq-logo' style={{margin: '15px 0'}} fluid />
             <div className="faq-common-text">Câu hỏi thường gặp</div>
             <Accordion alwaysOpen className='accordion'>
                 {faqData.map((item, index) => (
