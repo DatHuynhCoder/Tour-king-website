@@ -3,7 +3,7 @@
   --line-clr: #42434a;
   --hover-clr: #b6b7b8;
   --text-clr: black;
-  --accent-clr: #5e63ff;
+  --accent-clr: white;
   --secondary-text-clr: #b0b3c1;  
   // *
   margin: 0;
@@ -90,13 +90,11 @@
     margin-top: 10px;
     margin-left: 220px;       // Đẩy nội dung chính sang phải để tránh bị che bởi thanh điều hướng
     padding: 20px;
-    overflow-y: auto;         // Cho phép cuộn trong phần nội dung chính
+    // overflow-y: auto;         // Cho phép cuộn trong phần nội dung chính
     height: 100vh;
     width: 1250px;
-    border: 1px solid black;
     border-radius: 1em;
     margin-bottom: 20px;
-    background-color: rgb(227,231,252);
   }
 
   .custome-admin-link{

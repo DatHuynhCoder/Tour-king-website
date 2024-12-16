@@ -2,8 +2,6 @@ import React from 'react';
 
 import { Image } from 'react-bootstrap';
 
-import searchIcon from './Search.svg'
-
 import './DoiGioBay.scss'
 
 const data = [
@@ -43,13 +41,6 @@ const NguoiDung = () => {
             <div className = "custome-search-DoiGioBay">
                <input type = "text" className = "search-DoiGioBay" placeholder="Search here" />
                <button className = "button-Search-DoiGioBay">
-                    <Image
-                        src={searchIcon}
-                        alt="search icon"
-                        width={48}
-                        height={48}
-                        classNameName="icon"
-                    />
                 </button>
             </div>
 

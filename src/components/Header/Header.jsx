@@ -83,6 +83,7 @@ const Header = () => {
                 if(!cookies.get("accessToken")) alert("Login first !")
                 cookies.remove("accessToken")
                 cookies.remove("refreshToken")
+                setAccessToken(null)
               }}>Đăng xuất</NavLink>}
             </NavDropdown>
           </Nav>

@@ -156,7 +156,7 @@ const FlightSearchBar = ({ listFlights, setListFlightsSearch }) => {
                 onClick={handleTimVe}
               >
                 <FaSearch size={30} />
-                Tìm vé bay
+                Tìm chuyến bay
               </Button>
             </Col>
           </Row>
