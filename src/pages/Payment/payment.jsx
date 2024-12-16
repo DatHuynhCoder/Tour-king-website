@@ -6,17 +6,6 @@ import axios from 'axios'
 const PaymentPage = () => {
   const location = useLocation()
   const navigate = useNavigate()
-  const [items, setItems] = useState([
-    { id: 1, name: 'Flight to New York', price: 7000000, seat: '12A', class: 'Economy' },
-    { id: 2, name: 'Flight to Tokyo', price: 18000000, seat: '7C', class: 'Business' },
-    { id: 3, name: 'Flight to Paris', price: 10500000, seat: '15B', class: 'Economy' },
-  ]);
-
-  const [customer, setCustomer] = useState({
-    name: 'Minh',
-    phone: '123-456-7890',
-    email: '22520887@gm.uit.edu.vn',
-  });
   const MaVe = location?.state?.MaVe ?? null
   const MaNguoiDung = location?.state?.MaNguoiDung ?? null
   const TenDiemDen = location?.state?.TenDiemDen ?? null
@@ -83,10 +72,6 @@ const PaymentPage = () => {
     // Gọi hàm kiểm tra ngày hợp lệ
     return isValidDate(day, month, year);
   }
-
-  const calculateTotal = () => {
-    return items.reduce((acc, item) => acc + item.price, 0);
-  };
 
   const handlePaymentMethodChange = (method) => {
     setPaymentMethod(method);
