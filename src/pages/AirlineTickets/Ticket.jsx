@@ -32,6 +32,27 @@ const labels = {
 };
 
 //Xử lý tính giờ
+// const calculateDuration = (startTime, endTime) => {
+//   const timeToMinutes = (timeStr) => {
+//     const [hours, minutes] = timeStr.split(":").map(Number);
+//     return hours * 60 + minutes; // Chuyển đổi sang phút
+//   };
+
+//   const minutesToTime = (totalMinutes) => {
+//     const hours = Math.floor(totalMinutes / 60);
+//     const minutes = totalMinutes % 60;
+//     return `${hours} giờ ${minutes} phút`;
+//   };
+
+//   const startMinutes = timeToMinutes(startTime);
+//   const endMinutes = timeToMinutes(endTime);
+
+//   const diffMinutes = endMinutes - startMinutes;
+
+//   if (diffMinutes < 0) return "Thời gian không hợp lệ"; // Kiểm tra thời gian hợp lệ
+
+//   return minutesToTime(diffMinutes);
+// };
 const calculateDuration = (startTime, endTime) => {
   const timeToMinutes = (timeStr) => {
     const [hours, minutes] = timeStr.split(":").map(Number);
@@ -44,16 +65,17 @@ const calculateDuration = (startTime, endTime) => {
     return `${hours} giờ ${minutes} phút`;
   };
 
-  const startMinutes = timeToMinutes(startTime);
-  const endMinutes = timeToMinutes(endTime);
+  let startMinutes = timeToMinutes(startTime);
+  let endMinutes = timeToMinutes(endTime);
+
+  // Nếu giờ đến nhỏ hơn giờ đi, coi giờ đến là ngày hôm sau
+  if (endMinutes < startMinutes) {
+    endMinutes += 24 * 60; // Cộng thêm 24 giờ (1440 phút)
+  }
 
   const diffMinutes = endMinutes - startMinutes;
-
-  if (diffMinutes < 0) return "Thời gian không hợp lệ"; // Kiểm tra thời gian hợp lệ
-
   return minutesToTime(diffMinutes);
 };
-
 
 function getLabelText(ratingValue) {
   return `${ratingValue} Star${ratingValue !== 1 ? 's' : ''}, ${labels[ratingValue]}`;

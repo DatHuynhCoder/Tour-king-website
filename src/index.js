@@ -32,6 +32,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { ContextProvider } from './context/Context.jsx'
 
+import 'react-toastify/dist/ReactToastify.css';
+
 //read this for more information https://reactrouter.com/en/main/start/tutorial
 import {
   createBrowserRouter,
