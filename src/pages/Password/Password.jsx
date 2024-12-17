@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import './Password.scss'
 import axios from 'axios'
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import { toast } from 'react-toastify';
 
 export default function PassWord() {
     const location = useLocation()
@@ -13,10 +13,10 @@ export default function PassWord() {
     const [confirmedPassword, setConfirmedPassword] = useState('')
     const handleConfirm = () => {
         if(password === '' || confirmedPassword === '') {
-            alert('Vui lòng nhập đầy đủ các trường !')
+            toast.error('Vui lòng nhập đầy đủ các trường !')
         }
         else if(password !== confirmedPassword) {
-            alert('Mật khẩu và xác nhận mật khẩu phải giống nhau')
+            toast.error('Mật khẩu và xác nhận mật khẩu phải giống nhau')
         }
         else {
             axios.post('http://localhost:8800/update-password-by-email', {
@@ -24,11 +24,11 @@ export default function PassWord() {
                 password: password
             }).then(res => {
                 if(res.data.Status === 'Error') {
-                    alert('Lỗi')
+                    toast.error('Lỗi')
                     console.log('Lỗi: ', res.data.Error)
                 }
                 else {
-                    alert('Cập nhật mật khẩu thành công')
+                    toast.success('Cập nhật mật khẩu thành công')
                     navigate('/login')
                 }
             })

@@ -9,6 +9,7 @@ import { IoTicketSharp } from "react-icons/io5";
 import Cookies from 'universal-cookie';
 import { jwtDecode } from 'jwt-decode';
 import './Admin.scss'
+import { toast } from 'react-toastify';
 import LogoTourKing from "../../assets/tour_king_logo.svg"
 
 export default function Admin() {

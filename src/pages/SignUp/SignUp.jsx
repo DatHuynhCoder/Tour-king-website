@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './SignUp.scss'
 import axios from 'axios'
+import { toast } from 'react-toastify';
 
 import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -17,7 +18,7 @@ export default function SignUp() {
 
   const handleSignup = () => {
     if(password !== confirmedPassword) {
-      alert('Xác nhận mật khẩu không đúng')
+      toast.error('Xác nhận mật khẩu không đúng')
     }
     else
     axios.post('http://localhost:8800/register', {
@@ -25,11 +26,11 @@ export default function SignUp() {
       password
     }).then(res => {
       if(res.data.Status === 'Success') {
-        alert('Đăng kí thành công')
+        toast.success('Đăng kí thành công')
         navigate('/login')
       }
       else {
-        alert(res.data.Error)
+        toast.error(res.data.Error)
       }
     })
   }

@@ -6,6 +6,7 @@ import OtpInput from "otp-input-react"
 import { useState } from 'react';
 import { CgSpinner } from "react-icons/cg"
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
  
 import './OTPCode.scss'
 
@@ -21,7 +22,7 @@ export default function OTPCode() {
         console.log('check otp received: ', OTPCode)
         console.log('check otp user input: ', otp)
         if(otp === OTPCode) {
-            alert('OTP hợp lệ')
+            toast.success('OTP hợp lệ')
             navigate('/password', {
                 state: {
                     resetEmail: resetEmail
@@ -29,7 +30,7 @@ export default function OTPCode() {
             })
         }
         else {
-            alert('OTP không đúng')
+            toast.error('OTP không đúng')
         }
     }
     return (

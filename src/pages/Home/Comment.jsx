@@ -5,6 +5,7 @@ import StarIcon from '@mui/icons-material/Star';
 import Box from '@mui/material/Box';
 import axios from 'axios';
 import { ContextStore } from '../../context/Context';
+import { toast } from 'react-toastify';
 
 import DefaultAvatar from '../../assets/defaultAvatar.png'
 import './Comment.scss'
@@ -37,11 +38,16 @@ export default function Comment() {
     } = useContext(ContextStore)
   const [comment, setComment] = useState('')
   const [listComments, setListComments] = useState([])
-  useEffect(() => {
+
+  const getComment = async () => {
     axios.get('http://localhost:8800/get-comment').then(res => {
       console.log('check comment: ', res.data)
       setListComments(res.data)
     })
+  }
+
+  useEffect(() => {
+    getComment();
   }, [])
   return (
     <div className="comment-container">
@@ -65,11 +71,11 @@ export default function Comment() {
           style={{ paddingLeft: 10, paddingRight: 10, borderRadius: 10, boxShadow: '4px 4px' }}
           onClick={() => {
             if (!accessToken) {
-              alert('Đăng nhập để để lại đánh giá !')
+              toast.error('Đăng nhập để để lại đánh giá !')
             }
             else {
               if (comment === '') {
-                alert('Phần comment không được để trống')
+                toast.warning('Phần comment không được để trống')
               }
               else {
                 const date = new Date();
@@ -83,8 +89,9 @@ export default function Comment() {
                   NgayBinhLuan: commentdate
                 }).then(res => {
                   if (res.data.Status === 'Success') {
-                    alert('Đánh giá thành công !')
+                    toast.success('Đánh giá thành công !')
                     console.log('insert comment successfully !')
+                    getComment();
                   }
                   else {
                     console.log('error when trying to insert comment')

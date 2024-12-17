@@ -8,6 +8,7 @@ import { jwtDecode } from "jwt-decode"
 import { ContextStore } from '../../context/Context'
 import axios from 'axios'
 import Cookies from 'universal-cookie'
+import { toast } from 'react-toastify'
 
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
@@ -80,7 +81,7 @@ const Header = () => {
               {!accessToken && <NavLink to={`/login`} className={'dropdown-item'}>Đăng nhập/<br></br>Đăng ký</NavLink>}
               {accessToken && <NavDropdown.Divider/>}
               {accessToken && <NavLink to={`/login`} className={'dropdown-item'} onClick={() => {
-                if(!cookies.get("accessToken")) alert("Login first !")
+                if(!cookies.get("accessToken")) toast.warning("Login first !")
                 cookies.remove("accessToken")
                 cookies.remove("refreshToken")
                 setAccessToken(null)
