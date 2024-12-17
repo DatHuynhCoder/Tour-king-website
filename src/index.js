@@ -23,6 +23,8 @@ import Payment from './pages/Payment/payment.jsx'
 import PaymentStatus from './pages/Payment/OrderStatus.jsx'
 import CancelBooking from './pages/Payment/CancelBooking.jsx'
 import About from './pages/About/About.jsx'
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import reportWebVitals from './reportWebVitals'
 //using bootstrap
@@ -140,6 +142,7 @@ root.render(
   // <React.StrictMode>
   <ContextProvider>
     <RouterProvider router={router}/>
+    <ToastContainer />
   </ContextProvider>
   // </React.StrictMode>
 )
