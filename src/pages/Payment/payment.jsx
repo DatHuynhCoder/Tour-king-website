@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import { Button,Modal } from 'react-bootstrap';
 import './Payment.scss';
 import axios from 'axios'
 
@@ -22,6 +23,19 @@ const PaymentPage = () => {
   const [paymentMethod, setPaymentMethod] = useState('momo');
   const [paymentDescription, setPaymentDescription] = useState('Payment with MoMo');
 
+  const [autoFillData, setAutoFillData] = useState({
+    TenDayDu: '',
+    SDT: '',
+    QuocTich: '',
+    HoChieu: '',
+    NgaySinh: 1,
+    ThangSinh : 1,
+    NamSinh: 1
+  })
+  const [userInfo, setUserInfo] = useState({})
+  const [listLocalInfo, setListLocalInfo] = useState([])
+  const [show, setShow] = useState(false)
+  
   const isAllNumbers = (str) => {
     if (!str) return false;
     return /^\d+$/.test(str);
@@ -90,13 +104,30 @@ const PaymentPage = () => {
     }
   };
 
+  useEffect(() => {
+    const storedCustomers = localStorage.getItem('customer');
+    console.log('check storedCustomers: ', JSON.parse(storedCustomers))
+
+    if (storedCustomers) {
+      // setListCustomer(JSON.parse(storedCustomers));
+      setListLocalInfo(JSON.parse(storedCustomers))
+    }
+    if(MaNguoiDung) {
+      axios.get(`http://localhost:8800/get-user-by-id?userid=${MaNguoiDung}`).then(res => {
+        console.log('check user info in payment: ', res.data)
+        setUserInfo(res.data[0])
+      })
+    }
+    console.log('check list local info: ', listLocalInfo)
+  }, [])
+
   const handlePayment = () => {
     const birth = `${year}-${month}-${day}`
     const date = new Date();
     const curr_day = date.getDate();
     const curr_month = date.getMonth() + 1;
     const curr_year = date.getFullYear();
-    const paydate = `${year}-${month}-${day}`;
+    const paydate = `${curr_year}-${curr_month}-${curr_day}`;
     if(!isAllNumbers(phone)) {
       alert('Số điện thoại không hợp lệ')
     }
@@ -138,8 +169,74 @@ const PaymentPage = () => {
     }
     
   };
-
+  const handleClose = () => {
+    setShow(false);
+  };
+  const handleShow = (flight_info) => {
+    // console.log('check flight info: ', flight_info)
+    // console.log(flight_info.MaChuyenBay, flight_info.MaLoaiGhe)
+    // setFlightInfo(flight_info) // lưu lại thông tin chuyến bay được chọn
+    // try {
+    //   axios.get(`http://localhost:8800/get-all-tickets-by-MCB-and-MLG?machuyenbay=${flight_info.MaChuyenBay}&maloaighe=${flight_info.MaLoaiGhe}`).then(res => {
+    //     console.log(res.data)
+    //     setListTickets(res.data)
+    //   })
+    // } catch(error) {
+    //   console.log('Lỗi: ', error)
+    // }
+    setShow(true)
+  };
+  const handleChangeUserInfo = (info) => {
+    setUserInfo({
+      ...userInfo,
+      MaHoChieu: info.MaHoChieu,
+      NgaySinh: info.NgaySinh,
+      QuocTich: info.QuocTich,
+      SDT: info.SDT,
+      TenDayDu: info.TenDayDu,
+    })
+  }
   return (
+    <>
+    <Modal
+      show={show}
+      onHide={handleClose}
+      backdrop='static'
+    >
+      <Modal.Header closeButton>
+        <Modal.Title>Danh sách vé</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {
+          listLocalInfo.length > 0 ? listLocalInfo.map((info) => {
+            return <div style={{border: '1px solid black', boxShadow: '3px 3px', marginBottom: 5, display: 'flex'}}>
+              <div style={{flex: 3}}>
+                <b>Tên đầy đủ:</b> {info.TenDayDu} <br></br>
+                <b>Ngày sinh:</b> {info.NgaySinh}<br></br>
+                <b>Số điện thoại:</b> {info.SDT}<br></br>
+                <b>Quốc tịch:</b> {info.QuocTich}<br></br>
+                <b>Mã hộ chiếu:</b> {info.MaHoChieu}
+              </div>
+              <div style={{display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                <Button variant='outline-success'
+                  onClick={() => {
+                    handleChangeUserInfo(info)
+                    handleClose()
+                  }}
+                >Chọn</Button>
+              </div>
+            </div>
+          })
+          :
+          <div>Nothing</div>
+        }
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Đóng
+        </Button>
+      </Modal.Footer>
+    </Modal>
     <div className="invoice-container">
       {/* Cột 1: Thông tin khách hàng và bảng hóa đơn */}
       <div className="left-column">
@@ -149,22 +246,22 @@ const PaymentPage = () => {
           <p><strong>Họ và tên:</strong> &nbsp;
             <input type="text" onChange={(e) => {
               setFullName(e.target.value)
-            }}/>
+            }} value={userInfo.TenDayDu}/>
           </p>
           <p><strong>Số điện thoại:</strong>&nbsp;
             <input type="text" onChange={(e) => {
               setPhone(e.target.value)
-            }}/>
+            }} value={userInfo.SDT}/>
           </p>
           <p><strong>Quốc tịch:</strong>&nbsp;
             <input type="text" onChange={(e) => {
               setQT(e.target.value)
-            }}/>
+            }} value={userInfo.QuocTich}/>
           </p>
           <p><strong>Hộ chiếu:</strong>&nbsp;
             <input type="text" onChange={(e) => {
               setHC(e.target.value)
-            }}/><br></br>
+            }} value={userInfo.MaHoChieu}/><br></br>
             <i>Lưu ý: đi trong nước thì hộ chiếu chính là CCCD</i>
           </p>
           <p><strong>Ngày sinh:</strong>&nbsp;
@@ -178,6 +275,11 @@ const PaymentPage = () => {
               setYear(e.target.value)
             }}></input>
           </p>
+          <Button variant='outline-primary'
+            onClick={() => {
+              handleShow()
+            }}
+          >Chọn thông tin đã lưu</Button>
         </div>
 
         {/* Bảng hóa đơn */}
@@ -272,6 +374,7 @@ const PaymentPage = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 

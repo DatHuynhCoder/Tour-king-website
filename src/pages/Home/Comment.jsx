@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import axios from 'axios';
 import { ContextStore } from '../../context/Context';
 
+import DefaultAvatar from '../../assets/defaultAvatar.png'
 import './Comment.scss'
 
 const labels = {
@@ -35,6 +36,13 @@ export default function Comment() {
       useravatarurl, setUseravatarurl
     } = useContext(ContextStore)
   const [comment, setComment] = useState('')
+  const [listComments, setListComments] = useState([])
+  useEffect(() => {
+    axios.get('http://localhost:8800/get-comment').then(res => {
+      console.log('check comment: ', res.data)
+      setListComments(res.data)
+    })
+  }, [])
   return (
     <div className="comment-container">
       <div class="comment-input-container">
@@ -87,7 +95,24 @@ export default function Comment() {
           }}
         >Gửi</button>
       </div>
-
+      <div style={{padding: 20}}>
+        {
+          listComments.length > 0 && listComments.map((comment) => {
+            return <div style={{padding: 5, border: '2px solid black', marginBottom: 5, boxShadow: '5px 5px', backgroundColor: 'white'}}>
+              <div style={{display: 'flex', alignItems: 'center'}}>
+                <img src={comment.Avatar ? comment.Avatar : DefaultAvatar} alt="avatar" style={{width: '40px', height: '40px'}}/>
+                <div style={{lineHeight: '100%', alignItems: 'center'}}>{comment.TenDayDu === '' ? 'Anonymous User' : comment.TenDayDu}</div>
+              </div>
+              <div style={{opacity: 0.8, marginRight: '20px'}}>
+                {comment.NgayBinhLuan.slice(0, 10)}
+              </div>
+              <div>
+                {comment.NoiDung}
+              </div>
+            </div>
+          })
+        }
+      </div>
     </div>
   )
 }
