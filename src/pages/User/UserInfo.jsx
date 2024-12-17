@@ -6,6 +6,7 @@ import { ContextStore } from '../../context/Context';
 import "./UserInfo.scss"
 import { Card, Button, Image, Row, Col, Container, Modal } from 'react-bootstrap';
 import { FcPlus } from "react-icons/fc";
+import { toast } from 'react-toastify';
 
 import axios from 'axios';
 
@@ -49,7 +50,7 @@ const UserInfo = () => {
         setUseravatarurl(response.data.avatarUrl);
       } catch (error) {
         console.error('Error uploading avatar:', error);
-        alert.error('Failed to upload avatar!');
+        toast.error('Failed to upload avatar!');
       }
     }
   };
@@ -89,7 +90,7 @@ const UserInfo = () => {
           }
           const respone = await axios.put('http://localhost:8800/update-user-info', info);
           console.log(respone.data);
-          alert('Cập nhật thông tin người dùng thành công');
+          toast.success('Cập nhật thông tin người dùng thành công');
           setShowModal(false);
         } catch (error) {
           console.log("Can't update user:", error)
