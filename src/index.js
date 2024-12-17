@@ -18,7 +18,6 @@ import RefundManage from './pages/Admin/RefundManage.jsx'
 import User from './pages/User/User.jsx'
 import UserInfo from './pages/User/UserInfo.jsx'
 import BookingHistory from './pages/User/BookingHistory.jsx'
-import Refund from './pages/User/Refund.jsx'
 import TransactionHistory from './pages/User/TransactionHistory.jsx'
 import Payment from './pages/Payment/payment.jsx'
 import PaymentStatus from './pages/Payment/OrderStatus.jsx'
@@ -90,10 +89,6 @@ const router = createBrowserRouter([
           {
             path: '/User/TransactionHistory',
             element: <TransactionHistory/>
-          },
-          {
-            path: '/User/Refund',
-            element: <Refund/>
           },
         ]
       },

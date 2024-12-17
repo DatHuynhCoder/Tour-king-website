@@ -13,7 +13,7 @@ import pic6 from '../../assets/pic6.jpg'
 
 const Carousel_chan = () => {
   return (
-    <Carousel data-bs-theme="dark">
+    <Carousel data-bs-theme="dark carousel-container">
       <Carousel.Item>
         <div style={{ width: '66%', margin: '0 auto' }}>
           <img
@@ -23,8 +23,8 @@ const Carousel_chan = () => {
           />
         </div>
         <Carousel.Caption>
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h4>Chào mừng bạn đến với Tour King</h4>
+          <p>Khách hàng là ưu tiên hàng đầu, sự hài lòng của khách hàng là hạnh phúc của chúng tôi</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -36,8 +36,8 @@ const Carousel_chan = () => {
           />
         </div>
         <Carousel.Caption>
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h4>Nhanh chóng - Tiện lợi - Dễ dàng</h4>
+          <p>Đặt vé máy bay bay chỉ bằng vài cú click chuột</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -49,9 +49,9 @@ const Carousel_chan = () => {
           />
         </div>
         <Carousel.Caption>
-          <h5>Third slide label</h5>
+          <h4>Bạn muốn đến đâu ?</h4>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Hãy để Tour King thõa mãn ước mơ du lịch của bạn.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -64,9 +64,9 @@ const Carousel_chan = () => {
           />
         </div>
         <Carousel.Caption>
-          <h5>Fourth slide label</h5>
+          <h4>Bắt đầu đặt chỗ ngay</h4>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Ưu đãi hấp dẫn nhất. Trải nghiệm khó quên.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -79,9 +79,9 @@ const Carousel_chan = () => {
           />
         </div>
         <Carousel.Caption>
-          <h5>Fifth slide label</h5>
+          <h4>Vé máy bay tiện lợi, giá rẻ</h4>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Khám phá thế giới cùng chúng tôi, không giới hạn, không ràng buộc.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -94,9 +94,9 @@ const Carousel_chan = () => {
           />
         </div>
         <Carousel.Caption>
-          <h5>Sixth slide label</h5>
+          <h4>Một chuyến đi, vô vàng kỷ niệm</h4>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Mang đến cho bạn những chuyến đi vui vẻ, đầy cảm hứng.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
