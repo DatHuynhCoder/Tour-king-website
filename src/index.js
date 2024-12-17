@@ -52,24 +52,8 @@ const router = createBrowserRouter([
         element: <Home/>
       },
       {
-        path: "/login",
-        element: <Login/>
-      },
-      {
         path: "/flight",
         element: <Flight/>
-      },
-      {
-        path: '/otp',
-        element: <OPTCode/>
-      },
-      {
-        path: '/signup',
-        element: <SignUp/>
-      },
-      {
-        path: '/password',
-        element: <Password/>
       },
       {
         path: '/about',
@@ -137,7 +121,23 @@ const router = createBrowserRouter([
         element: <RefundManage/>
       }
     ]
-  }
+  },
+  {
+    path: "/login",
+    element: <Login/>
+  },
+  {
+    path: '/otp',
+    element: <OPTCode/>
+  },
+  {
+    path: '/signup',
+    element: <SignUp/>
+  },
+  {
+    path: '/password',
+    element: <Password/>
+  },
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))

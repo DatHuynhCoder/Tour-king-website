@@ -34,7 +34,7 @@ export default function SignUp() {
     })
   }
   return (
-    <>
+    <div style={{height: '100vh'}}>
         <h1 className = "dangky">Đăng ký</h1>
         <div className = "tongDK">
             <div className = "tieude">
@@ -62,8 +62,8 @@ export default function SignUp() {
             <button type="button" className = "nutdangky"
               onClick={() => handleSignup()}
             >ĐĂNG KÝ</button>
-            
-            <p>-----------Hoặc sử dụng một trong các lựa chọn này-----------</p>
+            <p style={{textAlign: 'center'}}>-----------Nếu có tài khoản, <Link to={'/login'}>Đăng nhập ngay</Link>-----------</p>
+            <p style={{textAlign: 'center'}}>-----------Hoặc sử dụng một trong các lựa chọn này-----------</p>
             
             <div className = "DNbenthu3">
                 <Link to="https://www.facebook.com/" className="nav-link icon-container">
@@ -91,6 +91,6 @@ export default function SignUp() {
         </div>
         <p className = "camket">Điều khoản và 
              Điều kiện, Chính sách An toàn và Bảo mật</p>
-    </>
+    </div>
   )
 }
