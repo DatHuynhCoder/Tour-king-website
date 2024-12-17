@@ -128,23 +128,23 @@ export default function Login() {
         <p>Hoặc sử dụng một trong các lựa chọn này </p>
         <div className = "DNbenthu3">
           <Link to="https://www.facebook.com/" className="nav-link icon-container">
-                  <Image
-                    src={FacebookIcon}
-                    alt="Facebook icon"
-                    width={90}
-                    height={90}
-                    className="icon"
-                  />
+            <Image
+              src={FacebookIcon}
+              alt="Facebook icon"
+              width={90}
+              height={90}
+              className="icon"
+            />
           </Link>
 
           <Link to="https://accounts.google.com/Login?btmpl=mobile_tier2&hl=vi&service=mail" className="nav-link icon-container">
-                  <Image
-                    src={GoogleIcon}
-                    alt="GoogleIcon"
-                    width={90}
-                    height={90}
-                    className="icon"
-                  />
+            <Image
+              src={GoogleIcon}
+              alt="GoogleIcon"
+              width={90}
+              height={90}
+              className="icon"
+            />
           </Link>
         </div>
       </div>
