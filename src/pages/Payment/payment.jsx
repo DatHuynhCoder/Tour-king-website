@@ -122,14 +122,18 @@ const PaymentPage = () => {
   }, [])
 
   const handlePayment = () => {
+    console.log('check userInfo after click pay: ', userInfo)
     const birth = `${year}-${month}-${day}`
     const date = new Date();
     const curr_day = date.getDate();
     const curr_month = date.getMonth() + 1;
     const curr_year = date.getFullYear();
     const paydate = `${curr_year}-${curr_month}-${curr_day}`;
-    if(!isAllNumbers(phone)) {
+    if(!isAllNumbers(userInfo.SDT)) {
       alert('Số điện thoại không hợp lệ')
+    }
+    else if(!isAllNumbers(userInfo.MaHoChieu)) {
+      alert('Mã hộ chiếu không hợp lệ')
     }
     else if(!isValidDateString(day,month,year)) {
       alert('Ngày sinh không hợp lệ')
@@ -138,10 +142,10 @@ const PaymentPage = () => {
       axios.post('http://localhost:8800/add-ctdv', {
         MaNguoiDung: MaNguoiDung,
         MaVe: MaVe,
-        TenDayDu: fullName,
-        SDT: phone,
-        QuocTich: qt,
-        MaHoChieu: hc,
+        TenDayDu: userInfo.TenDayDu,
+        SDT: userInfo.SDT,
+        QuocTich: userInfo.QuocTich,
+        MaHoChieu: userInfo.MaHoChieu,
         NgaySinh: birth,
         NgayMua: paydate,
         TinhTrang: 'BT'
@@ -204,7 +208,7 @@ const PaymentPage = () => {
       backdrop='static'
     >
       <Modal.Header closeButton>
-        <Modal.Title>Danh sách vé</Modal.Title>
+        <Modal.Title>Danh sách thông tin có sẵn</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         {
@@ -245,22 +249,38 @@ const PaymentPage = () => {
           <h2>Thông tin khách hàng</h2>
           <p><strong>Họ và tên:</strong> &nbsp;
             <input type="text" onChange={(e) => {
-              setFullName(e.target.value)
+              // setFullName(e.target.value)
+              setUserInfo({
+                ...userInfo,
+                TenDayDu: e.target.value
+              })
             }} value={userInfo.TenDayDu}/>
           </p>
           <p><strong>Số điện thoại:</strong>&nbsp;
             <input type="text" onChange={(e) => {
-              setPhone(e.target.value)
+              // setPhone(e.target.value)
+              setUserInfo({
+                ...userInfo,
+                SDT: e.target.value
+              })
             }} value={userInfo.SDT}/>
           </p>
           <p><strong>Quốc tịch:</strong>&nbsp;
             <input type="text" onChange={(e) => {
-              setQT(e.target.value)
+              // setQT(e.target.value)
+              setUserInfo({
+                ...userInfo,
+                QuocTich: e.target.value
+              })
             }} value={userInfo.QuocTich}/>
           </p>
           <p><strong>Hộ chiếu:</strong>&nbsp;
             <input type="text" onChange={(e) => {
-              setHC(e.target.value)
+              // setHC(e.target.value)
+              setUserInfo({
+                ...userInfo,
+                MaHoChieu: e.target.value
+              })
             }} value={userInfo.MaHoChieu}/><br></br>
             <i>Lưu ý: đi trong nước thì hộ chiếu chính là CCCD</i>
           </p>
