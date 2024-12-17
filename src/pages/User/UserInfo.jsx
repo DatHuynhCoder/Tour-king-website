@@ -10,6 +10,58 @@ import { toast } from 'react-toastify';
 
 import axios from 'axios';
 
+//Kiểm tra chuỗi có phải là số không
+const isAllNumbers = (str) => {
+  if (!str) return false;
+  return /^\d+$/.test(str);
+}
+
+// Hàm kiểm tra năm nhuận
+function isLeapYear(year) {
+  return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+}
+// Hàm kiểm tra ngày, tháng, năm đã chuyển đổi
+function isValidDate(day, month, year) {
+  // Kiểm tra năm hợp lệ (ví dụ: từ 1900 đến 2100)
+  if (year < 1900 || year > 2100) {
+    return false;
+  }
+
+  // Kiểm tra tháng hợp lệ (1 - 12)
+  if (month < 1 || month > 12) {
+    return false;
+  }
+
+  // Xác định số ngày tối đa trong tháng
+  const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  // Kiểm tra năm nhuận
+  if (month === 2 && isLeapYear(year)) {
+    daysInMonth[1] = 29; // Tháng 2 có 29 ngày nếu là năm nhuận
+  }
+
+  // Kiểm tra ngày hợp lệ
+  if (day < 1 || day > daysInMonth[month - 1]) {
+    return false;
+  }
+
+  return true;
+}
+function isValidDateString(dayStr, monthStr, yearStr) {
+  // Chuyển đổi dữ liệu từ string sang số nguyên
+  const day = parseInt(dayStr, 10);
+  const month = parseInt(monthStr, 10);
+  const year = parseInt(yearStr, 10);
+
+  // Kiểm tra xem giá trị có phải là số hợp lệ hay không
+  if (isNaN(day) || isNaN(month) || isNaN(year)) {
+    return false;
+  }
+
+  // Gọi hàm kiểm tra ngày hợp lệ
+  return isValidDate(day, month, year);
+}
+
 const UserInfo = () => {
   const {
     accessToken, setAccessToken,
@@ -23,10 +75,12 @@ const UserInfo = () => {
 
   // Tạo state cho các input
   const [userFullName, setUserFullName] = useState('');
-  const [userPhone, setUserPhone] = useState();
-  const [userNation, setUserNation] = useState();
-  const [userBirthday, setUserBirthday] = useState();
-  const [userPassPort, setUserPassPort] = useState();
+  const [userPhone, setUserPhone] = useState('');
+  const [userNation, setUserNation] = useState('');
+  const [dayBirth, setDayBirth] = useState('')
+  const [monthBirth, setMonthBirth] = useState('')
+  const [yearBirth, setYearBirth] = useState('')
+  const [userPassPort, setUserPassPort] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [previewAvatar, setPreviewAvatar] = useState('');
   //get user data
@@ -77,27 +131,36 @@ const UserInfo = () => {
   const handleUpdateUser = () => {
     console.log("update click")
     if (accessToken) {
-      const changeUser = async () => {
-        try {
-          const info = {
-            userid: userid,
-            userFullname: userFullName,
-            userPhone: userPhone,
-            userNation: userNation,
-            userBirthday: userBirthday,
-            userPassPort: userPassPort,
-            useravatarurl: useravatarurl
-          }
-          const respone = await axios.put('http://localhost:8800/update-user-info', info);
-          console.log(respone.data);
-          toast.success('Cập nhật thông tin người dùng thành công');
-          setShowModal(false);
-        } catch (error) {
-          console.log("Can't update user:", error)
-        }
+      const userBirthday = `${yearBirth}-${monthBirth}-${dayBirth}`;
+      if (!isAllNumbers(userPhone)) {
+        toast.error('Số điện thoại không hợp lệ');
       }
-      changeUser();
-      getUserById();
+      else if (!isValidDateString(dayBirth, monthBirth, yearBirth)) {
+        toast.error('Ngày sinh không hợp lệ');
+      }
+      else {
+        const changeUser = async () => {
+          try {
+            const info = {
+              userid: userid,
+              userFullname: userFullName,
+              userPhone: userPhone,
+              userNation: userNation,
+              userBirthday: userBirthday,
+              userPassPort: userPassPort,
+              useravatarurl: useravatarurl
+            }
+            const respone = await axios.put('http://localhost:8800/update-user-info', info);
+            console.log(respone.data);
+            toast.success('Cập nhật thông tin người dùng thành công');
+            setShowModal(false);
+          } catch (error) {
+            console.log("Can't update user:", error)
+          }
+        }
+        changeUser();
+        getUserById();
+      }
     }
   }
 
@@ -105,11 +168,16 @@ const UserInfo = () => {
   //update user for modal
   useEffect(() => {
     if (user.length > 0) {
+      console.log(user[0].NgaySinh);
+      const birthday = user[0].NgaySinh;
+      const [year, month, day] = birthday.split('-');
       setName(user[0].TenDayDu);
       setUserFullName(user[0].TenDayDu);
       setUserPhone(user[0].SDT);
-      setUserNation(user[0].QuocTich)
-      setUserBirthday(user[0].NgaySinh);
+      setUserNation(user[0].QuocTich);
+      setDayBirth(day);
+      setMonthBirth(month);
+      setYearBirth(year);
       setUserPassPort(user[0].MaHoChieu);
       setPreviewAvatar(useravatarurl);
     }
@@ -164,13 +232,36 @@ const UserInfo = () => {
                 />
               </div>
               <div className="col-md-6">
-                <label className="form-label">Ngày sinh</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  value={userBirthday}
-                  onChange={(e) => setUserBirthday(e.target.value)}
-                />
+                <label className="form-label">Ngày sinh (Ngày - Tháng - Năm)</label>
+                <div className="row g-2">
+                  <div className="col">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Ngày"
+                      value={dayBirth}
+                      onChange={(e) => setDayBirth(e.target.value)}
+                    />
+                  </div>
+                  <div className="col">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Tháng"
+                      value={monthBirth}
+                      onChange={(e) => setMonthBirth(e.target.value)}
+                    />
+                  </div>
+                  <div className="col">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Năm"
+                      value={yearBirth}
+                      onChange={(e) => setYearBirth(e.target.value)}
+                    />
+                  </div>
+                </div>
               </div>
               <div className="col-md-6">
                 <label className="form-label">Mã hộ chiếu</label>

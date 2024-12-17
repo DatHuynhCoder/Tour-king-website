@@ -96,7 +96,7 @@ const PaymentPage = () => {
     const curr_day = date.getDate();
     const curr_month = date.getMonth() + 1;
     const curr_year = date.getFullYear();
-    const paydate = `${year}-${month}-${day}`;
+    const paydate = `${curr_year}-${curr_month}-${curr_day}`;
     if(!isAllNumbers(phone)) {
       alert('Số điện thoại không hợp lệ')
     }
