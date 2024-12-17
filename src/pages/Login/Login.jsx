@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios'
 import Cookies from 'universal-cookie'
 import { jwtDecode } from "jwt-decode";
+import { toast } from 'react-toastify';
 
 import FacebookIcon from "./facebook-color-svgrepo-com.svg"
 import GoogleIcon from "../../assets/google_icon.svg"
@@ -28,7 +29,7 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const handleSignin = () => {
     if(email === '' || password === '') {
-      alert('Vui lòng nhập đầy đủ các trường')
+      toast.error('Vui lòng nhập đầy đủ các trường')
     }
     else {
       axios.post('http://localhost:8800/login', {
@@ -36,7 +37,7 @@ export default function Login() {
         password
       }).then(res => {
         if(res.data.Status === 'Success') {
-          alert('Đăng nhập thành công')
+          toast.success('Đăng nhập thành công')
           setAccessToken(res.data.accessToken) // set accessToken
           const decodedAccessToken = jwtDecode(res.data.accessToken)
           console.log('decodedAccessToken: ', decodedAccessToken)
@@ -56,7 +57,7 @@ export default function Login() {
           navigate('/')
         }
         else {
-          alert(res.data.Error)
+          toast.error(res.data.Error)
           setAccessToken(null)
         }
       })
@@ -64,7 +65,7 @@ export default function Login() {
     }
   }
   const handleForgotPass = () => {
-    if(email === '') alert('Vui lòng nhập email !')
+    if(email === '') toast.error('Vui lòng nhập email !')
     else {
       axios.get('http://localhost:8800/get-user-by-email?email=' + email).then(res => {
         console.log('check res when get-user-by-email: ', res.data.length)
@@ -86,7 +87,7 @@ export default function Login() {
           })
         }
         else {
-          alert('Không tồn tại người dùng')
+          toast.error('Không tồn tại người dùng')
         }
       })
     }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './CancelBooking.scss';
+import { toast } from 'react-toastify';
 
 const CancelBooking = () => {
   const location = useLocation();
@@ -14,11 +15,11 @@ const CancelBooking = () => {
 
   const handleConfirmCancel = () => {
     if (!reason.trim()) {
-      alert('Vui lòng nhập lý do hủy vé.');
+      toast.error('Vui lòng nhập lý do hủy vé.');
       return;
     }
 
-    alert(`Vé ${booking.name} Yêu cầu hủy vé đã được gửi với lí do ${reason}`);
+    toast.error(`Vé ${booking.name} Yêu cầu hủy vé đã được gửi với lí do ${reason}`);
     navigate('/BookingHistory'); // Navigate back to booking history
   };
 
