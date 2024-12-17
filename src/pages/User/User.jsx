@@ -29,10 +29,6 @@ const User = () => {
     // Navigate to the invoice/payment page
     navigate('/User/TransactionHistory');
   };
-  const handleRefund = () => {
-    // Navigate to the invoice/payment page
-    navigate('/User/Refund');
-  };
 
   return (
     <div className="user-container">
@@ -52,9 +48,6 @@ const User = () => {
           </li>
           <li className="menu-item" onClick={handleTransactionHistory}>
             <FaListAlt className="menu-icon" /> DANH SÁCH GIAO DỊCH
-          </li>
-          <li className="menu-item" onClick={handleRefund}>
-            <FaMoneyBillAlt className="menu-icon" /> YÊU CẦU HOÀN TIỀN
           </li>
         </ul>
       </div>
