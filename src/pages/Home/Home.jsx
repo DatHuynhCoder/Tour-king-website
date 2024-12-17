@@ -4,6 +4,7 @@ import MultiCarousel from './MultiCarousel.jsx'
 import { TbPlaneDeparture } from "react-icons/tb";
 
 import './Home.scss'
+import Comment from './Comment.jsx';
 
 const Home = () => {
   return (
@@ -27,7 +28,7 @@ const Home = () => {
         &nbsp;
         Các chuyến bay phổ biến với Bamboo Airways</div>
       <MultiCarousel Airline={'Bamboo Airways'}/>
-
+      <Comment/>
       {/* <div className='reason-area'>
         <p className='reason-title'>Lý do nên đặt chỗ với Tour King ?</p>
         <div className='reason-area-body'>
