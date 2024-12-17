@@ -135,6 +135,9 @@ const UserInfo = () => {
       if (!isAllNumbers(userPhone)) {
         toast.error('Số điện thoại không hợp lệ');
       }
+      else if (!isAllNumbers(userPassPort)) {
+        toast.error('Mã hộ chiếu không hợp lệ')
+      }
       else if (!isValidDateString(dayBirth, monthBirth, yearBirth)) {
         toast.error('Ngày sinh không hợp lệ');
       }

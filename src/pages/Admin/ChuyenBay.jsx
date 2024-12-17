@@ -14,35 +14,9 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 import { IoSearch } from "react-icons/io5";
+import { toast } from 'react-toastify'
 
 import axios from 'axios'
-
-const data = [
-    {
-        ID: '1',
-        ten: 'darklord',
-        email: 'trum cua bong toi',
-        sdt: 'ai goi la cho',
-        loaiND: 'vip nhat o thung lung nay',
-        isBan: 't la trum ai dam ban t',
-    },
-    {
-        ID: '1',
-        ten: 'darklord',
-        email: 'trum cua bong toi',
-        sdt: 'ai goi la cho',
-        loaiND: 'vip nhat o thung lung nay',
-        isBan: 't la trum ai dam ban t',
-    },
-    {
-        ID: '1',
-        ten: 'darklord',
-        email: 'trum cua bong toi',
-        sdt: 'ai goi la cho',
-        loaiND: 'vip nhat o thung lung nay',
-        isBan: 't la trum ai dam ban t',
-    }
-]
 
 const ChuyenBay = () => {
   const [allUsers, setAllUsers] = useState([])

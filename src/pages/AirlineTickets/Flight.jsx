@@ -121,7 +121,7 @@ const Flight = () => {
                         TenDiemDen: flightInfo.tenddden,
                         Gia: ticket.Gia,
                         MaGhe: ticket.MaGhe,
-                        TenLoaiGhe: flightInfo.TenLoaiGhe
+                        TenLoaiGhe: flightInfo.TenLoaiGhe,
                       }
                     })
                   }}>
