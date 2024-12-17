@@ -18,11 +18,13 @@ import RefundManage from './pages/Admin/RefundManage.jsx'
 import User from './pages/User/User.jsx'
 import UserInfo from './pages/User/UserInfo.jsx'
 import BookingHistory from './pages/User/BookingHistory.jsx'
-import TransactionHistory from './pages/User/TransactionHistory.jsx'
+import CustomerInfo from './pages/User/CustomerInfo.jsx'
 import Payment from './pages/Payment/payment.jsx'
 import PaymentStatus from './pages/Payment/OrderStatus.jsx'
 import CancelBooking from './pages/Payment/CancelBooking.jsx'
 import About from './pages/About/About.jsx'
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import reportWebVitals from './reportWebVitals'
 //using bootstrap
@@ -73,8 +75,8 @@ const router = createBrowserRouter([
             element: <BookingHistory/>
           },
           {
-            path: '/User/TransactionHistory',
-            element: <TransactionHistory/>
+            path: '/User/CustomerInfo',
+            element: <CustomerInfo/>
           },
         ]
       },
@@ -142,6 +144,7 @@ root.render(
   // <React.StrictMode>
   <ContextProvider>
     <RouterProvider router={router}/>
+    <ToastContainer />
   </ContextProvider>
   // </React.StrictMode>
 )

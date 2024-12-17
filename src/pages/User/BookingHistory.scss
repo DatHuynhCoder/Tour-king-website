@@ -9,6 +9,7 @@ $font-family: 'Arial', sans-serif;
 
 /* Current Bookings Section */
 .booking-history-container {
+  flex: 3 ;
   .current-bookings {
     display: flex;
     flex-direction: column;

@@ -6,6 +6,7 @@ import { ContextStore } from '../../context/Context';
 import "./UserInfo.scss"
 import { Card, Button, Image, Row, Col, Container, Modal } from 'react-bootstrap';
 import { FcPlus } from "react-icons/fc";
+import { toast } from 'react-toastify';
 
 import axios from 'axios';
 
@@ -21,7 +22,6 @@ const UserInfo = () => {
   const navigate = useNavigate();
 
   // Tạo state cho các input
-  const [userName, setUserName] = useState('Ten mac dinh');
   const [userFullName, setUserFullName] = useState('');
   const [userPhone, setUserPhone] = useState();
   const [userNation, setUserNation] = useState();
@@ -50,7 +50,7 @@ const UserInfo = () => {
         setUseravatarurl(response.data.avatarUrl);
       } catch (error) {
         console.error('Error uploading avatar:', error);
-        alert.error('Failed to upload avatar!');
+        toast.error('Failed to upload avatar!');
       }
     }
   };
@@ -81,7 +81,6 @@ const UserInfo = () => {
         try {
           const info = {
             userid: userid,
-            // username: userName, chua dung toi
             userFullname: userFullName,
             userPhone: userPhone,
             userNation: userNation,
@@ -91,7 +90,7 @@ const UserInfo = () => {
           }
           const respone = await axios.put('http://localhost:8800/update-user-info', info);
           console.log(respone.data);
-          alert('Cập nhật thông tin người dùng thành công');
+          toast.success('Cập nhật thông tin người dùng thành công');
           setShowModal(false);
         } catch (error) {
           console.log("Can't update user:", error)
@@ -106,7 +105,7 @@ const UserInfo = () => {
   //update user for modal
   useEffect(() => {
     if (user.length > 0) {
-      setUserName('Ten mac dinh');
+      setName(user[0].TenDayDu);
       setUserFullName(user[0].TenDayDu);
       setUserPhone(user[0].SDT);
       setUserNation(user[0].QuocTich)
@@ -137,15 +136,6 @@ const UserInfo = () => {
           </Modal.Header>
           <Modal.Body>
             <form className="row g-3">
-              <div className="col-md-6">
-                <label className="form-label">Tên người dùng</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)}
-                />
-              </div>
               <div className="col-md-6">
                 <label className="form-label">Họ và tên</label>
                 <input
@@ -230,14 +220,6 @@ const UserInfo = () => {
             <Row className="mb-3">
               <Col sm={3}>
                 <h6 className="mb-0 info-type">Tên người dùng</h6>
-              </Col>
-              <Col sm={9} className="text-secondary">
-                {userName}
-              </Col>
-            </Row>
-            <Row className="mb-3">
-              <Col sm={3}>
-                <h6 className="mb-0 info-type">Họ và tên</h6>
               </Col>
               <Col sm={9} className="text-secondary">
                 {user.length > 0 ? user[0].TenDayDu : "Đang tải..."}
