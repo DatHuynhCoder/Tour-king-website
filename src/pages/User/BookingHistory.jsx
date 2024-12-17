@@ -151,14 +151,6 @@ const BookingHistory = () => {
           ))}
         </div>
       </div>
-
-      {/* Transaction History */}
-      <div className="box">
-        <h2 className="section-title">LỊCH SỬ GIAO DỊCH</h2>
-        <p>
-          Xem <a href="./TransactionHistory" className="history-link">lịch sử giao dịch</a> của bạn
-        </p>
-      </div>
     </div>
   )
 };

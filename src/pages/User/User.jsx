@@ -27,7 +27,7 @@ const User = () => {
   };
   const handleTransactionHistory = () => {
     // Navigate to the invoice/payment page
-    navigate('/User/TransactionHistory');
+    navigate('/User/CustomerInfo');
   };
 
   return (
@@ -47,7 +47,7 @@ const User = () => {
             <FaShoppingCart className="menu-icon" /> ĐẶT CHỖ CỦA TÔI
           </li>
           <li className="menu-item" onClick={handleTransactionHistory}>
-            <FaListAlt className="menu-icon" /> DANH SÁCH GIAO DỊCH
+            <FaListAlt className="menu-icon" /> DANH SÁCH KHÁCH HÀNG
           </li>
         </ul>
       </div>
