@@ -128,6 +128,7 @@ const PaymentPage = () => {
   }, [])
 
   const handlePayment = () => {
+    console.log('check userInfo after click pay: ', userInfo)
     const birth = `${year}-${month}-${day}`
     const date = new Date();
     const curr_day = date.getDate();
@@ -147,6 +148,10 @@ const PaymentPage = () => {
       axios.post('http://localhost:8800/add-ctdv', {
         MaNguoiDung: MaNguoiDung,
         MaVe: MaVe,
+        TenDayDu: userInfo.TenDayDu,
+        SDT: userInfo.SDT,
+        QuocTich: userInfo.QuocTich,
+        MaHoChieu: userInfo.MaHoChieu,
         TenDayDu: userInfo.TenDayDu,
         SDT: userInfo.SDT,
         QuocTich: userInfo.QuocTich,
@@ -222,7 +227,7 @@ const PaymentPage = () => {
         backdrop='static'
       >
         <Modal.Header closeButton>
-          <Modal.Title>Danh sách khách hàng</Modal.Title>
+          <Modal.Title>Danh sách thông tin có sẵn</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {
