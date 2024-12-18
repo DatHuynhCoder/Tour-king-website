@@ -222,7 +222,7 @@ const PaymentPage = () => {
         backdrop='static'
       >
         <Modal.Header closeButton>
-          <Modal.Title>Danh sách vé</Modal.Title>
+          <Modal.Title>Danh sách khách hàng</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {
