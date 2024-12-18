@@ -74,7 +74,7 @@ const NguoiDung = () => {
         </InputGroup>
       </div>
       <br/>
-      <div className = "custome-select-NguoiDung">
+      {/* <div className = "custome-select-NguoiDung">
         <label for="select-NguoiDung-isBan">Bị Cấm: &nbsp;</label>
         <select className="select-NguoiDung-isBan" name="select-NguoiDung-isBan"
           onChange={(e) => {
@@ -86,7 +86,7 @@ const NguoiDung = () => {
           <option value="1">Có</option>
           <option value="0">Không</option>
         </select>
-      </div>
+      </div> */}
       <Table striped bordered hover>
         <tr>
           <th>ID</th>

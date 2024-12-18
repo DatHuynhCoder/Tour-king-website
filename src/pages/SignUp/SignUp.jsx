@@ -17,7 +17,10 @@ export default function SignUp() {
   const [confirmedPassword, setConfirmedPassword] = useState('')
 
   const handleSignup = () => {
-    if(password !== confirmedPassword) {
+    if(email === '' || password === '') {
+      toast.error('Các trường không được để trống')
+    }
+    else if(password !== confirmedPassword) {
       toast.error('Xác nhận mật khẩu không đúng')
     }
     else
