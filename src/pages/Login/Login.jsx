@@ -93,7 +93,7 @@ export default function Login() {
     }
   }
   return (
-    <>
+    <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', marginTop: '100px'}}>
     <h1 className  = "dangnhap">ĐĂNG NHẬP</h1>
     <div className = "tongDN">
       
@@ -153,6 +153,6 @@ export default function Login() {
     </div>
     <p className = "camket">Điều khoản và 
     Điều kiện, Chính sách An toàn và Bảo mật</p>
-    </>
+    </div>
   )
 }

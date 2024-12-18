@@ -107,7 +107,7 @@ export default function Comment() {
           listComments.length > 0 && listComments.map((comment) => {
             return <div style={{padding: 5, border: '2px solid black', marginBottom: 5, boxShadow: '5px 5px', backgroundColor: 'white'}}>
               <div style={{display: 'flex', alignItems: 'center'}}>
-                <img src={comment.Avatar ? comment.Avatar : DefaultAvatar} alt="avatar" style={{width: '40px', height: '40px'}}/>
+                <img src={comment.Avatar ? comment.Avatar : DefaultAvatar} alt="avatar" style={{width: '40px', height: '40px', borderRadius: 25}}/>
                 <div style={{lineHeight: '100%', alignItems: 'center'}}>{comment.TenDayDu === '' ? 'Anonymous User' : comment.TenDayDu}</div>
               </div>
               <div style={{opacity: 0.8, marginRight: '20px'}}>

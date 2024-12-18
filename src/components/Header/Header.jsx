@@ -74,7 +74,7 @@ const Header = () => {
           </Nav>
           <Nav>
             <NavDropdown 
-              title={<img src={useravatarurl !== '' ? useravatarurl : DefaultAvatar} style={{width: 40, borderRadius: 25}}></img>} 
+              title={<img src={useravatarurl !== '' ? useravatarurl : DefaultAvatar} style={{width: 40, height: 40, borderRadius: 25}}></img>} 
               id="basic-nav-dropdown"
             >
               {accessToken && <NavLink to={`/user`} className={'dropdown-item'}>Trang cá nhân</NavLink>}
